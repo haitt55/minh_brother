@@ -35,6 +35,8 @@ class CreateStudentsTable extends Migration
             $table->string('recieve_address', 100)->nullable();
             $table->string('recieve_city', 50)->nullable();
             $table->string('recieve_post_code', 50)->nullable();
+            
+            $table->tinyInteger('del_flg')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
