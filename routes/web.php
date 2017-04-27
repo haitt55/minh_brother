@@ -16,7 +16,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     // Authentication Routes...
     $this->get('login', 'Auth\LoginController@showLoginForm')->name('admin.login');
     $this->post('login', 'Auth\LoginController@login');
-    $this->post('logout', 'Auth\LoginController@logout')->name('admin.logout');
+    $this->get('logout', 'Auth\LoginController@logout')->name('admin.logout');
 
     // Registration Routes...
     $this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('admin.register');
@@ -27,6 +27,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
     $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('admin.password.reset');
     $this->post('password/reset', 'Auth\ResetPasswordController@reset');
+    
+    //Students page
+    $this->get('students', 'StudentsController@index')->name('admin.students');
+    $this->get('students/show_payment/{id?}', 'StudentsController@showPayment')->name('admin.students.show_payment');
+    $this->get('students/show_recieve/{id?}', 'StudentsController@showRecieve')->name('admin.students.show_recieve');
+    $this->delete('students/destroy', 'StudentsController@destroy')->name('admin.students.destroy');
+    
     Route::get('/home', 'HomeController@index');
     Route::group(['middleware' => 'auth.admin'], function () {
         Route::get('/', ['uses' => 'HomeController@index', 'as' => 'admin.home.index']);
