@@ -39,6 +39,17 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     Route::group(['middleware' => 'auth.admin'], function () {
         Route::get('/', ['uses' => 'HomeController@index', 'as' => 'admin.home.index']);
     });
+
+    Route::resource('products', 'ProductController', ['names' => [
+            'index' => 'admin.products.index',
+            'store' => 'admin.products.store',
+            'create' => 'admin.products.create',
+            'show' => 'admin.products.show',
+            'edit' => 'admin.products.edit',
+            'update' => 'admin.products.update',
+            'destroy' => 'admin.products.destroy'
+        ]]);
+    Route::post('/products/store','ProductController@store');
 });
 // Web
 Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home.index']);
