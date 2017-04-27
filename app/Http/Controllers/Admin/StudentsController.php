@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\DB;
 
 class StudentsController extends Controller
 {
-    const PAGING_LIMIT = 50;
     /**
      * Create a new controller instance.
      *
@@ -27,38 +26,70 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        $students = Student::where('del_flg', '=', null)->paginate(self::PAGING_LIMIT);
+        $students = Student::where('del_flg', null)->get();
         return view('admin.students.index', ['students' => $students]);
     }
     
     /**
-     * Show info student.
+     * Show info student payment.
      * 
-     * @param type $studentId
+     * @param int $studentId
+     * @param Student $student
      * @return \Illuminate\Http\Response
      */
-    public function detail($studentId)
+    public function showPayment($studentId, Student $student)
     {
-        $student = Student::getById(intval($studentId));
-        if (!$studentId || !$student) {
-            return view('errors.500');
-        }
-        return view('admin.students.detail', ['student' => $student]);
+        $info = $this->getInfo($studentId, $student);
+        return view('admin.students.show_payment', ['student' => $info]);
     }
     
     /**
-     * Delete student.
-     *
-     * @param $studentId
-     * @return \Illuminate\Contracts\View\Factory
+     * Show info student recieve.
+     * 
+     * @param int $studentId
+     * @param Student $student
+     * @return \Illuminate\Http\Response
      */
-    public function delete($studentId) 
+    public function showRecieve($studentId, Student $student)
     {
-        $student = Student::getById(intval($studentId));
-        if (!$studentId || !$student) {
+        $info = $this->getInfo($studentId, $student);
+        return view('admin.students.show_recieve', ['student' => $info]);
+    }
+    
+    /**
+     * Get info student.
+     * 
+     * @param int $studentId
+     * @param tudent $student
+     * @return \Illuminate\Http\Response
+     */
+    private function getInfo($studentId, Student $student)
+    {
+        $info = $student->getById(intval($studentId));
+        if (!$studentId || !$info) {
             return view('errors.500');
         }
-        Student::updateDelFlg($studentId);
-        return redirect()->route('admin.students');
+        return $info;
+    }
+
+    /**
+     * Delete student.
+     *
+     * @param Request $request
+     * @param Student $student
+     * @return \Illuminate\Contracts\View\Factory
+     */
+    public function destroy(Request $request, Student $student) 
+    {
+        $studentId = $request->get('student_id');
+        $info = $student->getById(intval($studentId));
+        if (!$studentId || !$info) {
+            return view('errors.500');
+        }
+        $saved = $student->updateDelFlg($studentId);
+        if ($saved) {
+            $request->session()->flash('message', 'Xóa học viên thành công !');
+            return 'success';
+        }
     }
 }

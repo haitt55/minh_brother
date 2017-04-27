@@ -29,11 +29,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     $this->post('password/reset', 'Auth\ResetPasswordController@reset');
     
     //Students page
-    $this->get('students', 'StudentsController@index', function () {
-        return App\Models\Student::paginate();
-    })->name('admin.students');
-    $this->any('students/detail/{id?}', ['as' => 'students.detail', 'uses' => 'StudentsController@detail']);
-    $this->post('students/delete/{id?}', 'StudentsController@delete');
+    $this->get('students', 'StudentsController@index')->name('admin.students');
+    $this->get('students/show_payment/{id?}', 'StudentsController@showPayment')->name('admin.students.show_payment');
+    $this->get('students/show_recieve/{id?}', 'StudentsController@showRecieve')->name('admin.students.show_recieve');
+    $this->delete('students/destroy', 'StudentsController@destroy')->name('admin.students.destroy');
     
     Route::get('/home', 'HomeController@index');
     Route::group(['middleware' => 'auth.admin'], function () {

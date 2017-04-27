@@ -44,7 +44,7 @@ class Student extends Authenticatable
      * @param int $id
      * @return StudentModel
      */
-    public static function getById($id){
+    public function getById($id){
         return self::where('id', $id)
                 ->where('del_flg', null)
                 ->first();
@@ -56,7 +56,7 @@ class Student extends Authenticatable
      * @param int $id
      * @return StudentModel
      */
-    public static function updateDelFlg($id)
+    public function updateDelFlg($id)
     {
         return self::where('id', $id)
           ->update(['del_flg' => true]);
