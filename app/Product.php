@@ -2,10 +2,13 @@
 
 namespace App;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+	use Sluggable;
+
     protected $fillable = [
         'name',
         'slug',
@@ -15,9 +18,19 @@ class Product extends Model
         'intro',
         'content',
         'about',
+        'price',
         'target_people',
         'rate'
     ];
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
 
     public function teacher()
     {

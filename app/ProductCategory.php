@@ -22,6 +22,16 @@ class ProductCategory extends Model
 
     static function getOptions()
     {
-    	return $this->all()->sortBy('name')->pluck('name', 'id');
+    	$productCategory = new ProductCategory();
+        $options = array();
+        $options[''] = '---';
+        $productCategories = $productCategory->all()->sortBy('name')->pluck('name', 'id')->toArray();
+        if ($productCategories) {
+            foreach ($productCategories as $key => $value) {
+                $options[$key] = $value;
+            }
+        }
+
+    	return $options;
     }
 }

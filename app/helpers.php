@@ -1,6 +1,6 @@
 <?php
 // use App\AppSetting;
-use DB;
+// use DB;
 
 function create_slug($string){
     $slug=preg_replace('/[^A-Za-z0-9-]+/', '-', $string);

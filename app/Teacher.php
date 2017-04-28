@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Teacher extends Model
 {
+
+	protected $table = 'teachers';
+
     protected $fillable = [
         'full_name',
         'slug',
@@ -20,6 +23,16 @@ class Teacher extends Model
 
     static function getOptions()
     {
-    	return $this->all()->sortBy('full_name')->pluck('full_name', 'id');
+    	$teacher = new Teacher();
+        $options = array();
+        $options[''] = '---';
+        $teachers = $teacher->all()->sortBy('full_name')->pluck('full_name', 'id')->toArray();
+        if ($teachers) {
+            foreach ($teachers as $key => $value) {
+                $options[$key] = $value;
+            }
+        }
+
+        return $options;
     }
 }
