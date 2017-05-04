@@ -86,7 +86,7 @@ class ProductController extends Controller
                 $name = time() . '-' . create_slug($content->getClientOriginalName());
                 $extention = $content->getClientOriginalExtension();
                 $filename = "{$name}.{$extention}";
-                $path = $request->content->storeAs($filePath, $filename);
+                $content->move($filePath, $filename);
                 $product->content = $filePath . '/' . $filename;
             }
             $product->name = $data['name'];
@@ -115,7 +115,7 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
         //
     }
@@ -126,9 +126,14 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        return view('admin.products.edit')->with([
+            'product' => $product,
+            'teacherOptions' => $this->teacherOptions,
+            'categoryOptions' => $this->categoryOptions
+            ]);
     }
 
     /**
@@ -138,9 +143,69 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|unique:products,name,' . $id,
+            'image' => 'mimes:jpeg,jpg,gif,png',
+            'content' => 'mimes:pdf',
+            'price' => 'numeric',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+        DB::beginTransaction();
+        try {
+            $data = $request->all();
+            $imagePath = config('custom.product_image_path');
+            $filePath = config('custom.product_file_path'); 
+            $oldImage = $product->image;
+            $image = $request->file('image');
+            $oldContent = $product->content;
+            $content = $request->file('content');
+            if ($image) {
+                $name = time() . '-' . create_slug($image->getClientOriginalName());
+                $extention = $image->getClientOriginalExtension();
+                $filename = "{$name}.{$extention}";
+                Image::make($image->getRealPath())->save(public_path($imagePath . '/' . $filename));
+                $product->image = $imagePath . '/' . $filename;
+                // delete old image
+                if ($oldImage && file_exists(public_path($oldImage))) {
+                    unlink(public_path($oldImage));
+                }
+            }
+            if ($content) {
+                $name = time() . '-' . create_slug($content->getClientOriginalName());
+                $extention = $content->getClientOriginalExtension();
+                $filename = "{$name}.{$extention}";
+                $content->move($filePath, $filename);
+                $product->content = $filePath . '/' . $filename;
+                // delete old content
+                if ($oldContent && file_exists(public_path($oldContent))) {
+                    unlink(public_path($oldContent));
+                }
+            }
+            $product->name = $data['name'];
+            $product->intro = $data['intro'];
+            $product->teacher_id = $data['teacher_id'];
+            $product->category_id = $data['category_id'];
+            $product->about = $data['about'];
+            $product->price = $data['price'];
+            $product->target_people = $data['target_people'];
+            $product->page_title = $data['page_title'];
+            $product->meta_keyword = $data['meta_keyword'];
+            $product->meta_description = $data['meta_description'];
+            $product->save();
+            DB::commit();
+            return redirect()->route('admin.products.index')->with('message','Success');
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+            DB::rollback();
+            return redirect()->back()->with($e->getMessage());
+        }
     }
 
     /**

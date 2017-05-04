@@ -102,20 +102,8 @@
     </script>
     <script>
         $(function() {
-            $("#project_image_header").change(function(){
-                readURL(this, 'project_image_header_preview');
-            });
-
-            $("#project_image_logo").change(function(){
-                readURL(this, 'project_image_logo_preview');
-            });
-
             $("#image").change(function(){
                 readURL(this, 'image_preview');
-            });
-
-            $("#image1").change(function(){
-                readURL(this, 'image1_preview');
             });
         });
         function readURL(input, targetID) {
