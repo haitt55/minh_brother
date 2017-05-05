@@ -49,6 +49,17 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
             'destroy' => 'admin.products.destroy'
         ]]);
     Route::post('/products/store','ProductController@store');
+    
+    Route::delete('teachers/destroy', 'TeachersController@destroy')->name('admin.teachers.destroy');
+    Route::resource('teachers', 'TeachersController', ['names' => [
+            'index' => 'admin.teachers.index',
+            'store' => 'admin.teachers.store',
+            'create' => 'admin.teachers.create',
+            'show' => 'admin.teachers.show',
+            'edit' => 'admin.teachers.edit',
+            'update' => 'admin.teachers.update',
+        ]]);
+    Route::post('/teachers/store','TeachersController@store');
 });
 // Web
 Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home.index']);

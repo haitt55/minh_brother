@@ -2,23 +2,46 @@
 
 namespace App;
 
+use DB;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
 class Teacher extends Model
 {
 
-	protected $table = 'teachers';
+    use Sluggable;
+    use SoftDeletes;
+    
+    protected $table = 'teachers';
 
     protected $fillable = [
         'full_name',
+        'iamge',
         'slug',
         'intro',
-        'solegan',
+        'slogan',
     ];
+    
+    /**
+    * The attributes that should be mutated to dates.
+    *
+    * @var array
+    */
+    protected $dates = ['deleted_at'];
 
     public function products()
     {
         return $this->hasMany('App\Product', 'teacher_id', 'id');
+    }
+    
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'full_name'
+            ]
+        ];
     }
 
     static function getOptions()
@@ -34,5 +57,20 @@ class Teacher extends Model
         }
 
         return $options;
+    }
+    
+    public function createData($data)
+    {
+        DB::beginTransaction();
+        try {
+            $saved = $this->create($data);
+            if ($saved) {
+                DB::commit();
+                return $saved;
+            }
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+            DB::rollback();
+        }
     }
 }

@@ -13,10 +13,22 @@ class Student extends Authenticatable
      */
     protected $fillable = [
         'email', 'password',
-        'payment_first_name', 'payment_last_name', 'payment_company_name', 'payment_country',
-        'payment_address', 'payment_city', 'payment_post_code', 'payment_phone_number',
-        'payment_email', 'recieve_first_name', 'recieve_last_name', 'recieve_company_name',
-        'recieve_country', 'recieve_address', 'recieve_city', 'recieve_post_code'
+        'payment_first_name',
+        'payment_last_name',
+        'payment_company_name',
+        'payment_country',
+        'payment_address',
+        'payment_city',
+        'payment_post_code',
+        'payment_phone_number',
+        'payment_email',
+        'recieve_first_name',
+        'recieve_last_name',
+        'recieve_company_name',
+        'recieve_country',
+        'recieve_address',
+        'recieve_city',
+        'recieve_post_code'
     ];
 
     /**

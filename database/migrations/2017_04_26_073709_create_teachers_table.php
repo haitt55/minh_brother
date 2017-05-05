@@ -17,11 +17,13 @@ class CreateTeachersTable extends Migration
             $table->increments('id');
             $table->string('full_name');
             $table->string('slug');
+            $table->string('image')->nullable();
             $table->mediumText('intro');
             $table->mediumText('solegan');
             $table->string('page_title')->nullable();
             $table->string('meta_keyword')->nullable();
             $table->string('meta_description')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -62,16 +62,16 @@
                                         </td>
                                         <td class="col-xs-2 table_border" style="text-align: center">
                                             <a href="{{ route('admin.students.show_payment') . "/$student->id" }}">
-                                                <button class="btn btn-info">Chi tiết</button>
+                                                <button class="btn btn-info"><i class="fa fa-info"></i> Chi tiết</button>
                                             </a>
                                         </td>
                                         <td class="col-xs-2 table_border" style="text-align: center">
                                             <a href="{{ route('admin.students.show_recieve') . "/$student->id" }}">
-                                                <button class="btn btn-info">Chi tiết</button>
+                                                <button class="btn btn-info"><i class="fa fa-info"></i> Chi tiết</button>
                                             </a>
                                         </td>
                                         <td class="col-xs-2 table_border" style="text-align: center">
-                                            <button class="btn btn-danger btn-delete" data-id="{{$student->id}}">Xóa</button>
+                                            <button class="btn btn-danger btn-delete" data-id="{{$student->id}}"><i class="fa fa-close"></i> Xóa</button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -107,8 +107,8 @@
                     "infoEmpty": "Không tồn tại học viên",
                     "infoFiltered": "(filtered from _MAX_ total records)",
                     "paginate": {
-                        "first":      "First",
-                        "last":       "Last",
+                        "first":      "Trang đầu",
+                        "last":       "Trang cuối",
                         "next":       "Tiếp theo",
                         "previous":   "Trước"
                     },
