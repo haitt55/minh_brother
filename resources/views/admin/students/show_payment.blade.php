@@ -11,11 +11,16 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <div class="col-lg-12 col-md-12 col-xs-12">
-                <h1 class="page-header col-lg-10 col-md-10 col-xs-10">Địa chỉ thanh toán</h1>
-                <button class="btn btn-info" style="margin-top: 45px" onclick="window.history.back();">Back</button>
-            </div>
+                <h1 class="page-header">Địa chỉ thanh toán</h1>
+                <!--<button class="btn btn-info" style="margin-top: 45px" onclick="window.history.back();">Back</button>-->
         </div>
+    </div>
+    <div class="row" style="margin-bottom: 5px">
+        <div class="col-lg-11 text-right">
+            <a href="{{ route('admin.students') }}" class="btn btn-success"><i class="fa fa-list"></i> Danh sách học viên</a>
+        </div>
+    </div>
+    <div class="row">
         <!-- /.col-lg-12 -->
         <table class="table table-user-information">
             <tbody>
