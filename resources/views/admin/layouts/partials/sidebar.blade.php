@@ -10,6 +10,9 @@
             <li>
                 <a href="{{ route('admin.students') }}"><i class="fa fa-users fa-fw"></i> Học viên</a>
             </li>
+            <li>
+                <a href="{{ route('blogs.index') }}"><i class="fa fa-users fa-fw"></i>Tin tức</a>
+            </li>
         </ul>
     </div>
     <!-- /.sidebar-collapse -->
