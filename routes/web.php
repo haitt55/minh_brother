@@ -57,9 +57,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
             'create' => 'admin.teachers.create',
             'show' => 'admin.teachers.show',
             'edit' => 'admin.teachers.edit',
-            'update' => 'admin.teachers.update',
         ]]);
     Route::post('/teachers/store','TeachersController@store');
+    Route::post('/teachers/update/{id?}','TeachersController@update')->name('admin.teachers.update');
 });
 // Web
 Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home.index']);
