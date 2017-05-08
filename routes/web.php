@@ -49,6 +49,16 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
             'destroy' => 'admin.products.destroy'
         ]]);
     Route::post('/products/store','ProductController@store');
+    Route::resource('product_categories', 'ProductCategoryController', ['names' => [
+            'index' => 'admin.product_categories.index',
+            'store' => 'admin.product_categories.store',
+            'create' => 'admin.product_categories.create',
+            'show' => 'admin.product_categories.show',
+            'edit' => 'admin.product_categories.edit',
+            'update' => 'admin.product_categories.update',
+            'destroy' => 'admin.product_categories.destroy'
+        ]]);
+    Route::post('/product_categories/store','ProductCategoryController@store');
     
     Route::delete('teachers/destroy', 'TeachersController@destroy')->name('admin.teachers.destroy');
     Route::resource('teachers', 'TeachersController', ['names' => [
@@ -60,6 +70,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
             'update' => 'admin.teachers.update',
         ]]);
     Route::post('/teachers/store','TeachersController@store');
+    Route::get('appSettings/general', ['uses' => 'AppSettingsController@general', 'as' => 'admin.appSettings.general']);
+    Route::put('appSettings/general', ['uses' => 'AppSettingsController@updateGeneral', 'as' => 'admin.appSettings.updateGeneral']);
 });
 // Web
 Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home.index']);
