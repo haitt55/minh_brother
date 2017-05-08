@@ -42,7 +42,7 @@ class TeachersController extends Controller
         //Create validator
         $validator = Validator::make($request->all(), [
             'full_name' => 'required',
-            'image' => 'mimes:jpeg,jpg,gif,png',
+            'image' => 'required | mimes:jpeg,jpg,gif,png',
             'intro' => 'required',
             'slogan' => 'required',
         ]);
@@ -105,11 +105,44 @@ class TeachersController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Teacher  $teacher
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Teacher $teacher)
+    public function update(Request $request, Teacher $teacher, $id)
     {
-        //
+        //Create validator
+        $validator = Validator::make($request->all(), [
+                    'full_name' => 'required',
+                    'image'     => 'mimes:jpeg,jpg,gif,png',
+                    'intro'     => 'required',
+                    'slogan'    => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+        
+        //Create image
+        $data = $request->all();
+        $image = $request->file('image');
+        $imagePath = config('custom.product_image_path');
+        if ($image) {
+            $name = time() . '-' . create_slug($image->getClientOriginalName());
+            $extention = $image->getClientOriginalExtension();
+            $filename = "{$name}.{$extention}";
+            Image::make($image->getRealPath())->save(public_path($imagePath . '/' . $filename));
+            $data['image'] = $imagePath . '/' . $filename;
+        }
+        
+        //Create teacher
+        $saved = $teacher->updateData($id, $data);
+        
+        if ($saved) {
+            return redirect()->route('admin.teachers.index')->with('message','Cập nhật thông tin giáo viên thành công');
+        } else {
+            return redirect()->route('admin.teachers.index')->with('message','Đã xảy ra lỗi khi cập nhật thông tin giáo viên');
+        }
     }
 
     /**

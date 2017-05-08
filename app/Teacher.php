@@ -6,6 +6,7 @@ use DB;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Log;
 
 class Teacher extends Model
 {
@@ -17,7 +18,7 @@ class Teacher extends Model
 
     protected $fillable = [
         'full_name',
-        'iamge',
+        'image',
         'slug',
         'intro',
         'slogan',
@@ -59,6 +60,12 @@ class Teacher extends Model
         return $options;
     }
     
+    /**
+     * Create teacher
+     * 
+     * @param array $data
+     * @return boolean
+     */
     public function createData($data)
     {
         DB::beginTransaction();
@@ -69,7 +76,38 @@ class Teacher extends Model
                 return $saved;
             }
         } catch (\Exception $e) {
-            dd($e->getMessage());
+            Log::info($e->getMessage());
+            DB::rollback();
+        }
+    }
+    
+    /**
+     * Update teacher
+     * 
+     * @param int $id
+     * @param array $data
+     * @return boolean
+     */
+    public function updateData($id, $data)
+    {
+        DB::beginTransaction();
+        try {
+            $teacher = $this->find($id);
+            $teacher->full_name = $data['full_name'];
+            $teacher->image = isset($data['image']) ? $data['image'] : $teacher->image;
+            $teacher->intro = $data['intro'];
+            $teacher->slogan = $data['slogan'];
+            $teacher->page_title = $data['page_title'];
+            $teacher->meta_keyword = $data['meta_keyword'];
+            $teacher->meta_description = $data['meta_description'];
+            $saved = $teacher->save();
+            
+            if ($saved) {
+                DB::commit();
+                return $saved;
+            }
+        } catch (\Exception $e) {
+            Log::info('Error update teacher id: ' . $id);
             DB::rollback();
         }
     }

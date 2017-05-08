@@ -67,9 +67,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
             'create' => 'admin.teachers.create',
             'show' => 'admin.teachers.show',
             'edit' => 'admin.teachers.edit',
-            'update' => 'admin.teachers.update',
         ]]);
     Route::post('/teachers/store','TeachersController@store');
+    Route::post('/teachers/update/{id?}','TeachersController@update')->name('admin.teachers.update');
     Route::get('appSettings/general', ['uses' => 'AppSettingsController@general', 'as' => 'admin.appSettings.general']);
     Route::put('appSettings/general', ['uses' => 'AppSettingsController@updateGeneral', 'as' => 'admin.appSettings.updateGeneral']);
 });
