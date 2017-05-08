@@ -1,11 +1,11 @@
 @extends('admin.layouts.master')
 
-@section('title', 'Thêm giáo viên')
+@section('title', 'Chỉnh sửa thông tin giáo viên')
 
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Thêm mới giáo viên</h1>
+            <h1 class="page-header">Chỉnh sửa thông tin giáo viên</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -22,12 +22,12 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form method="POST" action="{{ route('admin.teachers.store') }}" role="form" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('admin.teachers.update', $teacher->id) }}" role="form" enctype="multipart/form-data">
                                 @include('admin.layouts.partials.errors')
                                 {!! csrf_field() !!}
                                 <div class="form-group">
                                     <label for="name">Tên giáo viên <span class="required">(*)</span></label>
-                                    <input type="text" name="full_name" id="full_name" class="form-control" value="{{ old('full_name') }}">
+                                    <input type="text" name="full_name" id="full_name" class="form-control" value="{{ old('full_name', $teacher->full_name) }}">
                                 </div>
                                 
                                 <div class="form-group">
@@ -35,29 +35,29 @@
                                     <input type="file" id="image" name="image" accept="image/*">
                                     <div class="row" style="margin-top: 10px;">
                                         <div class="display-image col-md-12">
-                                            <img class="thumbnail" style="max-width: 200px;" id="image_preview" src="" alt="">
+                                            <img class="thumbnail" style="max-width: 200px;" id="image_preview" src="{{ $teacher->image ? asset($teacher->image) : asset(config('custom.no_image')) }}" alt="">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="intro">Giới thiệu <span class="required">(*)</span></label>
-                                    <textarea name="intro" id="intro">{{ old('intro') }}</textarea>
+                                    <textarea name="intro" id="intro">{{ old('intro', $teacher->intro) }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="slogan">Slogan <span class="required">(*)</span></label>
-                                    <input type="text" name="slogan" id="name" class="form-control" value="{{ old('slogan') }}">
+                                    <input type="text" name="slogan" id="name" class="form-control" value="{{ old('slogan', $teacher->slogan) }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="page_title">Page Title</label>
-                                    <input type="text" name="page_title" id="page_title" class="form-control" value="{{ old('page_title') }}">
+                                    <input type="text" name="page_title" id="page_title" class="form-control" value="{{ old('page_title', $teacher->page_title) }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="meta_keyword">Meta Keyword</label>
-                                    <input type="text" name="meta_keyword" id="meta_keyword" class="form-control" value="{{ old('meta_keyword') }}">
+                                    <input type="text" name="meta_keyword" id="meta_keyword" class="form-control" value="{{ old('meta_keyword', $teacher->meta_keyword) }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="meta_description">Meta Description</label>
-                                    <input type="text" name="meta_description" id="meta_description" class="form-control" value="{{ old('meta_description') }}">
+                                    <input type="text" name="meta_description" id="meta_description" class="form-control" value="{{ old('meta_description', $teacher->meta_description) }}">
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">Lưu</button>

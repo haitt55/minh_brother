@@ -45,8 +45,8 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-teachers">
                                     <thead>
                                     <tr>
-                                        <th class="text-center" style="width: 5%">STT</th>
-                                        <th style="width: 18%">Tên</th>
+                                        <th class="text-center" style="width: 6%">Ảnh</th>
+                                        <th style="width: 15%">Tên</th>
                                         <th style="width: 35%">Thông tin</th>
                                         <th style="width: 20%">Slogan</th>
                                         <th></th>
@@ -55,9 +55,9 @@
                                     <tbody>
                                     @foreach ($teachers as $teacher)
                                         <tr>
-                                            <td class="text-center">{{$teacher->id}}</td>
+                                            <td><img class="thumbnail" style="max-width: 100px;" id="image_preview" src="{{ $teacher->image ? asset($teacher->image) : asset(config('custom.no_image')) }}" alt=""></td>
                                             <td><a href="{{ route('admin.teachers.edit', $teacher->id) }}">{{ $teacher->full_name }}</a></td>
-                                            <td>{{ $teacher->intro }}</td>
+                                            <td>{!! $teacher->intro !!}</td>
                                             <td>{{ $teacher->slogan }}</td>
                                             <td>
                                                 <a href="{{ route('admin.teachers.edit', $teacher->id) }}" class="btn btn-info" style="float: left; margin-right: 2%"><i class="fa fa-edit"></i> Chỉnh sửa</a>
@@ -97,7 +97,7 @@
         $(document).ready(function() {
             var table = $("#dataTables-teachers").DataTable({
                 responsive: true,
-                "order": [[1, 'desc'],[ 2, "desc" ]],
+                "order": [[1, 'desc']],
                 "aoColumns": [
                     { bSortable: false },
                     null, null, null,
@@ -118,11 +118,11 @@
                     "search": "Tìm kiếm:",
                 },
             });
-            table.on( 'order.dt search.dt', function () {
-                table.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
-                    cell.innerHTML = i+1;
-                } );
-            } ).draw();
+//            table.on( 'order.dt search.dt', function () {
+//                table.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+//                    cell.innerHTML = i+1;
+//                } );
+//            } ).draw();
         });
     </script>
 @endsection
