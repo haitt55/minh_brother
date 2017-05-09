@@ -214,8 +214,20 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        try {
+            Product::find($id)->delete();
+        } catch (Exception $ex) {
+            event(new ExceptionOccurred($ex));
+
+            return response()->json([
+                'error' => [
+                    'message' => $ex->getMessage(),
+                ]
+            ]);
+        }
+
+        return response()->json();
     }
 }
