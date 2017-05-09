@@ -27,13 +27,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
     $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('admin.password.reset');
     $this->post('password/reset', 'Auth\ResetPasswordController@reset');
-    
+
     //Students page
     $this->get('students', 'StudentsController@index')->name('admin.students');
     $this->get('students/show_payment/{id?}', 'StudentsController@showPayment')->name('admin.students.show_payment');
     $this->get('students/show_recieve/{id?}', 'StudentsController@showRecieve')->name('admin.students.show_recieve');
     $this->delete('students/destroy', 'StudentsController@destroy')->name('admin.students.destroy');
-    
+
     Route::get('/home', 'HomeController@index');
     Route::group(['middleware' => 'auth.admin'], function () {
         Route::get('/', ['uses' => 'HomeController@index', 'as' => 'admin.home.index']);
@@ -59,7 +59,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
             'destroy' => 'admin.product_categories.destroy'
         ]]);
     Route::post('/product_categories/store','ProductCategoryController@store');
-    
+
     Route::delete('teachers/destroy', 'TeachersController@destroy')->name('admin.teachers.destroy');
     Route::resource('teachers', 'TeachersController', ['names' => [
             'index' => 'admin.teachers.index',
@@ -72,6 +72,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     Route::post('/teachers/update/{id?}','TeachersController@update')->name('admin.teachers.update');
     Route::get('appSettings/general', ['uses' => 'AppSettingsController@general', 'as' => 'admin.appSettings.general']);
     Route::put('appSettings/general', ['uses' => 'AppSettingsController@updateGeneral', 'as' => 'admin.appSettings.updateGeneral']);
+    Route::post('/products/store', 'ProductController@store');
+    Route::resource('blogs', 'BlogController');
+    Route::resource('blog-categories', 'BlogCategoryController');
 });
 // Web
 Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home.index']);

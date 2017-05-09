@@ -17,6 +17,12 @@
                 <a href="{{ route('admin.students') }}"><i class="fa fa-users fa-fw"></i> Học viên</a>
             </li>
             <li>
+                <a href="{{ route('blog-categories.index') }}"><i class="fa fa-users fa-fw"></i> Danh mục tin tức</a>
+            </li>
+            <li>
+                <a href="{{ route('blogs.index') }}"><i class="fa fa-users fa-fw"></i> Tin tức</a>
+            </li>
+            <li>
                 <a href="{{ route('admin.appSettings.general') }}"><i class="fa fa-wrench fa-fw"></i> Thông tin chung</a>
             </li>
         </ul>
