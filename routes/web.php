@@ -70,6 +70,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
         ]]);
     Route::post('/teachers/store','TeachersController@store');
     Route::post('/teachers/update/{id?}','TeachersController@update')->name('admin.teachers.update');
+    Route::get('/about','AboutController@index')->name('admin.about.index');
+    
+    Route::resource('about', 'AboutController', ['names' => [
+            'index' => 'admin.about.index',
+            'store' => 'admin.about.store',
+            'create' => 'admin.about.create',
+            'edit' => 'admin.about.edit',
+        ]]);
     Route::get('appSettings/general', ['uses' => 'AppSettingsController@general', 'as' => 'admin.appSettings.general']);
     Route::put('appSettings/general', ['uses' => 'AppSettingsController@updateGeneral', 'as' => 'admin.appSettings.updateGeneral']);
 });
