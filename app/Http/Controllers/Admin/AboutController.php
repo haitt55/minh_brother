@@ -31,7 +31,7 @@ class AboutController extends Controller
     {
         $about = DB::table('about')->first();
         if ($about) {
-            return view('admin.about.edit');
+            return view('admin.about.edit')->with(['about' => $about, 'teachers' => $this->teachers]);
         }
         return view('admin.about.create')->with(['teachers' => $this->teachers]);
     }
@@ -48,23 +48,40 @@ class AboutController extends Controller
         $validator = Validator::make($request->all(), [
             'intro' => 'required',
             'page_title' => 'required',
+            'link_youtube' => 'active_url',
         ]);
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
         }
+        $about = array();
         $data = $request->all();
-        $teacherId = implode(',', $data['teacher_id']);
-        $data['teacher_id'] = create_slug($data['teacher_id']);
-        $data['slug'] = create_slug($data['page_title']);
+        $editFlg = isset($data['edit_flg']);
+        $teacherId = isset($data['teacher_id']) ? implode(',', $data['teacher_id']) : null;
         
-        //TODO:
-        dd($data);
-        if ($saved) {
-            return redirect()->route('admin.about.index')->with('message','Tạo thông tin trang about thành công');
+        $about = [
+            'slug'             => create_slug($data['page_title']),
+            'intro'            => $data['intro'],
+            'page_title'       => $data['page_title'],
+            'link_youtube'     => $data['link_youtube'],
+            'certificate'      => $data['certificate'],
+            'intro_edu'        => $data['intro_edu'],
+            'teacher_id'       => $teacherId,
+            'meta_keyword'     => $data['meta_keyword'],
+            'meta_description' => $data['meta_description'],
+        ];
+        if ($editFlg) {
+            //Update about.
+            $saved = DB::table('about')->update($about);
         } else {
-            return redirect()->route('admin.about.index')->with('message','Đã xảy ra lỗi khi tạo trang about');
+            $saved = DB::table('about')->insert($about);
+        }
+        
+        if ($saved) {
+            return redirect()->route('admin.about.index')->with('message','Cập nhật thông tin thành công');
+        } else {
+            return redirect()->route('admin.about.index')->with('message','Đã xảy ra lỗi khi cập nhật thông tin');
         }
     }
 }
