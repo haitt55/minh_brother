@@ -19,6 +19,9 @@
             <li>
                 <a href="{{ route('admin.appSettings.general') }}"><i class="fa fa-wrench fa-fw"></i> Thông tin chung</a>
             </li>
+            <li>
+                <a href="{{ route('admin.about.index') }}"><i class="fa fa-info-circle fa-fw"></i> Về chúng tôi</a>
+            </li>
         </ul>
     </div>
     <!-- /.sidebar-collapse -->
