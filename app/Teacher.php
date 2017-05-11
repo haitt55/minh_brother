@@ -60,6 +60,13 @@ class Teacher extends Model
         return $options;
     }
     
+    static function getList()
+    {
+        $teachers = self::all()->sortBy('full_name');
+        return $teachers;
+    }
+
+
     /**
      * Create teacher
      * 
