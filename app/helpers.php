@@ -1,5 +1,5 @@
 <?php
-// use App\AppSetting;
+use App\Models\AppSetting;
 // use DB;
 
 function create_slug($string){
@@ -11,5 +11,5 @@ function app_settings($key = null)
 {
     $appSettings = new AppSetting();
 
-    return $key ? array_get($appSettings->settings, $key) : $appSettings;
+    return $key ? array_get($appSettings->settings(), $key) : $appSettings;
 }

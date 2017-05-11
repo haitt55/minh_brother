@@ -1,0 +1,326 @@
+@font-face {
+    font-family: 'UTMBebas';
+    src: url('../fonts/UTMBebasd41d.eot?#iefix') format('embedded-opentype'), url('../fonts/UTMBebas.otf') format('opentype'),
+    url('../fonts/UTMBebas.woff') format('woff'), url('../fonts/UTMBebas.ttf') format('truetype'), url('../fonts/UTMBebas.svg#UTMBebas') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.single.single-product .h6.stm_price_label {
+    display: none;
+}
+
+.single.single-product .register-course-page {
+    position: absolute;
+    background: rgba(0, 0, 0, .8);
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    z-index: 1000;
+    top: 0px;
+    box-sizing: border-box;
+    padding: 50px;
+}
+
+.single.single-product .register-course-main {
+    margin-top: 50px;
+    background-color: #ffffff;
+    padding: 65px;
+    box-sizing: border-box;
+}
+
+.register-course-sidebar,
+.register-course-main {
+    z-index: 2;
+    position: relative;
+}
+
+.select2-container--open .select2-dropdown--below {
+    top: -32px;
+}
+
+.single.single-product .register-course-page .page-title {
+    color: #1e478d;
+    text-transform: uppercase;
+    font-family: 'UTMBebas', arial, sans-serif;
+    font-size: 45px;
+    font-weight: normal;
+    position: relative;
+    padding: .2em 0px;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+.single.single-product .register-course-page .page-title:after {
+    content: "";
+    position: absolute;
+    width: 65px;
+    height: 3px;
+    background-color: #1e478d;
+    left: 0;
+    bottom: 0;
+}
+
+.register-course-page h3 {
+    color: #6f6f70;
+    font-size: 24px;
+    font-family: 'UTMBebas', arial, sans-serif;
+    margin: 40px 0 30px;
+    font-weight: normal;
+}
+
+.register-course-page .direct-contact p {
+    margin: 0px;
+}
+
+.registration_form > div {
+    min-height: 50px;
+}
+
+.register-course-page .registration_form label {
+    font-weight: normal;
+    width: 35%;
+    text-align: right;
+    display: inline-block;
+    float: left;
+    padding-right: 1%;
+    margin-top: 4px;
+}
+
+.register-course-page .registration_form .facebook label,
+.register-course-page .registration_form .classmate label,
+.register-course-page .registration_form .college_location label {
+    margin-top: -7px;
+}
+
+.register-course-page .requirement {
+    color: #f00000;
+}
+
+.register-course-page .registration_form input[type="text"],
+.register-course-page .registration_form input[type="email"],
+.register-course-page .registration_form .select2-container {
+    width: 65% !important;
+    height: 32px;
+    line-height: 32px;
+    padding: 0px;
+    display: inline-block;
+    outline: none;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.register-course-page .registration_form input[disabled] {
+    background-color: #f0f2f5;
+}
+
+.register-course-page .registration_form .select2-container .select2-selection--single {
+    height: 32px;
+    line-height: 32px;
+}
+
+.register-course-page .registration_form .select2-container--default .select2-selection--single .select2-selection__rendered {
+    height: 32px;
+    line-height: 32px;
+    font-weight: normal;
+}
+
+.register-course-page .registration_form .select2-container--default .select2-selection--single .select2-selection__arrow {
+    width: 32px;
+}
+
+.register-course-page .registration_form .select2-container--default .select2-selection--single .select2-selection__arrow b {
+    height: 32px;
+    line-height: 32px;
+}
+
+.register-course-page .registration_form .select2-container--default .select2-selection--single .select2-selection__arrow b:after {
+    line-height: 32px;
+    font-size: 10px;
+    color: #1e478d;
+    top: -3px;
+}
+
+.register-course-page .registration_form .options-detail {
+    margin-top: 20px;
+    padding-left: 15%;
+    font-size: 13px;
+}
+
+.register-course-page .registration_form .options-detail ul,
+.register-course-page .registration_form .options-detail ul li {
+    margin: 0px;
+}
+
+.register-course-page .registration_form .survey label {
+    text-align: left;
+    color: #515151;
+    width: 100%;
+    position: relative;
+    padding-left: 15px;
+}
+
+.register-course-page .registration_form .survey .survey-option label {
+    padding-left: 20px;
+}
+
+.register-course-page .registration_form .survey label input {
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    margin: 0px;
+}
+
+.register-course-page .registration_form button[type="submit"] {
+    height: 45px;
+    line-height: 45px;
+    padding: 0 55px 0 88px;
+    color: #fff !important;
+    /*display: inline-block;*/
+    font-family: 'SanFranciscoDisplay-Regular', arial, sans-serif;
+    border: 1px solid #1e478d;
+    background: #1e478d url('../img/registration.png') 35px center no-repeat;
+    -moz-transition: background-color .3s;
+    -o-transition: background-color .3s;
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
+    /*margin-top: 50px;*/
+    display: block;
+    float: left;
+}
+
+.register-course-page .registration_form button[type="button"] {
+    margin-left: 20px;
+    height: 45px;
+    line-height: 45px;
+    padding: 0px;
+    text-transform: none;
+    width: 100px;
+    min-width: inherit;
+    font-weight: normal;
+}
+
+.register-course-page .registration_form button[type="submit"]:hover {
+    background: transparent url('../img/registration_hover.png') 35px center no-repeat;
+    color: #1e478d !important;
+}
+
+.background-catch-click {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+.ebim-surveys .survey {
+    margin-bottom: 20px;
+}
+
+.certificate .certificate-frame .certificate-holder img {
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.entry-header {
+    display: none;
+}
+
+.post_list_main_section_wrapper .post_list_inner_content_unit_left .post_list_item_excerpt p {
+	text-align: justify;
+}
+
+.stm_product_list_widget.widget_woo_stm_style_2 li a .meta .stm_featured_product_price {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .header_main_menu_wrapper .header-menu > li {
+        padding: 0 5px;
+    }
+    .magic_line {
+        left: 5px;
+    }
+    .header_top_bar .header_login_url {
+        margin: 0px;
+        padding: 11px 0px 12px 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .min-height-300 > div > div {
+        margin-top: 0px !important;
+    }
+
+    .single.single-product .register-course-page {
+        padding: 0px;
+    }
+
+    .registration_form > div {
+        clear: both;
+    }
+
+    .single.single-product .register-course-main {
+        padding: 40px;
+    }
+
+}
+
+@media (max-width: 479px) {
+    .registration_form > div {
+        margin-bottom: 10px;
+    }
+
+    .single.single-product .register-course-main {
+        padding: 20px;
+    }
+
+    .register-course-page .registration_form label,
+    .registration_form > div label {
+        width: 100%;
+        float: none;
+        text-align: left;
+    }
+
+    .register-course-page .registration_form input[type="text"],
+    .register-course-page .registration_form input[type="email"],
+    .register-course-page .registration_form .select2-container {
+        width: 100% !important;
+        float: none;
+        text-align: left;
+    }
+
+    .register-course-page .registration_form button[type="submit"] {
+        width: 100%;
+    }
+
+    .register-course-page .registration_form button[type="button"] {
+        margin-left: 0px;
+        margin-top: 20px;
+        width: 100%;
+    }
+}
+
+.certificate .certificate-frame .certificate-holder:before,
+.certificate .certificate-frame .certificate-holder:after {
+    background-color: transparent;
+}
+
+
+.certificate .certificate-frame:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #EEDCBC;
+    left: 0px;
+    top: 0px;
+    border: 30px solid #321C14;
+}
+
+.certificate .certificate-frame:after,
+.certificate .certificate-frame {
+    background-image: none;
+}
