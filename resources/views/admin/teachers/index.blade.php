@@ -47,7 +47,7 @@
                                     <tr>
                                         <th class="text-center" style="width: 6%">Ảnh</th>
                                         <th style="width: 15%">Tên</th>
-                                        <th style="width: 35%">Thông tin</th>
+                                        <th style="width: 34%">Thông tin</th>
                                         <th style="width: 20%">Slogan</th>
                                         <th></th>
                                     </tr>

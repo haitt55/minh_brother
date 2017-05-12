@@ -19,7 +19,7 @@ class CreateTeachersTable extends Migration
             $table->string('slug');
             $table->string('image')->nullable();
             $table->mediumText('intro');
-            $table->mediumText('solegan');
+            $table->mediumText('slogan');
             $table->string('page_title')->nullable();
             $table->string('meta_keyword')->nullable();
             $table->string('meta_description')->nullable();

@@ -20,7 +20,16 @@
                 <a href="{{ route('admin.customers.index') }}"><i class="fa fa-user fa-fw"></i> Người liên hệ</a>
             </li>
             <li>
+                <a href="{{ route('blog-categories.index') }}"><i class="fa fa-users fa-fw"></i> Danh mục tin tức</a>
+            </li>
+            <li>
+                <a href="{{ route('blogs.index') }}"><i class="fa fa-users fa-fw"></i> Tin tức</a>
+            </li>
+            <li>
                 <a href="{{ route('admin.appSettings.general') }}"><i class="fa fa-wrench fa-fw"></i> Thông tin chung</a>
+            </li>
+            <li>
+                <a href="{{ route('admin.about.index') }}"><i class="fa fa-info-circle fa-fw"></i> Về chúng tôi</a>
             </li>
         </ul>
     </div>

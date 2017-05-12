@@ -25,20 +25,30 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form method="POST" action="{{ route('admin.product_categories.store') }}" role="form">
+                            <form method="POST" action="{{ route('product_categories.store') }}" role="form">
                                 @include('admin.layouts.partials.errors')
                                 {{ csrf_field() }}
                                 <div class="form-group">
-                                    <label for="name">Tên danh mục <span class="required">*</span></label>
+                                    <label for="name">Tên danh mục <span class="require">*</span></label>
                                     <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="parent_id">Danh mục cha</label>
+                                    <select type="text" name="parent_id" id="parent_id" class="form-control" value="{{ old('parent_id') }}">
+                                        <option value="0">--</option>
+                                        @foreach($categoryOptions as $key => $value)
+                                            <option value="{{ $key }}">{{ $value }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Mô tả</label>
                                     <textarea name="description" id="description">{{ old('description') }}</textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="note">Note</label>
-                                    <textarea name="note" id="note">{{ old('note') }}</textarea>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" name="active" id="active" value="1" {{ old('active', true) ? ' checked="checked"' : '' }}> Active</label>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary"> Lưu</button>
