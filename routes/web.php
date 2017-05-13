@@ -93,6 +93,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
 });
 // Web
 Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home.index']);
+Route::get('/khoa-hoc', ['uses' => 'ProductsController@index', 'as' => 'products.index']);
 
 Route::get('/layout', function() {
     return view('front.layouts.master');

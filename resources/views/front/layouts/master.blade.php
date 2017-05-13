@@ -278,7 +278,11 @@
 			</div>
     	</div>
     	<!-- id header -->
+    	<div id="main">
+    		@yield('content')
+    	</div>
 	</div> <!--#wrapper-->
+
 	<footer id="footer">
 		<div class="footer_wrapper">
 			<div id="footer_top">
