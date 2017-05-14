@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('title', {{ trans('blog_category.title.create') }})
+@section('title', trans('blog_category.title.create'))
 
 @section('content')
     <div class="row">

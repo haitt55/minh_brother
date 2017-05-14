@@ -78,7 +78,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     Route::post('/customers/changeStatus',['uses' => 'CustomerController@changeStatus', 'as' => 'admin.customers.changeStatus']);
 
     Route::get('/about','AboutController@index')->name('admin.about.index');
-    
+
     Route::resource('about', 'AboutController', ['names' => [
             'index' => 'admin.about.index',
             'store' => 'admin.about.store',
@@ -97,4 +97,9 @@ Route::get('/khoa-hoc', ['uses' => 'ProductsController@index', 'as' => 'products
 
 Route::get('/layout', function() {
     return view('front.layouts.master');
+});
+
+Route::group(['namespace' => 'Front'], function() {
+    Route::get('/{slug}', ['uses' => 'BlogCategoryController@index', 'as' => 'blog-menu.index']);
+    Route::get('/{parent_category}/{category}', ['uses' => 'BlogCategoryController@show', 'as' => 'blog-category.show']);
 });
