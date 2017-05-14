@@ -82,24 +82,24 @@
 						@foreach($products as $product)
 						<li class="col-md-4 col-sm-4 col-xs-6 course-col first post-3236 product type-product status-publish has-post-thumbnail product_cat-tekla-structures product_tag-ket-cau-thep product_tag-mo-hinh-nha-thep product_tag-nha-thep-tien-che product_tag-tekla product_tag-tekla-cho-nha-thep product_tag-tekla-structures  instock virtual shipping-taxable purchasable product-type-simple">
 
-							<a href="http://bim.edu.vn/khoa-hoc/khoa-hoc-tekla-cho-nha-thep-tien-che/" class="woocommerce-LoopProduct-link"></a>
+							<a href="{{ route('products.show', $product->slug) }}" class="woocommerce-LoopProduct-link"></a>
 							<div class="stm_archive_product_inner_unit heading_font">
-								<a href="http://bim.edu.vn/khoa-hoc/khoa-hoc-tekla-cho-nha-thep-tien-che/" class="woocommerce-LoopProduct-link"></a>
+								<a href="{{ route('products.show', $product->slug) }}" class="woocommerce-LoopProduct-link"></a>
 								<div class="stm_archive_product_inner_unit_centered">
-									<a href="http://bim.edu.vn/khoa-hoc/khoa-hoc-tekla-cho-nha-thep-tien-che/" class="woocommerce-LoopProduct-link"></a>
+									<a href="{{ route('products.show', $product->slug) }}" class="woocommerce-LoopProduct-link"></a>
 									<div class="stm_featured_product_image">
-										<a href="http://bim.edu.vn/khoa-hoc/khoa-hoc-tekla-cho-nha-thep-tien-che/" class="woocommerce-LoopProduct-link">
+										<a href="{{ route('products.show', $product->slug) }}" class="woocommerce-LoopProduct-link">
 											<div class="stm_featured_product_price">
 												<div class="price">
 													<h5>₫{{ $product->price }}</h5>
 												</div>
 											</div>
 										</a>
-										<a href="http://bim.edu.vn/khoa-hoc/khoa-hoc-tekla-cho-nha-thep-tien-che/" title="View course - Khóa học Tekla Structures cho nhà thép tiền chế">
+										<a href="{{ route('products.show', $product->slug) }}" title="View course - Khóa học Tekla Structures cho nhà thép tiền chế">
 										<img width="270" height="283" src="{{ $product->image ? asset($product->image) : "" }}" class="img-responsive wp-post-image" alt="Tekla Structures cho nhà thép tiền chế"></a>
 									</div>
 									<div class="stm_featured_product_body">
-										<a href="http://bim.edu.vn/khoa-hoc/khoa-hoc-tekla-cho-nha-thep-tien-che/" title="View course - Khóa học Tekla Structures cho nhà thép tiền chế">
+										<a href="{{ route('products.show', $product->slug) }}" title="View course - Khóa học Tekla Structures cho nhà thép tiền chế">
 											<div class="title">Khóa học {{ $product->name }}</div>
 										</a>
 										
@@ -128,7 +128,7 @@
 										</div>
 										
 										<div class="stm_featured_product_show_more">
-											<a class="btn btn-default" href="http://bim.edu.vn/khoa-hoc/khoa-hoc-tekla-cho-nha-thep-tien-che/" title="Đọc tiếp">Đọc tiếp</a>
+											<a class="btn btn-default" href="{{ route('products.show', $product->slug) }}" title="Đọc tiếp">Đọc tiếp</a>
 										</div>
 									</div>			
 			

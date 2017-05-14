@@ -93,13 +93,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
 });
 // Web
 Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home.index']);
-Route::get('/khoa-hoc', ['uses' => 'ProductsController@index', 'as' => 'products.index']);
 
 Route::get('/layout', function() {
     return view('front.layouts.master');
 });
 
 Route::group(['namespace' => 'Front'], function() {
+    Route::get('/khoa-hoc', ['uses' => 'ProductsController@index', 'as' => 'products.index']);
+    Route::get('/khoa-hoc/{slug}', ['uses' => 'ProductsController@show', 'as' => 'products.show']);
     Route::get('/{slug}', ['uses' => 'BlogCategoryController@index', 'as' => 'blog-menu.index']);
     Route::get('/{parent_category}/{category}', ['uses' => 'BlogCategoryController@show', 'as' => 'blog-category.show']);
 });

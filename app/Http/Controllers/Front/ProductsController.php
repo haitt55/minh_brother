@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Front;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Product;
 use App\Teacher;
 use App\ProductCategory;
@@ -33,13 +34,13 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $product = Product::findBySlug($slug);
-
-        return view($this->templateSuffix->viewName($page->template_suffix), compact('product'));
+        $products = Product::all();
+        return view('front.products.index')->with(['products' => $products]);
     }
 
-    public function test()
+    public function show($slug)
     {
-        return view('test');
+        $product = Product::where('slug', $slug)->first();
+        return view('front.products.show', compact('product'));
     }
 }
