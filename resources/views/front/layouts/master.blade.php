@@ -75,7 +75,7 @@
 	<script type='text/javascript' src='/wp-content/themes/masterstudy/assets/js/helper-plugins/jquery.ba-throttle-debounce.minfc12.js?ver=4.5.8'></script>
 	<link rel='https://api.w.org/' href='/wp-json/index.html' />
 	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc0db0.php?rsd" />
-	<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/wp-includes/wlwmanifest.xml" /> 
+	<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/wp-includes/wlwmanifest.xml" />
 	<meta name="generator" content="WordPress 4.5.8" />
 	<meta name="generator" content="WooCommerce 3.0.3" />
 	<link rel='shortlink' href='../indexf45d.html?p=889' />
@@ -96,7 +96,7 @@
 	<meta name="msapplication-TileImage" content="http://bim.edu.vn/wp-content/uploads/2016/03/cropped-logo-bimhanoi-trong-300x300.png" />
 	<link rel='stylesheet' href='/css/master.css' type='text/css' media='all' />
 	<noscript>
-		<style type="text/css"> 
+		<style type="text/css">
 			.wpb_animate_when_almost_visible { opacity: 1; }
 		</style>
 	</noscript>
@@ -304,15 +304,15 @@
 								<ul>
 									<li class="widget_contacts_address">
 										<div class="icon"><i class="fa-icon-stm_icon_pin"></i></div>
-										<div class="text">Tầng 2, tòa nhà Bách Anh - Số 52, chùa Hà, Cầu GIấy, Hà Nội</div>
+										<div class="text">{!! app_settings('address') !!}</div>
 									</li>
 									<li>
 										<div class="icon"><i class="fa-icon-stm_icon_phone"></i></div>
-										<div class="text">+84 4 668 41452 - +84 4 66 599 882</div>
+										<div class="text">{!! app_settings('phone') !!} - {!! app_settings('phone2') !!}</div>
 									</li>
 									<li>
 										<div class="icon"><i class="fa fa-envelope"></i></div>
-										<div class="text"><a href="mailto:bimhanoi@bim.edu.vn">bimhanoi@bim.edu.vn</a></div>
+										<div class="text"><a href="mailto:bimhanoi@bim.edu.vn">{!! app_settings('email') !!}</a></div>
 									</li>
 								</ul>
 							</aside>
@@ -458,5 +458,4 @@
 	</script>
 	<!--End of Tawk.to Script-->
 </body>
-<!-- Mirrored from bim.edu.vn/ve-bimhanoi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Apr 2017 14:02:12 GMT -->
 </html>

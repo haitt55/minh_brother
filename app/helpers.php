@@ -13,3 +13,4 @@ function app_settings($key = null)
 
     return $key ? array_get($appSettings->settings(), $key) : $appSettings;
 }
+
