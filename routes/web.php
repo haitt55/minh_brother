@@ -99,6 +99,7 @@ Route::get('/layout', function() {
 });
 
 Route::group(['namespace' => 'Front'], function() {
+    Route::get('/', ['uses' => 'HomeController@index', 'as' => 'front.index']);
     Route::get('/khoa-hoc', ['uses' => 'ProductsController@index', 'as' => 'products.index']);
     Route::get('/khoa-hoc/{slug}', ['uses' => 'ProductsController@show', 'as' => 'products.show']);
     Route::get('/danh-muc/{slug}', ['uses' => 'ProductCategoriesController@show', 'as' => 'product_categories.show']);
