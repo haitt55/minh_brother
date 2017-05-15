@@ -163,6 +163,9 @@
 									<li id="menu-item-1598" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598">
 										<a href="index.html">Về chúng tôi</a>
 									</li>
+									<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598">
+										<a href="#">Khóa học</a>
+									</li>
 									@foreach($__parentBlogCategory as $blogMenu)
 										<li iclass="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598">
 											<a href="{{ route('blog-menu.index', $blogMenu->slug) }}">{{ $blogMenu->name }}</a>
