@@ -163,6 +163,9 @@
 									<li id="menu-item-1598" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598">
 										<a href="index.html">Về chúng tôi</a>
 									</li>
+									<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598">
+										<a href="#">Khóa học</a>
+									</li>
 									@foreach($__parentBlogCategory as $blogMenu)
 										@if(count($blogMenu->childs) > 0)
 										<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1532">

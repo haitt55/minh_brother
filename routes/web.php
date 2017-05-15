@@ -100,6 +100,7 @@ Route::get('/layout', function() {
 });
 
 Route::group(['namespace' => 'Front'], function() {
+    Route::get('/blog/{slug}', ['uses' => 'BlogController@show', 'as' => 'blogs.show']);
     Route::get('/{slug}', ['uses' => 'BlogCategoryController@index', 'as' => 'blog-menu.index']);
     Route::get('/{parent_category}/{category}', ['uses' => 'BlogCategoryController@show', 'as' => 'blog-category.show']);
 });
