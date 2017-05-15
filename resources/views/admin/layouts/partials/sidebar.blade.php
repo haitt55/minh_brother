@@ -17,6 +17,9 @@
                 <a href="{{ route('admin.students') }}"><i class="fa fa-users fa-fw"></i> Học viên</a>
             </li>
             <li>
+                <a href="{{ route('admin.customers.index') }}"><i class="fa fa-user fa-fw"></i> Người liên hệ</a>
+            </li>
+            <li>
                 <a href="{{ route('blog-categories.index') }}"><i class="fa fa-users fa-fw"></i> Danh mục tin tức</a>
             </li>
             <li>

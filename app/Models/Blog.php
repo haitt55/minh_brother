@@ -24,6 +24,11 @@ class Blog extends Authenticatable
         'meta_description',
     ];
 
+    public function blogCategory()
+    {
+        return $this->belongsTo(BlogCategory::class);
+    }
+
     public static function createBlog($request)
     {
         $imagePath = config('custom.blogs.image_path');
