@@ -137,7 +137,7 @@
 				<table>
 					<tbody><tr>
 						<td class="icon"><i class="fa-icon-stm_icon_clock"></i></td>
-						<td class="value h5">Giờ học: 25 giờ</td>
+						<td class="value h5">Giờ học: {{ $product->number_of_hour }} giờ</td>
 					</tr>
 				</tbody></table>
 			</div> <!-- unit -->
@@ -146,7 +146,7 @@
 				<table>
 					<tbody><tr>
 						<td class="icon"><i class="fa-icon-stm_icon_bullhorn"></i></td>
-						<td class="value h5">Buổi học: 10 buổi</td>
+						<td class="value h5">Buổi học: {{ $product->number_of_day }} buổi</td>
 					</tr>
 				</tbody></table>
 			</div> <!-- unit -->
@@ -156,7 +156,7 @@
 				<table>
 					<tbody><tr>
 						<td class="icon"><i class="fa-icon-stm_icon_license"></i></td>
-						<td class="value h5">Chứng chỉ Autodesk cấp độ hoàn thành khóa học</td>
+						<td class="value h5">{{ $product->certification }}</td>
 					</tr>
 				</tbody></table>
 			</div> <!-- unit -->
@@ -599,7 +599,7 @@ Chúc em thành công nhé!</p>
 	<option value="http://bim.edu.vn/2015/05/"> Tháng Năm 2015 </option>
 	<option value="http://bim.edu.vn/2015/03/"> Tháng Ba 2015 </option>
 
-		</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-archives-dropdown-3-container"><span class="select2-selection__rendered" id="select2-archives-dropdown-3-container" title="Chọn tháng">Chọn tháng</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+		</select>
 		</aside><aside id="working_hours-3" class="widget widget_working_hours"><div class="widget_title"><h3>GIỜ LÀM VIỆC</h3></div>        
 	        <table class="table_working_hours">
 		        		        							<tbody><tr class="opened">

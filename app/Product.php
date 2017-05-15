@@ -23,7 +23,10 @@ class Product extends Model
         'about',
         'price',
         'target_people',
-        'rate'
+        'rate',
+        'number_of_hour',
+        'number_of_day',
+        'certification'
     ];
 
     public function sluggable()
