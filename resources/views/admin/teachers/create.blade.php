@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="slogan">Slogan <span class="required">(*)</span></label>
-                                    <input type="text" name="slogan" id="name" class="form-control" value="{{ old('slogan') }}">
+                                    <textarea name="slogan" id="name" class="form-control" value="{{ old('slogan') }}">{{ old('slogan') }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="page_title">Page Title</label>

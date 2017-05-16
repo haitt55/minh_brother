@@ -33,8 +33,8 @@
                                     <div class="col-md-12">
                                     @foreach ($teachers as $teacher)
                                         <div class=" col-md-3" style="margin-bottom: 20px">
-                                            <label>
-                                                <input name="teacher_id[]" value="{{ $teacher->id }}" type="checkbox" style="float: left; margin-right: 5px">
+                                            <input name="teacher_id[]" value="{{ $teacher->id }}" id="teacher-{{ $teacher->id }}" type="checkbox" style="float: left; margin-right: 5px">
+                                            <label for="teacher-{{ $teacher->id }}">
                                                 <div style="height: 100px">
                                                     <img class="thumbnail" style="max-width: 100px;" id="image_preview" src="{{ $teacher->image ? asset($teacher->image) : asset(config('custom.no_image')) }}" alt="">
                                                 </div>
