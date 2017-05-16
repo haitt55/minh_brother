@@ -51,6 +51,18 @@
                                     <input type="text" name="price" id="price" class="form-control" value="{{ old('price', $product->price) }}">
                                 </div>
                                 <div class="form-group">
+                                    <label for="number_of_hour">Số giờ học</label>
+                                    <input type="text" name="number_of_hour" id="number_of_hour" class="form-control" value="{{ old('number_of_hour', $product->number_of_hour) }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="number_of_day">Số buổi học</label>
+                                    <input type="text" name="number_of_day" id="number_of_day" class="form-control" value="{{ old('number_of_day', $product->number_of_day) }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="certification">Chứng chỉ sau khi hoàn thành sau khóa học</label>
+                                    <input type="text" name="certification" id="certification" class="form-control" value="{{ old('certification', $product->certification) }}">
+                                </div>
+                                <div class="form-group">
                                     <label for="image">Ảnh header</label>
                                     <input type="file" id="image" name="image" accept="image/*">
                                     <div class="row" style="margin-top: 10px;">

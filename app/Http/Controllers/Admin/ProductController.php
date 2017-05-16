@@ -95,6 +95,9 @@ class ProductController extends Controller
             $product->category_id = $data['category_id'];
             $product->about = $data['about'];
             $product->price = $data['price'];
+            $product->number_of_hour = $data['number_of_hour'];
+            $product->number_of_day = $data['number_of_day'];
+            $product->certification = $data['certification'];
             $product->target_people = $data['target_people'];
             $product->page_title = $data['page_title'];
             $product->meta_keyword = $data['meta_keyword'];
@@ -194,6 +197,9 @@ class ProductController extends Controller
             $product->category_id = $data['category_id'];
             $product->about = $data['about'];
             $product->price = $data['price'];
+            $product->number_of_hour = $data['number_of_hour'];
+            $product->number_of_day = $data['number_of_day'];
+            $product->certification = $data['certification'];
             $product->target_people = $data['target_people'];
             $product->page_title = $data['page_title'];
             $product->meta_keyword = $data['meta_keyword'];
