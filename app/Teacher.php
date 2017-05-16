@@ -22,6 +22,9 @@ class Teacher extends Model
         'slug',
         'intro',
         'slogan',
+        'page_title',
+        'meta_keyword',
+        'meta_description'
     ];
     
     /**
