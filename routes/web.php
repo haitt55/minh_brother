@@ -99,7 +99,9 @@ Route::get('/layout', function() {
 });
 
 Route::group(['namespace' => 'Front'], function() {
-    Route::get('/about', ['uses' => 'AboutController@index', 'as' => 'about.index']);
+    Route::get('/ve-chung-toi', ['uses' => 'AboutController@index', 'as' => 'about.index']);
+    Route::get('/giang-vien', ['uses' => 'TeachersController@index', 'as' => 'teachers.index']);
+    Route::get('/giang-vien/{slug}', ['uses' => 'TeachersController@show', 'as' => 'teachers.show']);
     Route::get('/khoa-hoc', ['uses' => 'ProductsController@index', 'as' => 'products.index']);
     Route::get('/khoa-hoc/{slug}', ['uses' => 'ProductsController@show', 'as' => 'products.show']);
     Route::get('/danh-muc/{slug}', ['uses' => 'ProductCategoriesController@show', 'as' => 'product_categories.show']);

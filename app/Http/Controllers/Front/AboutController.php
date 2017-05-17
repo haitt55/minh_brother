@@ -29,6 +29,14 @@ class AboutController extends Controller
     public function index()
     {
         $about = DB::table('about')->first();
+        $linkYoutube = $about->link_youtube;
+        $about->id_youtube = null;
+        if ($linkYoutube) {
+            $pattern = "#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#";
+            preg_match($pattern, $linkYoutube, $matches);
+            $about->id_youtube = $matches[0];
+        }
+        $about->teacher_id = explode(',', $about->teacher_id);
         return view('front.about.index')->with(['about' => $about, 'teachers' => $this->teachers]);
     }
 }

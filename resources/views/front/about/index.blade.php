@@ -50,7 +50,7 @@
                             <div class="wpb_wrapper">
                                 <div class="stm_theme_wpb_video_wrapper">
                                     <div class="stm_video_preview video_preloader_hidden" style="background-image:url(http://bim.edu.vn/wp-content/uploads/2015/07/Backdrop.png)"></div>
-                                    <div class="wpb_video_wrapper  video_autoplay_true"><iframe width="1170" height="658" src="https://www.youtube.com/embed/hsLwr-ZfBMc?feature=oembed&amp;autoplay=1" frameborder="0" allowfullscreen=""></iframe></div>
+                                    <div class="wpb_video_wrapper  video_autoplay_true"><iframe width="1170" height="658" src="https://www.youtube.com/embed/{{ $about->id_youtube }}?feature=oembed&amp;autoplay=1" frameborder="0" allowfullscreen=""></iframe></div>
                                 </div>
                             </div>
                         </div>
@@ -59,9 +59,22 @@
             </div>
         </div>
     </div>
-    <div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
-                    <div class="multiseparator vc_custom_1437475130947"></div></div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
+    <div class="vc_row wpb_row vc_row-fluid">
+        <div class="wpb_column vc_column_container vc_col-sm-12">
+            <div class="vc_column-inner "><div class="wpb_wrapper">
+                    <div class="multiseparator vc_custom_1437475130947">
 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if($about->teacher_id)
+    <div class="vc_row wpb_row vc_row-fluid">
+        <div class="wpb_column vc_column_container vc_col-sm-12">
+            <div class="vc_column-inner ">
+                <div class="wpb_wrapper">
                     <div class="experts_main_wrapper simple_carousel_wrapper">
                         <div class="clearfix experts_control_bar_top">
                             <div class="pull-left">
@@ -74,112 +87,63 @@
                         </div>
                         <div class="experts_list_unit">
                             <div class="experts_list">
-                                <div class="expert-carousel-init ">
-                                    <div class="row">
+                                <div class="expert-carousel-init">
 
-
-                                        <div class="col-md-6 col-sm-12 col-xs-12 expert-single-slide">
-                                            <div class="st_experts experts_list">
-                                                <div class="media">
-                                                    <div class="media-left expert-media">
-                                                        <img width="129" height="129" src="http://bim.edu.vn/wp-content/uploads/2016/08/avatar-1-129x129.jpg" class="img-responsive wp-post-image" alt="Giảng viên tekla Hoàng Văn Cường" srcset="http://bim.edu.vn/wp-content/uploads/2016/08/avatar-1-129x129.jpg 129w, http://bim.edu.vn/wp-content/uploads/2016/08/avatar-1-150x150.jpg 150w, http://bim.edu.vn/wp-content/uploads/2016/08/avatar-1-300x300.jpg 300w, http://bim.edu.vn/wp-content/uploads/2016/08/avatar-1-180x180.jpg 180w, http://bim.edu.vn/wp-content/uploads/2016/08/avatar-1-75x75.jpg 75w, http://bim.edu.vn/wp-content/uploads/2016/08/avatar-1-69x69.jpg 69w, http://bim.edu.vn/wp-content/uploads/2016/08/avatar-1-50x50.jpg 50w, http://bim.edu.vn/wp-content/uploads/2016/08/avatar-1.jpg 427w" sizes="(max-width: 129px) 100vw, 129px">																						<div class="expert_socials clearfix">
-                                                        </div>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <a class="expert_inner_title_link" href="http://bim.edu.vn/teachers/giang-vien-hoang-van-cuong-2/" title="Xem trang giảng viên">
-                                                            <h3 class="expert_inner_title">Giảng viên Hoàng Văn Cường</h3>
-                                                        </a>
-                                                        <div class="expert_job">Tekla Structures</div>
-                                                        <hr>
-                                                        <div class="expert_excerpt">
-                                                            <p>Với hơn 10 năm kinh nghiệm nghiên cứu áp dụng, tư vấn kỹ thuật triển khai ứng dụng phần mềm Tekla và BIM cho lĩnh vực xây dựng dân dụng, công nghiệp cho các công ty trong nước cũng như các doanh nghiệp đầu tư trực tiếp nước ngoài.</p>
-                                                        </div>
-                                                        <div class="expert_certified">Certified by <span class="orange">Tekla</span></div>
+                                    <?php $stt = 0; ?>
+                                    @foreach ($about->teacher_id as $teacherId)
+                                    <?php $stt ++ ?>
+                                    <?= $stt % 2 != 0 ? '<div class="row">' : null ?>
+                                    <div class="col-md-6 col-sm-12 col-xs-12 expert-single-slide">
+                                        <div class="st_experts experts_list">
+                                            <div class="media">
+                                                <div class="media-left expert-media">
+                                                    <img width="129" height="129" src="{{ $teachers[$teacherId]->image }}" class="img-responsive wp-post-image" alt="Giảng viên {{ $teachers[$teacherId]->full_name }}" sizes="(max-width: 129px) 100vw, 129px">																						<div class="expert_socials clearfix">
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div> <!-- col -->
-
-
-                                        <div class="col-md-6 col-sm-12 col-xs-12 expert-single-slide">
-                                            <div class="st_experts experts_list">
-                                                <div class="media">
-                                                    <div class="media-left expert-media">
-                                                        <img width="129" height="129" src="http://bim.edu.vn/wp-content/uploads/2016/08/anh-Hóa-1-129x129.png" class="img-responsive wp-post-image" alt="Giảng viên Nguyễn Đức Hóa" srcset="http://bim.edu.vn/wp-content/uploads/2016/08/anh-Hóa-1-129x129.png 129w, http://bim.edu.vn/wp-content/uploads/2016/08/anh-Hóa-1-150x150.png 150w, http://bim.edu.vn/wp-content/uploads/2016/08/anh-Hóa-1-300x300.png 300w, http://bim.edu.vn/wp-content/uploads/2016/08/anh-Hóa-1-768x768.png 768w, http://bim.edu.vn/wp-content/uploads/2016/08/anh-Hóa-1-180x180.png 180w, http://bim.edu.vn/wp-content/uploads/2016/08/anh-Hóa-1-600x600.png 600w, http://bim.edu.vn/wp-content/uploads/2016/08/anh-Hóa-1-470x470.png 470w, http://bim.edu.vn/wp-content/uploads/2016/08/anh-Hóa-1-75x75.png 75w, http://bim.edu.vn/wp-content/uploads/2016/08/anh-Hóa-1-69x69.png 69w, http://bim.edu.vn/wp-content/uploads/2016/08/anh-Hóa-1-50x50.png 50w, http://bim.edu.vn/wp-content/uploads/2016/08/anh-Hóa-1.png 800w" sizes="(max-width: 129px) 100vw, 129px">																						<div class="expert_socials clearfix">
-                                                        </div>
+                                                <div class="media-body">
+                                                    <a class="expert_inner_title_link" href="{{ route('teachers.show', $teachers[$teacherId]->slug) }}" title="Xem trang giảng viên">
+                                                        <h3 class="expert_inner_title">Giảng viên {{ $teachers[$teacherId]->full_name }}</h3>
+                                                    </a>
+                                                    <div class="expert_job">Tekla Structures</div>
+                                                    <hr>
+                                                    <div class="expert_excerpt">
+                                                        <p>{{ $teachers[$teacherId]->slogan }}</p>
                                                     </div>
-                                                    <div class="media-body">
-                                                        <a class="expert_inner_title_link" href="http://bim.edu.vn/teachers/giang-vien-nguyen-duc-hoa/" title="Xem trang giảng viên">
-                                                            <h3 class="expert_inner_title">Giảng viên Nguyễn Đức Hóa</h3>
-                                                        </a>
-                                                        <div class="expert_job">Tekla Structures</div>
-                                                        <hr>
-                                                        <div class="expert_excerpt">
-                                                            <p>Giảng viên là kỹ sư xây dựng có trên 5 năm kinh nghiệm trong việc thi công xây dựng và gia công chế tạo kết cấu thép, từng tham gia đào tạo Tekla</p>
-                                                        </div>
-                                                    </div>
+                                                    <!--<div class="expert_certified">Certified by <span class="orange">Tekla</span></div>-->
                                                 </div>
                                             </div>
-                                        </div> <!-- col -->
-                                    </div> <!-- close row to prevent blocks mixing -->
-                                    <div class="row"> <!-- open new row in loop -->
-
-
-                                        <div class="col-md-6 col-sm-12 col-xs-12 expert-single-slide">
-                                            <div class="st_experts experts_list">
-                                                <div class="media">
-                                                    <div class="media-left expert-media">
-                                                        <img width="129" height="129" src="http://bim.edu.vn/wp-content/uploads/2015/06/IMG_6163-129x129.jpg" class="img-responsive wp-post-image" alt="Giangviên Revit Bùi Quang Huy" srcset="http://bim.edu.vn/wp-content/uploads/2015/06/IMG_6163-129x129.jpg 129w, http://bim.edu.vn/wp-content/uploads/2015/06/IMG_6163-150x150.jpg 150w, http://bim.edu.vn/wp-content/uploads/2015/06/IMG_6163-300x300.jpg 300w, http://bim.edu.vn/wp-content/uploads/2015/06/IMG_6163-768x768.jpg 768w, http://bim.edu.vn/wp-content/uploads/2015/06/IMG_6163-1024x1024.jpg 1024w, http://bim.edu.vn/wp-content/uploads/2015/06/IMG_6163-180x180.jpg 180w, http://bim.edu.vn/wp-content/uploads/2015/06/IMG_6163-600x600.jpg 600w, http://bim.edu.vn/wp-content/uploads/2015/06/IMG_6163-470x470.jpg 470w, http://bim.edu.vn/wp-content/uploads/2015/06/IMG_6163-75x75.jpg 75w, http://bim.edu.vn/wp-content/uploads/2015/06/IMG_6163-69x69.jpg 69w, http://bim.edu.vn/wp-content/uploads/2015/06/IMG_6163-50x50.jpg 50w" sizes="(max-width: 129px) 100vw, 129px">																						<div class="expert_socials clearfix">
-                                                        </div>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <a class="expert_inner_title_link" href="http://bim.edu.vn/teachers/bui-quang-huy/" title="Xem trang giảng viên">
-                                                            <h3 class="expert_inner_title">Giảng viên Bùi Quang Huy</h3>
-                                                        </a>
-                                                        <div class="expert_job">Revit MEP - Architecture - Structure</div>
-                                                        <hr>
-                                                        <div class="expert_excerpt">
-                                                            <p>Xây dựng cộng đồng BIM bằng cách chia sẻ kiến thức, đào tạo, nâng cao năng lực kỹ sư, kiến trúc sư, kết cấu sư là phát triển ngành xây dựng Việt Nam bền, mạnh.</p>
-                                                        </div>
-                                                        <div class="expert_certified">Certified by <span class="orange">Autodesk</span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> <!-- col -->
-
-
-                                        <div class="col-md-6 col-sm-12 col-xs-12 expert-single-slide">
-                                            <div class="st_experts experts_list">
-                                                <div class="media">
-                                                    <div class="media-left expert-media">
-                                                        <img width="129" height="129" src="http://bim.edu.vn/wp-content/uploads/2015/05/anh-129x129.jpg" class="img-responsive wp-post-image" alt="Giang-vien-Civil-3D-Ngo-Quoc-Viet" srcset="http://bim.edu.vn/wp-content/uploads/2015/05/anh-129x129.jpg 129w, http://bim.edu.vn/wp-content/uploads/2015/05/anh-150x150.jpg 150w, http://bim.edu.vn/wp-content/uploads/2015/05/anh-300x300.jpg 300w, http://bim.edu.vn/wp-content/uploads/2015/05/anh-768x768.jpg 768w, http://bim.edu.vn/wp-content/uploads/2015/05/anh-180x180.jpg 180w, http://bim.edu.vn/wp-content/uploads/2015/05/anh-600x600.jpg 600w, http://bim.edu.vn/wp-content/uploads/2015/05/anh-470x470.jpg 470w, http://bim.edu.vn/wp-content/uploads/2015/05/anh-75x75.jpg 75w, http://bim.edu.vn/wp-content/uploads/2015/05/anh-69x69.jpg 69w, http://bim.edu.vn/wp-content/uploads/2015/05/anh-50x50.jpg 50w, http://bim.edu.vn/wp-content/uploads/2015/05/anh.jpg 960w" sizes="(max-width: 129px) 100vw, 129px">																						<div class="expert_socials clearfix">
-                                                        </div>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <a class="expert_inner_title_link" href="http://bim.edu.vn/teachers/ngo-quoc-viet/" title="Xem trang giảng viên">
-                                                            <h3 class="expert_inner_title">Giảng viên Ngô Quốc Việt</h3>
-                                                        </a>
-                                                        <div class="expert_job">Civil 3D - Infraworks</div>
-                                                        <hr>
-                                                        <div class="expert_excerpt">
-                                                            <p>Tôi mong muốn giúp nhiều người biết đến, hiểu và có thể phổ biến ứng dụng Civil 3D vào các dự án thi công xây dựng thực tế tại Việt Nam</p>
-                                                        </div>
-                                                        <div class="expert_certified">Certified by <span class="orange">Autodesk</span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> <!-- col -->
-                                    </div> <!-- close row to prevent blocks mixing -->
+                                        </div>
+                                    </div> <!-- col -->
+                                    <?= $stt % 2 == 0 ? '</div>' : null ?>
+                                    @endforeach
                                     <div class="row"> <!-- open new row in loop -->
                                     </div> <!-- row if style = list -->
                                 </div>	<!-- init carousel -->
                             </div> <!-- style output -->
                         </div> <!-- unit -->
                     </div> <!-- experts main wrapper -->
-
                     <!-- If styled as carousel add inline script in footer -->
-                </div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
-                    <div class="multiseparator vc_custom_1435819083449"></div><div class="vc_custom_heading vc_custom_1459841840140"><h2 style="text-align: left">Chứng nhận</h2></div><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner "><div class="wpb_wrapper">
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+
+    @if($about->certificate)
+    <div class="vc_row wpb_row vc_row-fluid">
+        <div class="wpb_column vc_column_container vc_col-sm-12">
+            <div class="vc_column-inner ">
+                <div class="wpb_wrapper">
+                    {!! $about->certificate !!}
+<!--                    <div class="multiseparator vc_custom_1435819083449">
+
+                    </div>
+                    <div class="vc_custom_heading vc_custom_1459841840140">
+                        <h2 style="text-align: left">Chứng nhận</h2>
+                    </div>
+                    <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                        <div class="wpb_column vc_column_container vc_col-sm-6">
+                            <div class="vc_column-inner "><div class="wpb_wrapper">
                                     <div class="certificate ">
                                         <div class="certificate-frame">
                                             <div class="certificate-holder">
@@ -188,7 +152,11 @@
                                         </div>
                                         <div class="h4 title text-center">Autodesk Certified Professional</div>
                                     </div>
-                                </div></div></div><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner "><div class="wpb_wrapper">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wpb_column vc_column_container vc_col-sm-6">
+                            <div class="vc_column-inner "><div class="wpb_wrapper">
                                     <div class="certificate ">
                                         <div class="certificate-frame">
                                             <div class="certificate-holder">
@@ -197,7 +165,20 @@
                                         </div>
                                         <div class="h4 title text-center">Autodesk Certified Professional</div>
                                     </div>
-                                </div></div></div></div><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner "><div class="wpb_wrapper"></div></div></div><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner "><div class="wpb_wrapper">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                        <div class="wpb_column vc_column_container vc_col-sm-3">
+                            <div class="vc_column-inner ">
+                                <div class="wpb_wrapper">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wpb_column vc_column_container vc_col-sm-6">
+                            <div class="vc_column-inner ">
+                                <div class="wpb_wrapper">
                                     <div class="certificate ">
                                         <div class="certificate-frame">
                                             <div class="certificate-holder">
@@ -209,8 +190,30 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner "><div class="wpb_wrapper"></div></div></div></div></div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
-                    <div class="multiseparator vc_custom_1435819083449"></div><div class="vc_custom_heading"><h2 style="text-align: left">Phòng đào tạo</h2></div>
+                        <div class="wpb_column vc_column_container vc_col-sm-3">
+                            <div class="vc_column-inner ">
+                                <div class="wpb_wrapper">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+
+    @if ($about->intro_edu)
+    <div class="vc_row wpb_row vc_row-fluid">
+        <div class="wpb_column vc_column_container vc_col-sm-12">
+            <div class="vc_column-inner">
+                <div class="wpb_wrapper">
+                    <div class="multiseparator vc_custom_1435819083449"></div>
+                    {!! $about->intro_edu !!}
+<!--                    <div class="vc_custom_heading">
+                        <h2 style="text-align: left">Phòng đào tạo</h2>
+                    </div>
                     <div class="wpb_text_column wpb_content_element ">
                         <div class="wpb_wrapper">
                             <p style="text-align: justify;">Phòng đào tạo của BIMhanoi được thiết kế vuông vắn, không gian sắp đặt cho 1&nbsp;lớp học 12 học viên.</p>
@@ -219,12 +222,12 @@
                             <p>Đăng ký <a href="http://ebim.edu.vn/khoa-hoc/" target="_blank">khóa học</a>&nbsp;tại BIMhanoi để khám phá bí mật BIM ngay hôm nay!</p>
 
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
     </div>
-
+    @endif
 
     <div class="clearfix">
     </div>

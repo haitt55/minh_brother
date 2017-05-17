@@ -65,10 +65,16 @@ class Teacher extends Model
     
     static function getList()
     {
+        $result = array();
+        //TODO:
+        //$teachers = self::with('products')->get()->sortBy('full_name');
         $teachers = self::all()->sortBy('full_name');
-        return $teachers;
+        foreach ($teachers as $teacher) {
+            $result[$teacher->id] = $teacher;
+        }
+        
+        return $result;
     }
-
 
     /**
      * Create teacher
