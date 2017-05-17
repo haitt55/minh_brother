@@ -14,6 +14,8 @@ class ProductsController extends Controller
     protected $teacherOptions;
 
     protected $categoryOptions;
+
+    protected $otherProducts;
     /**
      * Create a new controller instance.
      *
