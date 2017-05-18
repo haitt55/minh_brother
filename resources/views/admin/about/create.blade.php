@@ -33,8 +33,8 @@
                                     <div class="col-md-12">
                                     @foreach ($teachers as $teacher)
                                         <div class=" col-md-3" style="margin-bottom: 20px">
-                                            <label>
-                                                <input name="teacher_id[]" value="{{ $teacher->id }}" type="checkbox" style="float: left; margin-right: 5px">
+                                            <input name="teacher_id[]" value="{{ $teacher->id }}" id="teacher-{{ $teacher->id }}" type="checkbox" style="float: left; margin-right: 5px">
+                                            <label for="teacher-{{ $teacher->id }}">
                                                 <div style="height: 100px">
                                                     <img class="thumbnail" style="max-width: 100px;" id="image_preview" src="{{ $teacher->image ? asset($teacher->image) : asset(config('custom.no_image')) }}" alt="">
                                                 </div>
@@ -59,11 +59,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="meta_keyword">Meta Keyword</label>
-                                    <input type="text" name="meta_keyword" id="meta_keyword" class="form-control" value="{{ old('meta_keyword') }}">
+                                    <input type="text" name="meta_keyword" id="meta_keyword" class="form-control" data-role="tagsinput" value="{{ old('meta_keyword') }}">
+                                    <span class="help-block">Mỗi tag cách nhau dấu phẩy ( , )</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="meta_description">Meta Description</label>
-                                    <input type="text" name="meta_description" id="meta_description" class="form-control" value="{{ old('meta_description') }}">
+                                    <input type="text" name="meta_description" id="meta_description" class="form-control" data-role="tagsinput" value="{{ old('meta_description') }}">
+                                    <span class="help-block">Mỗi tag cách nhau dấu phẩy ( , )</span>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">Lưu</button>
@@ -83,6 +85,12 @@
 @section('inline_scripts')
     <script src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script>
     <script>
+        $('#wrapper').on('keypress', function(e){
+            if (e.keyCode == 13){
+                e.keyCode = 188;
+                e.preventDefault();
+            };
+        });
         CKEDITOR.replace( 'intro' );
         CKEDITOR.replace( 'intro_edu' );
         CKEDITOR.replace( 'certificate' );

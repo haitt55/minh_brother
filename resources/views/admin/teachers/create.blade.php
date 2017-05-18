@@ -45,19 +45,32 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="slogan">Slogan <span class="required">(*)</span></label>
-                                    <input type="text" name="slogan" id="name" class="form-control" value="{{ old('slogan') }}">
+                                    <textarea name="slogan" id="name" class="form-control" value="{{ old('slogan') }}">{{ old('slogan') }}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="certified">Certified </label>
+                                    @foreach(config('custom.certified') as $certified)
+                                        <div class="checkbox">
+                                            <label>
+                                                <input name="certified[]" value="{{ $certified }}" type="checkbox">
+                                                <span>{{ $certified }}</span>
+                                            </label>
+                                        </div>
+                                    @endforeach
                                 </div>
                                 <div class="form-group">
                                     <label for="page_title">Page Title</label>
                                     <input type="text" name="page_title" id="page_title" class="form-control" value="{{ old('page_title') }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="meta_keyword">Meta Keyword</label>
-                                    <input type="text" name="meta_keyword" id="meta_keyword" class="form-control" value="{{ old('meta_keyword') }}">
+                                    <label for="meta_keyword">Meta Keyword</label><br>
+                                    <input type="text" name="meta_keyword" id="meta_keyword" class="form-control" data-role="tagsinput" value="{{ old('meta_keyword') }}">
+                                    <span class="help-block">Mỗi tag cách nhau dấu phẩy ( , )</span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="meta_description">Meta Description</label>
-                                    <input type="text" name="meta_description" id="meta_description" class="form-control" value="{{ old('meta_description') }}">
+                                    <label for="meta_description">Meta Description</label><br>
+                                    <input type="text" name="meta_description" id="meta_description" class="form-control" data-role="tagsinput" value="{{ old('meta_description') }}">
+                                    <span class="help-block">Mỗi tag cách nhau dấu phẩy ( , )</span>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">Lưu</button>
@@ -81,10 +94,15 @@
     </script>
     <script>
         $(function() {
-
             $("#image").change(function(){
                 readURL(this, 'image_preview');
             });
+        });
+        $('#wrapper').on('keypress', function(e){
+            if (e.keyCode == 13){
+                e.keyCode = 188;
+                e.preventDefault();
+            };
         });
         function readURL(input, targetID) {
 
