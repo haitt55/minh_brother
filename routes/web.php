@@ -51,7 +51,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     Route::post('/products/store','ProductController@store');
     Route::resource('product_categories', 'ProductCategoryController', ['names' => [
             'index' => 'admin.product_categories.index',
-            'store' => 'admin.product_categories.store',
             'create' => 'admin.product_categories.create',
             'show' => 'admin.product_categories.show',
             'edit' => 'admin.product_categories.edit',
