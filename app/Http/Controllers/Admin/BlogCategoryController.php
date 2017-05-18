@@ -141,10 +141,17 @@ class BlogCategoryController extends Controller
      */
     public function destroy(BlogCategory $blogCategory)
     {
-        try {
-            $blogCategory->destroy();
-        } catch(Exception $e) {
-            Log::info($e->getMessage());
+        $blogCategoryId = $blogCategory->id;
+
+        if (!$blogCategoryId || !$blogCategory) {
+            return view('errors.500');
+        }
+
+        $deleted = $blogCategory->delete();
+        if ($deleted) {
+            return redirect()->route('blog-categories.index')->with('message','Xóa thanh công !');
+        } else {
+            return redirect()->route('blog-categories.index')->with('message','Xóa xảy ra lỗi');
         }
     }
 }
