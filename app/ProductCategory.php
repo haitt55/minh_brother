@@ -46,4 +46,18 @@ class ProductCategory extends Model
 
     	return $options;
     }
+
+    static function getOptionsSearch()
+    {
+        $productCategory = new ProductCategory();
+        $options = array();
+        $productCategories = $productCategory->all()->sortBy('name')->pluck('name', 'slug')->toArray();
+        if ($productCategories) {
+            foreach ($productCategories as $key => $value) {
+                $options[$key] = $value;
+            }
+        }
+
+        return $options;
+    }
 }

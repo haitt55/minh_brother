@@ -141,7 +141,7 @@
 				    <div class="row">
 					    <div class="col-md-3 col-sm-12 col-xs-12">
 						    <div class="logo-unit">
-	        			        <a href="{!! route('front.index') !!}">
+	        			        <a href="{!! route('home.index') !!}">
 									<img class="img-responsive logo_transparent_static visible" src="/wp-content/uploads/2016/08/logobimhanoi-sat.png" style="width: 900px;" alt="BIMhanoi"/>
 						        </a>
 						    </div>

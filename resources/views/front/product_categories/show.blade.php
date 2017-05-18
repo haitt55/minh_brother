@@ -57,23 +57,11 @@
                                 <div class="pull-right select-xs-left">
                                     <select id="product_categories_filter" tabindex="-1"
                                             class="select2-hidden-accessible" aria-hidden="true">
-                                        <option value="http://bim.edu.vn/shop/">All courses</option>
-                                        <option value="http://bim.edu.vn/danh-muc/civil-3d/">AUTOCAD CIVIL 3D</option>
-                                        <option value="http://bim.edu.vn/danh-muc/infraworks/">INFRAWORKS 360</option>
-                                        <option value="http://bim.edu.vn/danh-muc/navisworks-manage/">NAVISWORKS
-                                            MANAGE
-                                        </option>
-                                        <option value="http://bim.edu.vn/danh-muc/revit-architecture/">REVIT
-                                            ARCHITECTURE
-                                        </option>
-                                        <option value="http://bim.edu.vn/danh-muc/revit-building/">Revit Building
-                                        </option>
-                                        <option value="http://bim.edu.vn/danh-muc/revit-mep/"
-                                                selected="">{{ $category->name }}</option>
-                                        <option value="http://bim.edu.vn/danh-muc/revit-structure/">REVIT STRUCTURE
-                                        </option>
-                                        <option value="http://bim.edu.vn/danh-muc/tekla-structures/">TEKLA STRUCTURES
-                                        </option>
+                                        @foreach($categoryOptions as $key => $value)
+                                        <!-- <option value="http://bim.edu.vn/shop/">All courses</option> -->
+                                        <option value="{{ route('product_categories.show', $key) }}"
+                                        @if($key == $category->slug) selected @endif>{{ $value }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
