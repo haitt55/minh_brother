@@ -25,6 +25,9 @@
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/admin/style.css" rel="stylesheet">
 
+    <!--    Tags input-->
+    <link href="/css/admin/bootstrap-tagsinput.css" rel="stylesheet">
+
     <!-- Custom Fonts -->
     <link href="/templates/admin/sbadmin2/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -70,6 +73,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="/templates/admin/sbadmin2/dist/js/sb-admin-2.js"></script>
+    <script src="/js/bootstrap-tagsinput.js"></script>
 
     @yield('inline_scripts')
 

@@ -63,12 +63,14 @@
                                     <input type="text" name="page_title" id="page_title" class="form-control" value="{{ old('page_title', $teacher->page_title) }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="meta_keyword">Meta Keyword</label>
-                                    <input type="text" name="meta_keyword" id="meta_keyword" class="form-control" value="{{ old('meta_keyword', $teacher->meta_keyword) }}">
+                                    <label for="meta_keyword">Meta Keyword</label><br>
+                                    <input type="text" name="meta_keyword" id="meta_keyword" class="form-control" data-role="tagsinput" value="{{ old('meta_keyword', $teacher->meta_keyword) }}">
+                                    <span class="help-block">Mỗi tag cách nhau dấu phẩy ( , )</span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="meta_description">Meta Description</label>
-                                    <input type="text" name="meta_description" id="meta_description" class="form-control" value="{{ old('meta_description', $teacher->meta_description) }}">
+                                    <label for="meta_description">Meta Description</label><br>
+                                    <input type="text" name="meta_description" id="meta_description" class="form-control" data-role="tagsinput" value="{{ old('meta_description', $teacher->meta_description) }}">
+                                    <span class="help-block">Mỗi tag cách nhau dấu phẩy ( , )</span>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">Lưu</button>
@@ -92,7 +94,12 @@
     </script>
     <script>
         $(function() {
-
+            $('#wrapper').on('keypress', function(e){
+                if (e.keyCode == 13){
+                    e.keyCode = 188;
+                    e.preventDefault();
+                };
+            });
             $("#image").change(function(){
                 readURL(this, 'image_preview');
             });
