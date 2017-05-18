@@ -97,19 +97,22 @@
                                         <div class="st_experts experts_list">
                                             <div class="media">
                                                 <div class="media-left expert-media">
-                                                    <img width="129" height="129" src="{{ $teachers[$teacherId]->image }}" class="img-responsive wp-post-image" alt="Giảng viên {{ $teachers[$teacherId]->full_name }}" sizes="(max-width: 129px) 100vw, 129px">																						<div class="expert_socials clearfix">
+                                                    <img width="129" height="129" src="{{ $teachers[$teacherId]->image ? asset($teachers[$teacherId]->image) : asset(config('custom.no_image')) }}" class="img-responsive wp-post-image" alt="Giảng viên {{ $teachers[$teacherId]->full_name }}">
+                                                    <div class="expert_socials clearfix">
                                                     </div>
                                                 </div>
                                                 <div class="media-body">
                                                     <a class="expert_inner_title_link" href="{{ route('teachers.show', $teachers[$teacherId]->slug) }}" title="Xem trang giảng viên">
                                                         <h3 class="expert_inner_title">Giảng viên {{ $teachers[$teacherId]->full_name }}</h3>
                                                     </a>
-                                                    <div class="expert_job">Tekla Structures</div>
+                                                    <div class="expert_job">{{ $teachers[$teacherId]->cateProd }}</div>
                                                     <hr>
                                                     <div class="expert_excerpt">
                                                         <p>{{ $teachers[$teacherId]->slogan }}</p>
                                                     </div>
-                                                    <!--<div class="expert_certified">Certified by <span class="orange">Tekla</span></div>-->
+                                                    @if(!empty($teachers[$teacherId]->certified))
+                                                        <div class="expert_certified">Certified by <span class="orange">{{ $teachers[$teacherId]->certified }}</span></div>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>

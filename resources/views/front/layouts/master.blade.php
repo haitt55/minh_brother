@@ -161,7 +161,7 @@
 								    	<a href="../index.html">Trang chủ</a>
 								    </li>
 									<li id="menu-item-1598" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598">
-										<a href="index.html">Về chúng tôi</a>
+										<a href="{{ route('about.index') }}">Về chúng tôi</a>
 									</li>
 									@foreach($__parentBlogCategory as $blogMenu)
 										@if(count($blogMenu->childs) > 0)
@@ -235,7 +235,7 @@
 			    				<div class="collapse navbar-collapse pull-right">
 				    				<ul class="header-menu clearfix">
 					    				<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1510"><a href="../index.html">Trang chủ</a></li>
-										<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598"><a href="index.html">Về chúng tôi</a></li>
+										<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598"><a href="{{ route('about.index') }}">Về chúng tôi</a></li>
 										@foreach($__parentBlogCategory as $blogMenu)
 											@if(count($blogMenu->childs) > 0)
 											<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1532"><a href="{{ route('blog-menu.index', $blogMenu->slug) }}">{!! $blogMenu->name  !!}</a>
@@ -293,8 +293,8 @@
 								<div class="widget_title"><h3>LINK NHANH</h3></div>
 								<ul class="style_1">
 									<li class="page_item page-item-645"><a href="../blog/index.html"><span class="h6">Blog</span></a></li>
-									<li class="page_item page-item-613"><a href="../giang-vien/index.html"><span class="h6">GIẢNG VIÊN</span></a></li>
-									<li class="page_item page-item-1504"><a href="../khoa-hoc/index.html"><span class="h6">Khóa học</span></a></li>
+									<li class="page_item page-item-613"><a href="{{ route('teachers.index') }}"><span class="h6">GIẢNG VIÊN</span></a></li>
+									<li class="page_item page-item-1504"><a href="{{ route('products.index') }}"><span class="h6">Khóa học</span></a></li>
 								</ul>
 							</aside>
 							<aside id="contacts-2" class="widget widget_contacts">
@@ -381,7 +381,7 @@
 								<div class="pull-right xs-pull-left hidden-sm hidden-xs">
 									<ul class="footer_menu heading_font clearfix">
 									    <li id="menu-item-1513" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1513"><a href="../index.html">home</a></li>
-										<li id="menu-item-1710" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1710"><a href="../khoa-hoc/index.html">Khóa học</a></li>
+										<li id="menu-item-1710" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1710"><a href="{{ route('products.index') }}">Khóa học</a></li>
 										<li id="menu-item-1515" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1515"><a href="../blog/index.html">blog</a></li>
 										<li id="menu-item-1516" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1516"><a href="../events/index.html">events</a></li>
 								    </ul>

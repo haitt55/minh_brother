@@ -11,20 +11,33 @@ use DB;
 class TeachersController extends Controller
 {
 
+    protected $teachers;
+    
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct(Teacher $Teacher)
+    {
+        $this->teachers = $Teacher->getList();
+    }
+    
     /**
      * Show teachers.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Teacher $teacher)
+    public function index()
     {
-        $teachers = $teacher->getList();
+        $teachers = $this->teachers;
         return view('front.teachers.index')->with(compact('teachers'));
     }
 
     public function show($slug)
     {
         $teacher = Teacher::with('products')->where('slug', $slug)->first();
-        return view('front.teachers.show', compact('teacher'));
+        $teachers = $this->teachers;
+        return view('front.teachers.show', compact('teacher', 'teachers'));
     }
 }

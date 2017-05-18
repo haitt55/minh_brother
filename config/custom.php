@@ -1,9 +1,13 @@
 <?php
 return [
-	'product_image_path' => 'upload/products/images',
-	'product_file_path' => 'upload/products/files',
+    'product_image_path' => 'upload/products/images',
+    'product_file_path'  => 'upload/products/files',
     'no_image'           => 'image/no_image.jpg',
-    'blogs' => [
+    'blogs'              => [
         'image_path' => 'upload/blogs/images',
     ],
+    'certified' => [
+        'AUTODESK',
+        'TEKLA',
+    ]
 ];

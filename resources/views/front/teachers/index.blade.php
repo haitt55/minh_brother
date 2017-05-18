@@ -53,7 +53,7 @@
                             <div class="teacher_content">
                                 <div class="teacher_img">
                                     <a href="{{ route('teachers.show', $teacher->slug) }}" title="Watch teacher page">
-                                        <img width="270" height="180" src="{{ $teacher->image }}" class="img-responsive wp-post-image" alt="Giảng viên {{ $teacher->full_name }}">
+                                        <img src="{{ $teacher->image ? asset($teacher->image) : asset(config('custom.no_image')) }}" class="img-responsive wp-post-image" alt="Giảng viên {{ $teacher->full_name }}">
                                     </a>
                                     <div class="expert_socials clearfix text-center">
                                         <div class="display_inline_block">
@@ -63,7 +63,7 @@
                                 <a href="{{ route('teachers.show', $teacher->slug) }}" title="Watch teacher page">
                                     <h4 class="title">Giảng viên {{ $teacher->full_name }}</h4>
                                 </a>
-                                <div class="job heading_font">Tekla Structures</div>
+                                <div class="job heading_font">{{ $teacher->cateProd }}</div>
 
                                 <div class="content">
                                     {!! $teacher->slogan !!}

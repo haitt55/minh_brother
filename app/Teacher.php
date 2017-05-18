@@ -24,7 +24,8 @@ class Teacher extends Model
         'slogan',
         'page_title',
         'meta_keyword',
-        'meta_description'
+        'meta_description',
+        'certified'
     ];
     
     /**
@@ -65,15 +66,50 @@ class Teacher extends Model
     
     static function getList()
     {
+        $model = new Teacher;
         $result = array();
-        //TODO:
-        //$teachers = self::with('products')->get()->sortBy('full_name');
-        $teachers = self::all()->sortBy('full_name');
+        $teachers = self::with('products')->get()->sortBy('full_name');
         foreach ($teachers as $teacher) {
+            $cateIds = array();
+            
+            if ($teacher->products->toArray()) {
+                foreach ($teacher->products as $product) {
+                    !$product->category_id || in_array($product->category_id, $cateIds) ?: array_push($cateIds, $product->category_id); 
+                }
+            }
+            
+            $teacher->cateProd = !empty($cateIds) ? $model->getTextCate($cateIds) : null;
             $result[$teacher->id] = $teacher;
         }
         
         return $result;
+    }
+    
+    /**
+     * Get text categories product of teacher
+     * 
+     * @param array $cateIds
+     * @return string
+     */
+    private function getTextCate($cateIds)
+    {
+        $cateNames = array();
+        $textCate = '';
+        $categories = ProductCategory::get()->toArray();
+        
+        if (!empty($categories)) {
+            foreach ($categories as $category) {
+                $cateNames[$category['id']] = $category['name']; 
+            }
+        }
+        
+        $first = true;
+        foreach ($cateIds as $cateId) {
+            $textCate = $first ? strtoupper($cateNames[$cateId]) : sprintf('%s - %s', strtoupper($textCate), strtoupper($cateNames[$cateId]));
+            $first = false;
+        }
+        
+        return $textCate;
     }
 
     /**
@@ -108,16 +144,17 @@ class Teacher extends Model
     {
         DB::beginTransaction();
         try {
-            $teacher = $this->find($id);
-            $teacher->full_name = $data['full_name'];
-            $teacher->image = isset($data['image']) ? $data['image'] : $teacher->image;
-            $teacher->intro = $data['intro'];
-            $teacher->slogan = $data['slogan'];
-            $teacher->page_title = $data['page_title'];
-            $teacher->meta_keyword = $data['meta_keyword'];
+            $teacher                   = $this->find($id);
+            $teacher->full_name        = $data['full_name'];
+            $teacher->image            = isset($data['image']) ? $data['image'] : $teacher->image;
+            $teacher->intro            = $data['intro'];
+            $teacher->slogan           = $data['slogan'];
+            $teacher->page_title       = $data['page_title'];
+            $teacher->meta_keyword     = $data['meta_keyword'];
             $teacher->meta_description = $data['meta_description'];
-            $saved = $teacher->save();
-            
+            $teacher->certified        = $data['certified'];
+            $saved                     = $teacher->save();
+
             if ($saved) {
                 DB::commit();
                 return $saved;
