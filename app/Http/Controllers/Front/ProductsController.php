@@ -41,6 +41,13 @@ class ProductsController extends Controller
     public function show($slug)
     {
         $product = Product::where('slug', $slug)->first();
-        return view('front.products.show', compact('product'));
+        $this->otherProducts = Product::select('products.*')
+        // ->where('products.slug', '!=', $slug)
+        ->leftJoin('product_categories', function ($join) use ($product) {
+            $join->on('products.category_id', '=', 'product_categories.id');
+        })->orderBy('category_id', 'desc')->take(5)->get();
+
+        return view('front.products.show', compact('product'))->with([
+            'otherProducts' => $this->otherProducts]);
     }
 }
