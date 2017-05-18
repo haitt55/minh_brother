@@ -1,6 +1,6 @@
  @foreach($items as $item)
  <li>
- 	<a href="http://bim.edu.vn/khoa-hoc/revit-mep-standard/" title="Khóa học {{ $item->name }}">
+ 	<a href="{{ route('products.show', $item->slug) }}" title="Khóa học {{ $item->name }}">
 	<img class="img-responsive" style="width:75px;" src="{{ url($item->image) }}">
 	<div class="meta">
 		<div class="title h5">Khóa học {{ $item->name }}</div>								
