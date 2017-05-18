@@ -4,7 +4,7 @@
 <!-- Breads -->
 <nav class="woocommerce-breadcrumb">		
 	<div class="container">
-		<a href="http://bim.edu.vn">Trang chủ</a><i class="fa fa-chevron-right"></i><a href="http://bim.edu.vn/danh-muc/revit-mep/">{{ $product->category ? $product->category->name : '' }}</a><i class="fa fa-chevron-right"></i>Khóa học {{ $product->name }}		</div>
+		<a href="http://bim.edu.vn">Trang chủ</a><i class="fa fa-chevron-right"></i><a href="{{ route('product_categories.show', $product->category? $product->category->slug : '') }}">{{ $product->category ? $product->category->name : '' }}</a><i class="fa fa-chevron-right"></i>Khóa học {{ $product->name }}		</div>
 
 	</nav>
 	<div class="container">
@@ -28,7 +28,7 @@
 						<div class="clearfix">
 							<div class="pull-left meta_pull">
 								<div class="pull-left">
-									<a href="http://bim.edu.vn/teachers/bui-quang-huy/">
+									<a href="{{ route('teachers.show', $product->teacher ? $product->teacher->slug : '') }}">
 										<div class="meta-unit teacher clearfix">
 											<div class="pull-left">
 												<i class="fa-icon-stm_icon_teacher"></i>
@@ -49,7 +49,7 @@
 										<div class="meta_values">
 											<div class="label h6">Category:</div>
 											<div class="value h6">
-												<a href="http://bim.edu.vn/danh-muc/revit-mep/">{{ $product->category ? $product->category->name : '' }}<span>/</span></a>
+												<a href="{{ route('product_categories.show', $product->category? $product->category->slug : '') }}">{{ $product->category ? $product->category->name : '' }}<span>/</span></a>
 											</div>
 										</div>
 									</div>
@@ -244,7 +244,7 @@
 							<!-- Teacher -->
 							<h3 class="teacher_single_product_page_title">Giảng viên</h3>
 							<div class="teacher_single_product_page clearfix">
-								<a href="http://bim.edu.vn/teachers/bui-quang-huy/" title="Watch Expert Page">
+								<a href="{{ route('teachers.show', $product->teacher ? $product->teacher->slug : '') }}" title="Watch Expert Page">
 									<img class="img-responsive" src="http://bim.edu.vn/wp-content/uploads/2015/06/IMG_6163-129x129.jpg">
 									<div class="title h4">Giảng viên {{ $product->teacher ? $product->teacher->full_name : '' }}</div>
 									<label class="job">{{ $product->category ? $product->category->name : '' }}</label>

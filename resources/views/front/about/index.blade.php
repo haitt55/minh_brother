@@ -70,7 +70,7 @@
         </div>
     </div>
 
-    @if($about->teacher_id)
+    @if($about->teacher_id && $about->teacher_id[0])
     <div class="vc_row wpb_row vc_row-fluid">
         <div class="wpb_column vc_column_container vc_col-sm-12">
             <div class="vc_column-inner ">

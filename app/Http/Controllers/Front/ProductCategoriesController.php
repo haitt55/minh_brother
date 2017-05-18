@@ -24,7 +24,7 @@ class ProductCategoriesController extends Controller
     {
 //        $this->middleware('auth');
         $this->teacherOptions = Teacher::getOptions();
-        $this->categoryOptions = ProductCategory::getOptions();
+        $this->categoryOptions = ProductCategory::getOptionsSearch();
     }
 
     /**
@@ -37,12 +37,16 @@ class ProductCategoriesController extends Controller
         //
     }
 
-    public function show($slug)
+    public function show($slug, Request $request)
     {
         $category = ProductCategory::where('slug', $slug)->first();
-        $this->listProducts = Product::select('products.*')
-            ->where('products.category_id', '=', $category->id)
-            ->orderBy('category_id', 'desc')->get();
+        $list = Product::select('products.*')
+            ->where('products.category_id', '=', $category->id);
+        if ($request->get('s'))
+        {
+            $list = $list->where('products.name', 'like', '%'.$request->get('s').'%');
+        }
+        $this->listProducts = $list->orderBy('category_id', 'desc')->get();
         $this->otherProducts = Product::select('products.*')
             ->leftJoin('product_categories', function ($join) {
                 $join->on('products.category_id', '=', 'product_categories.id');
@@ -50,7 +54,8 @@ class ProductCategoriesController extends Controller
 
         return view('front.product_categories.show', compact('category'))->with([
             'listProducts' => $this->listProducts,
-            'otherProducts' => $this->otherProducts
+            'otherProducts' => $this->otherProducts,
+            'categoryOptions' => $this->categoryOptions
         ]);
     }
 }
