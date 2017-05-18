@@ -40,6 +40,17 @@ class ProductCategoriesController extends Controller
     public function show($slug)
     {
         $category = ProductCategory::where('slug', $slug)->first();
-        return view('front.product_categories.show', compact('category'));
+        $this->listProducts = Product::select('products.*')
+            ->where('products.category_id', '=', $category->id)
+            ->orderBy('category_id', 'desc')->get();
+        $this->otherProducts = Product::select('products.*')
+            ->leftJoin('product_categories', function ($join) {
+                $join->on('products.category_id', '=', 'product_categories.id');
+            })->orderBy('category_id', 'desc')->take(5)->get();
+
+        return view('front.product_categories.show', compact('category'))->with([
+            'listProducts' => $this->listProducts,
+            'otherProducts' => $this->otherProducts
+        ]);
     }
 }
