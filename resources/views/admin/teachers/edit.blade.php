@@ -45,7 +45,18 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="slogan">Slogan <span class="required">(*)</span></label>
-                                    <input type="text" name="slogan" id="name" class="form-control" value="{{ old('slogan', $teacher->slogan) }}">
+                                    <textarea name="slogan" id="name" class="form-control" >{{ old('slogan', $teacher->slogan) }}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="certified">Certified </label>
+                                    @foreach(config('custom.certified') as $certified)
+                                        <div class="checkbox">
+                                            <label>
+                                                <input name="certified[]" value="{{ $certified }}" <?= in_array($certified, explode(', ', $teacher->certified)) ? 'checked' : null ?> type="checkbox">
+                                                <span>{{ $certified }}</span>
+                                            </label>
+                                        </div>
+                                    @endforeach
                                 </div>
                                 <div class="form-group">
                                     <label for="page_title">Page Title</label>

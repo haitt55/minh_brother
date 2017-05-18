@@ -73,6 +73,7 @@ class TeachersController extends Controller
             Image::make($image->getRealPath())->save(public_path($imagePath . '/' . $filename));
         }
         $data['image'] = $imagePath . '/' . $filename;
+        $data['certified'] = !empty($data['certified']) ? implode(', ', $data['certified']) : null;
         
         //Create teacher
         $saved = $teacher->createData($data);
@@ -144,6 +145,7 @@ class TeachersController extends Controller
             Image::make($image->getRealPath())->save(public_path($imagePath . '/' . $filename));
             $data['image'] = $imagePath . '/' . $filename;
         }
+        $data['certified'] = !empty($data['certified']) ? implode(', ', $data['certified']) : null;
         
         //Create teacher
         $saved = $teacher->updateData($id, $data);
