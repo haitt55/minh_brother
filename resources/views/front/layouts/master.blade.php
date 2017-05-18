@@ -141,7 +141,7 @@
 				    <div class="row">
 					    <div class="col-md-3 col-sm-12 col-xs-12">
 						    <div class="logo-unit">
-	        			        <a href="../index.html">
+	        			        <a href="{!! route('front.index') !!}">
 									<img class="img-responsive logo_transparent_static visible" src="/wp-content/uploads/2016/08/logobimhanoi-sat.png" style="width: 900px;" alt="BIMhanoi"/>
 						        </a>
 						    </div>
@@ -163,53 +163,13 @@
 									<li id="menu-item-1598" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598">
 										<a href="{{ route('about.index') }}">Về chúng tôi</a>
 									</li>
+									<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598">
+										<a href="#">Khóa học</a>
+									</li>
 									@foreach($__parentBlogCategory as $blogMenu)
-										@if(count($blogMenu->childs) > 0)
-										<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1532">
-											<a href="{{ route('blog-menu.index', $blogMenu->slug) }}">{{ $blogMenu->name }}</a>
-											<ul class="sub-menu">
-												<li id="menu-item-1811" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1811"><a href="http://ebim.edu.vn/khoa-hoc/navisworks-manage/">Navisworks Manage</a></li>
-												<li id="menu-item-1824" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1824"><a href="http://ebim.edu.vn/danh-muc/revit-mep/">Revit MEP</a>
-													<ul class="sub-menu">
-														<li id="menu-item-1809" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1809"><a href="http://ebim.edu.vn/khoa-hoc/revit-mep-standard/">Revit MEP Standard</a></li>
-														<li id="menu-item-1810" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1810"><a href="http://ebim.edu.vn/khoa-hoc/revit-mep-pro/">Revit MEP Advanced</a></li>
-													</ul>
-												</li>
-												<li id="menu-item-3204" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3204"><a href="../khoa-hoc/khoa-hoc-revit-building/index.html">Revit Building</a></li>
-												<li id="menu-item-1825" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1825"><a href="http://ebim.edu.vn/danh-muc/revit-architecture/">Revit Architecture</a>
-													<ul class="sub-menu">
-														<li id="menu-item-1807" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1807"><a href="http://ebim.edu.vn/khoa-hoc/revit-architecture-standard/">Revit Architecture Standard</a></li>
-														<li id="menu-item-1808" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1808"><a href="http://ebim.edu.vn/khoa-hoc/revit-architecture-pro/">Revit Architecture Advanced</a></li>
-													</ul>
-												</li>
-												<li id="menu-item-1826" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1826"><a href="http://ebim.edu.vn/danh-muc/revit-structure/">Revit Structure</a>
-													<ul class="sub-menu">
-														<li id="menu-item-1702" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1702"><a href="http://ebim.edu.vn/khoa-hoc/revit-structure-standard/">Revit Structure Standard</a></li>
-														<li id="menu-item-1806" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1806"><a href="http://ebim.edu.vn/khoa-hoc/revit-structure-pro/">Revit Structure Advanced</a></li>
-													</ul>
-												</li>
-												<li id="menu-item-2647" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2647"><a href="http://ebim.edu.vn/danh-muc/tekla-structures/">Tekla Structures</a>
-													<ul class="sub-menu">
-														<li id="menu-item-2648" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2648"><a href="http://ebim.edu.vn/khoa-hoc/tekla-structure-ket-cau-thep-khoa-trung-cap/">Tekla Structures – Kết cấu thép (Trung cấp)</a></li>
-														<li id="menu-item-2649" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2649"><a href="http://ebim.edu.vn/khoa-hoc/tekla-structure-ket-cau-be-tong-cot-thep-khoa-trung-cap/">Tekla Structures – Kết cấu bê tông (Trung cấp)</a></li>
-														<li id="menu-item-3240" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3240"><a href="../khoa-hoc/khoa-hoc-tekla-cho-nha-thep-tien-che/index.html">Tekla Structures nhà thép tiền chế</a></li>
-													</ul>
-												</li>
-												<li id="menu-item-2737" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2737"><a href="../danh-muc/civil-3d/index.html">AutoCAD Civil 3D</a>
-													<ul class="sub-menu">
-														<li id="menu-item-2735" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2735"><a href="../khoa-hoc/khoa-hoc-civil-3d-giao-thong-thuy-loi/index.html">AutoCAD Civil 3D &#8211; Giao thông thủy lợi</a></li>
-														<li id="menu-item-2734" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2734"><a href="../khoa-hoc/khoa-hoc-civil-3d-ha-tang-ky-thuat/index.html">AutoCAD Civil 3D &#8211; Hạ tầng kỹ thuật</a></li>
-													</ul>
-												</li>
-												<li id="menu-item-2736" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2736"><a href="../khoa-hoc/khoa-hoc-infraworks/index.html">InfraWorks 360</a></li>
-												<li id="menu-item-2216" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2216"><a href="../giao-trinh/index.html">Giáo Trình</a></li>
-											</ul>
-										</li>
-										@else
 										<li iclass="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598">
 											<a href="{{ route('blog-menu.index', $blogMenu->slug) }}">{{ $blogMenu->name }}</a>
 										</li>
-										@endif
 									@endforeach
 									<li id="menu-item-2738" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2738"><a href="../dang-ky-khoa-hoc/index.html">Đăng ký học</a></li>
 									<li id="menu-item-1541" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1541"><a href="../lien-he/index.html">Liên hệ</a></li>
@@ -241,16 +201,10 @@
 											<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1532"><a href="{{ route('blog-menu.index', $blogMenu->slug) }}">{!! $blogMenu->name  !!}</a>
 												<ul class="sub-menu">
 													@foreach($blogMenu->childs as $blogCategory)
-														<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1811">
+														<li class="menu-item menu-item-type-custom menu-item-object-custom">
 															<a href="{!! route('blog-category.show', [$blogMenu->slug, $blogCategory->slug]) !!}">
 																{{ $blogCategory->name }}
 															</a>
-														</li>
-														<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1824"><a href="http://ebim.edu.vn/danh-muc/revit-mep/">Revit MEP</a>
-															<ul class="sub-menu">
-																<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1809"><a href="http://ebim.edu.vn/khoa-hoc/revit-mep-standard/">Revit MEP Standard</a></li>
-																<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1810"><a href="http://ebim.edu.vn/khoa-hoc/revit-mep-pro/">Revit MEP Advanced</a></li>
-															</ul>
 														</li>
 													@endforeach
 												</ul>

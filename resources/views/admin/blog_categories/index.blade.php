@@ -13,6 +13,13 @@
 @endsection
 
 @section('content')
+    @if(session('message'))
+        <div class="alert alert-success" style="margin-top: 10px; margin-bottom: 0px;">
+            <ul>
+                <li>{{session('message')}}</li>
+            </ul>
+        </div>
+    @endif
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Danh mục khóa học</h1>
@@ -61,8 +68,11 @@
                                                 <span class="label {{ $category->active ? 'label-success' : 'label-danger' }}">{{ $category->active ? 'active' : 'inactive' }}</span>
                                             </td>
                                             <td width="20%">
-                                                <a href="{{ route('blog-categories.edit', $category->id) }}" class="btn btn-info" title="Sửa"><i class="fa fa-edit"></i> Sửa</a>
-                                                <button class="btn btn-danger btn-delete" data-link="{{ route('blog-categories.destroy', $category->id) }}" onclick="delete_item(this);"><i class="fa fa-remove"></i> Xóa</button>
+                                                <a href="{{ route('blog-categories.edit', $category->id) }}" class="btn btn-info" title="Sửa" style="float: left; margin-right: 2%"><i class="fa fa-edit"></i> Sửa</a>
+
+                                                {!! Form::open(['method' => 'DELETE', 'route' => ['blog-categories.destroy', $category->id] ]) !!}
+                                                    <button type="submit" class = 'btn btn-danger' onclick = 'return confirm("Bạn chắc chắn muốn xóa?");'><i class="fa fa-close"></i> Xóa</button>
+                                                {!! Form::close() !!}
                                             </td>
                                         </tr>
                                     @endforeach
