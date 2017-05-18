@@ -141,7 +141,7 @@
 				    <div class="row">
 					    <div class="col-md-3 col-sm-12 col-xs-12">
 						    <div class="logo-unit">
-	        			        <a href="../index.html">
+	        			        <a href="{!! route('front.index') !!}">
 									<img class="img-responsive logo_transparent_static visible" src="/wp-content/uploads/2016/08/logobimhanoi-sat.png" style="width: 900px;" alt="BIMhanoi"/>
 						        </a>
 						    </div>
@@ -162,6 +162,9 @@
 								    </li>
 									<li id="menu-item-1598" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598">
 										<a href="index.html">Về chúng tôi</a>
+									</li>
+									<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598">
+										<a href="#">Khóa học</a>
 									</li>
 									@foreach($__parentBlogCategory as $blogMenu)
 										<li iclass="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598">

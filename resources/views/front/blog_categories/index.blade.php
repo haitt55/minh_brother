@@ -27,14 +27,14 @@
 				        	<div class="col-md-12">
 								<div class="post_list_content_unit">
 									<h2 class="post_list_item_title">
-										<a href="../2017/03/30/giai-phap-bim-cho-co-so-ha-tang/index.html" title="Hiển thị đẩy đủ">{!! $blog->name !!}</a>
+										<a href="{!! route('blog.show', [$blog->blogCategory->parent->slug, $blog->blogCategory->slug, $blog->slug]) !!}" title="Hiển thị đẩy đủ">{!! $blog->name !!}</a>
 									</h2>
 									<div class="post_list_meta_unit">
 										<div class="date-d">30</div>
 											<div class="date-m">Th3</div>
 									</div>
 									<div class="post_list_inner_content_unit post_list_inner_content_unit_left">
-										<a href="../2017/03/30/giai-phap-bim-cho-co-so-ha-tang/index.html" title="Read more">
+										<a href="{!! route('blog.show', [$blog->blogCategory->parent->slug, $blog->blogCategory->slug, $blog->slug]) !!}" title="Read more">
 											<div class="post_list_featured_image">
 												<img width="770" height="300" src="/{!! $blog->image !!}" class="img-responsive wp-post-image" alt="{!! $blog->name !!}" />
 											</div>
@@ -45,7 +45,7 @@
 											<a href="{!! route('blog-category.show', [$blog->blogCategory->parent->slug, $blog->blogCategory->slug]) !!}">{!! $blog->blogCategory->name !!}</a><span class="post_list_divider">,</span>
 										</div>
 										<div class="post_list_btn_more" style="margin-top:0;" >
-											<a href="../2017/03/30/giai-phap-bim-cho-co-so-ha-tang/index.html" class="btn btn-default" title="Đọc tiếp">Đọc tiếp</a>
+											<a href="{!! route('blog.show', [$blog->blogCategory->parent->slug, $blog->blogCategory->slug, $blog->slug]) !!}" class="btn btn-default" title="Đọc tiếp">Đọc tiếp</a>
 										</div>
 									</div>
 								</div>
