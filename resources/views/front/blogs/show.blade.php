@@ -18,7 +18,28 @@
             <div class="container">
                 <div class="navxtBreads">
                 <!-- Breadcrumb NavXT 5.6.0 -->
-					<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to BIMhanoi." href="../../index.html" class="home"><span property="name">BIMhanoi</span></a><meta property="position" content="1"></span> &gt; <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to Library." href="../index.html" class="post post-ebim_library-archive"><span property="name">Library</span></a><meta property="position" content="2"></span> &gt; <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to the Đồ án BIM Library Category archives." href="../../library-category/do-an-bim/index.html" class="taxonomy ebim_library_cat"><span property="name">Đồ án BIM</span></a><meta property="position" content="3"></span> &gt; <span property="itemListElement" typeof="ListItem"><span property="name">BÀI TẬP HỌC VIÊN: TRỤ CẦU ĐƯỜNG SẮT TRÊN CAO NHỔN &#8211; CÁT LINH</span><meta property="position" content="4"></span>
+					<span property="itemListElement" typeof="ListItem">
+                        <a property="item" typeof="WebPage" title="Go to BIMhanoi." href="{!! route('front.index') !!}" class="home">
+                            <span property="name">Trang chủ</span>
+                        </a>
+                        <meta property="position" content="1">
+                    </span> &gt;
+                    <span property="itemListElement" typeof="ListItem">
+                        <a property="item" typeof="WebPage" title="Go to Library." href="{!! route('blog-menu.index', $blog->blogCategory->parent->slug) !!}" class="post post-ebim_library-archive">
+                            <span property="name">{!! $blog->blogCategory->parent->name !!}</span>
+                        </a>
+                        <meta property="position" content="2">
+                    </span> &gt;
+                    <span property="itemListElement" typeof="ListItem">
+                        <a property="item" typeof="WebPage" title="Go to the Đồ án BIM Library Category archives." href="{!! route('blog-category.show', [$blog->blogCategory->parent->slug, $blog->blogCategory->slug]) !!}" class="taxonomy ebim_library_cat">
+                            <span property="name">{!! $blog->blogCategory->name !!}</span>
+                        </a>
+                        <meta property="position" content="3">
+                    </span> &gt;
+                    <span property="itemListElement" typeof="ListItem">
+                        <span property="name">{!! $blog->name !!}</span>
+                        <meta property="position" content="4">
+                    </span>
 				</div>
         	</div>
         </div>
@@ -42,7 +63,7 @@
 			                            <span class='st_twitter_large' displayText=''></span>
 			                            <span class='st_googleplus_large' displayText=''></span>
 			                            <script type="text/javascript">var switchTo5x = true;</script>
-			                            <script type="text/javascript" src="../../../w.sharethis.com/button/buttons.js"></script>
+			                            <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 			                            <script type="text/javascript">stLight.options({
 			                                    doNotHash: false,
 			                                    doNotCopy: false,

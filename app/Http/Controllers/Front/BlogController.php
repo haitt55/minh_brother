@@ -33,9 +33,9 @@ class BlogController extends Controller
      * @param  \App\Models\BlogCategory  $blogCategory
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($parent_category, $category, $slug_blog)
     {
-        $blog = Blog::where('slug', $slug)->first();
+        $blog = Blog::where('slug', $slug_blog)->first();
 
         return view('front.blogs.show', compact('blog'));
     }
