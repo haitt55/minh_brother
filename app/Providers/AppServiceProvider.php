@@ -20,6 +20,12 @@ class AppServiceProvider extends ServiceProvider
 
         $__parentBlogCategory = \App\Models\BlogCategory::where('parent_id', 0)->get();
         view()->share('__parentBlogCategory', $__parentBlogCategory);
+
+        $__productCategories = \App\ProductCategory::all();
+        view()->share('__productCategories', $__productCategories);
+
+        $__products = \App\Product::all();
+        view()->share('__products', $__products);
     }
 
     /**

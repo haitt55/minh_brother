@@ -40,12 +40,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="blog_category_id">{{ trans('blogs.attribute.category') }}<span class="required"> (*)</span></label>
-                                    <select type="text" name="blog_category_id" id="blog_category_id" class="form-control" value="{{ old('blog_category_id') }}">
-                                        <option value="">--</option>
-                                        @foreach($categoryOptions as $key => $value)
-                                            <option value="{{ $key }}">{{ $value }}</option>
-                                        @endforeach
-                                    </select>
+                                    {{ Form::select('blog_category_id', $categoryOptions, $blog->blogCategory->id, ['class' => 'form-control']) }}
                                 </div>
                                 <div class="form-group">
                                     <label for="image">{{ trans('blogs.attribute.image') }}</label>

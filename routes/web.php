@@ -103,7 +103,6 @@ Route::group(['namespace' => 'Front'], function() {
     Route::get('/khoa-hoc', ['uses' => 'ProductsController@index', 'as' => 'products.index']);
     Route::get('/khoa-hoc/{slug}', ['uses' => 'ProductsController@show', 'as' => 'products.show']);
     Route::get('/danh-muc/{slug}', ['uses' => 'ProductCategoriesController@show', 'as' => 'product_categories.show']);
-    Route::get('/blog/{slug}', ['uses' => 'BlogController@show', 'as' => 'blogs.show']);
     Route::get('/{slug}', ['uses' => 'BlogCategoryController@index', 'as' => 'blog-menu.index']);
     Route::get('/{parent_category}/{category}', ['uses' => 'BlogCategoryController@show', 'as' => 'blog-category.show']);
     Route::get('/{parent_category}/{category}/{slug_blog}', ['uses' => 'BlogController@show', 'as' => 'blog.show']);

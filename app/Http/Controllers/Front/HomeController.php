@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Front;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Product;
+use App\ProductCategory;
+use App\Models\Blog;
+use App\Models\Student;
 
 class HomeController extends Controller
 {
@@ -23,6 +27,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('front.index');
+        $products = Product::orderBy('updated_at', 'desc')->get();
+        $recentBlogs = Blog::orderBy('updated_at', 'desc')->get()->take(3);
+        $productCategories = ProductCategory::all();
+        $count = [
+            'class' => count($products),
+            'company' => 125,
+            'member' => 230,
+            'student' => count(Student::all()),
+        ];
+
+        return view('front.index', compact('products', 'recentBlogs', 'productCategories', 'count'));
     }
 }

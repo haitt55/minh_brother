@@ -158,14 +158,13 @@
 						    <div class="collapse navbar-collapse header-menu-mobile" id="header_menu_toggler">
 							    <ul class="header-menu clearfix">
 								    <li id="menu-item-1510" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1510">
-								    	<a href="../index.html">Trang chủ</a>
+								    	<a href="{!! route('front.index') !!}">Trang chủ</a>
 								    </li>
 									<li id="menu-item-1598" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598">
 										<a href="index.html">Về chúng tôi</a>
 									</li>
-									<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598">
-										<a href="#">Khóa học</a>
-									</li>
+
+
 									@foreach($__parentBlogCategory as $blogMenu)
 										<li iclass="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598">
 											<a href="{{ route('blog-menu.index', $blogMenu->slug) }}">{{ $blogMenu->name }}</a>
@@ -194,8 +193,36 @@
 							    </div>
 			    				<div class="collapse navbar-collapse pull-right">
 				    				<ul class="header-menu clearfix">
-					    				<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1510"><a href="../index.html">Trang chủ</a></li>
+					    				<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1510"><a href="{!! route('front.index') !!}">Trang chủ</a></li>
 										<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598"><a href="index.html">Về chúng tôi</a></li>
+
+										<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1532">
+                                        <a href="/khoa-hoc/">Khóa học</a>
+										<ul class="sub-menu">
+											@foreach($__products as $product)
+												@if(count($product->category) == 0)
+												<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1811">
+													<a href="{!! route('products.show', $product->slug) !!}">{!! $product->name !!}</a>
+												</li>
+												@endif
+											@endforeach
+											@foreach($__productCategories as $productCategory)
+											<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1824">
+												<a href="{!! route('product_categories.show', $productCategory->slug) !!}">
+													{!! $productCategory->name !!}
+												</a>
+												<ul class="sub-menu">
+													@foreach($productCategory->products as $product)
+														<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1810">
+															<a href="{!! route('products.show', $product->slug) !!}">{!! $product->name !!}</a>
+														</li>
+													@endforeach
+												</ul>
+											</li>
+											@endforeach
+										</ul>
+										<div class="magic_line" style="max-width: 75px;"></div>
+									</li>
 										@foreach($__parentBlogCategory as $blogMenu)
 											@if(count($blogMenu->childs) > 0)
 											<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1532"><a href="{{ route('blog-menu.index', $blogMenu->slug) }}">{!! $blogMenu->name  !!}</a>
@@ -240,7 +267,7 @@
 								<div class="textwidget">
 									<p>BIMhanoi - Trung tâm đào tạo BIM chuyên nghiệp, ủy quyền chính hãng Autodesk</p>
 									<p>Chúng tôi hy vọng xây dựng một cộng đồng BIM Việt Nam vững, mạnh cùng phát triển ngành xây dựng Việt Nam!<br>
-									<a href="index.html" class="btn btn-default">tìm hiểu thêm</a></p>
+									<a href="{!! route('front.index') !!}" class="btn btn-default">tìm hiểu thêm</a></p>
 								</div>
 							</aside>
 							<aside id="stm_pages-2" class="widget widget_pages">
@@ -334,7 +361,7 @@
 								</div>
 								<div class="pull-right xs-pull-left hidden-sm hidden-xs">
 									<ul class="footer_menu heading_font clearfix">
-									    <li id="menu-item-1513" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1513"><a href="../index.html">home</a></li>
+									    <li id="menu-item-1513" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1513"><a href="{!! route('front.index') !!}">home</a></li>
 										<li id="menu-item-1710" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1710"><a href="../khoa-hoc/index.html">Khóa học</a></li>
 										<li id="menu-item-1515" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1515"><a href="../blog/index.html">blog</a></li>
 										<li id="menu-item-1516" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1516"><a href="../events/index.html">events</a></li>
@@ -363,9 +390,6 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript">
-		var cf7_custom_image = '/wp-content/themes/masterstudy-child/assets/img/index.html';
-	</script>
 	<script type='text/javascript' src='/wp-includes/js/jquery/ui/core.mine899.js?ver=1.11.4'></script>
 	<script type='text/javascript' src='/wp-includes/js/jquery/ui/widget.mine899.js?ver=1.11.4'></script>
 	<script type='text/javascript' src='/wp-includes/js/jquery/ui/mouse.mine899.js?ver=1.11.4'></script>
@@ -398,6 +422,8 @@
 	<script type='text/javascript' src='/wp-content/themes/masterstudy/assets/js/custom62ea.js?ver=1.2'></script>
 	<script type='text/javascript' src='/wp-includes/js/wp-embed.minfc12.js?ver=4.5.8'></script>
 	<script type='text/javascript' src='/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min5859.js?ver=4.9.1'></script>
+	<script type='text/javascript' src='/wp-content/plugins/js_composer/assets/lib/bower/skrollr/dist/skrollr.min5859.js?ver=4.9.1'></script>
+	<script type='text/javascript' src='/wp-content/themes/masterstudy/assets/js/countUp.min62ea.js?ver=1.2'></script>
 	<!--Start of Tawk.to Script-->
 	<script type="text/javascript">
 		var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
