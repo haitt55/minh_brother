@@ -71,7 +71,7 @@
                             </div>
                             <div class="multiseparator"></div>
                         </div>
-                        <?= $stt % 4 == 0 ? '</div>' : null ?>
+                        <?= ($stt % 4 == 0) || ($stt == count($teachers)) ? '</div>' : null ?>
                         @endforeach
 
                     </div>

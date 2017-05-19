@@ -34,9 +34,14 @@ class AboutController extends Controller
         if ($linkYoutube) {
             $pattern = "#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#";
             preg_match($pattern, $linkYoutube, $matches);
-            $about->id_youtube = $matches[0];
+            $about->id_youtube = !empty($matches) ? $matches[0] : null;
         }
-        $about->teacher_id = explode(',', $about->teacher_id);
-        return view('front.about.index')->with(['about' => $about, 'teachers' => $this->teachers]);
+        $teachersId = explode(',', $about->teacher_id);
+        foreach ($teachersId as $teacherId) {
+            if (isset($this->teachers[$teacherId])) {
+                $teachers[] = $this->teachers[$teacherId];
+            }
+        }
+        return view('front.about.index')->with(compact('about', 'teachers'));
     }
 }

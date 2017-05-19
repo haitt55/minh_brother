@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCertifiedTeachers extends Migration
+class RemoveSlugAbout extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddCertifiedTeachers extends Migration
      */
     public function up()
     {
-        Schema::table('teachers', function ($table) {
-            $table->string('certified', 50)->nullable();
+        Schema::table('about', function ($table) {
+            $table->dropColumn('slug');
+            $table->dropColumn('page_title');
         });
     }
 
@@ -25,7 +26,7 @@ class AddCertifiedTeachers extends Migration
      */
     public function down()
     {
-        Schema::table('teachers', function ($table) {
+        Schema::table('about', function ($table) {
             $table->dropColumn('delete');
         });
     }
