@@ -32,6 +32,7 @@
 </div>
 
 <div class="container">
+    @if($about->intro)
     <div class="vc_row wpb_row vc_row-fluid vc_custom_1435816078010">
         <div class="wpb_column vc_column_container vc_col-sm-6">
             <div class="vc_column-inner ">
@@ -69,8 +70,9 @@
             </div>
         </div>
     </div>
+    @endif
 
-    @if($about->teacher_id && $about->teacher_id[0])
+    @if(!empty($teachers))
     <div class="vc_row wpb_row vc_row-fluid">
         <div class="wpb_column vc_column_container vc_col-sm-12">
             <div class="vc_column-inner ">
@@ -89,35 +91,35 @@
                             <div class="experts_list">
                                 <div class="expert-carousel-init">
 
-                                    <?php $stt = 0; ?>
-                                    @foreach ($about->teacher_id as $teacherId)
+                                    <?php $stt = 0;?>
+                                    @foreach ($teachers as $teacher)
                                     <?php $stt ++ ?>
                                     <?= $stt % 2 != 0 ? '<div class="row">' : null ?>
                                     <div class="col-md-6 col-sm-12 col-xs-12 expert-single-slide">
                                         <div class="st_experts experts_list">
                                             <div class="media">
                                                 <div class="media-left expert-media">
-                                                    <img width="129" height="129" src="{{ $teachers[$teacherId]->image ? asset($teachers[$teacherId]->image) : asset(config('custom.no_image')) }}" class="img-responsive wp-post-image" alt="Giảng viên {{ $teachers[$teacherId]->full_name }}">
+                                                    <img width="129" height="129" src="{{ $teacher->image ? asset($teacher->image) : asset(config('custom.no_image')) }}" class="img-responsive wp-post-image" alt="Giảng viên {{ $teacher->full_name }}">
                                                     <div class="expert_socials clearfix">
                                                     </div>
                                                 </div>
                                                 <div class="media-body">
-                                                    <a class="expert_inner_title_link" href="{{ route('teachers.show', $teachers[$teacherId]->slug) }}" title="Xem trang giảng viên">
-                                                        <h3 class="expert_inner_title">Giảng viên {{ $teachers[$teacherId]->full_name }}</h3>
+                                                    <a class="expert_inner_title_link" href="{{ route('teachers.show', $teacher->slug) }}" title="Xem trang giảng viên">
+                                                        <h3 class="expert_inner_title">Giảng viên {{ $teacher->full_name }}</h3>
                                                     </a>
-                                                    <div class="expert_job">{{ $teachers[$teacherId]->cateProd }}</div>
+                                                    <div class="expert_job">{{ $teacher->cateProd }}</div>
                                                     <hr>
                                                     <div class="expert_excerpt">
-                                                        <p>{{ $teachers[$teacherId]->slogan }}</p>
+                                                        <p>{{ $teacher->slogan }}</p>
                                                     </div>
-                                                    @if(!empty($teachers[$teacherId]->certified))
-                                                        <div class="expert_certified">Certified by <span class="orange">{{ $teachers[$teacherId]->certified }}</span></div>
+                                                    @if(!empty($teacher->certified))
+                                                        <div class="expert_certified">Certified by <span class="orange">{{ $teacher->certified }}</span></div>
                                                     @endif
                                                 </div>
                                             </div>
                                         </div>
                                     </div> <!-- col -->
-                                    <?= $stt % 2 == 0 ? '</div>' : null ?>
+                                    <?= ($stt % 2 == 0) || ($stt == count($teachers)) ? '</div>' : null ?>
                                     @endforeach
                                     <div class="row"> <!-- open new row in loop -->
                                     </div> <!-- row if style = list -->

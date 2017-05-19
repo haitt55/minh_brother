@@ -47,8 +47,7 @@ class AboutController extends Controller
         //Create validator
         $validator = Validator::make($request->all(), [
             'intro' => 'required',
-            'page_title' => 'required',
-            'link_youtube' => 'active_url',
+            'link_youtube' => 'required|active_url',
         ]);
         if ($validator->fails()) {
             return redirect()->back()
@@ -61,9 +60,7 @@ class AboutController extends Controller
         $teacherId = isset($data['teacher_id']) ? implode(',', $data['teacher_id']) : null;
         
         $about = [
-            'slug'             => create_slug($data['page_title']),
             'intro'            => $data['intro'],
-            'page_title'       => $data['page_title'],
             'link_youtube'     => $data['link_youtube'],
             'certificate'      => $data['certificate'],
             'intro_edu'        => $data['intro_edu'],
