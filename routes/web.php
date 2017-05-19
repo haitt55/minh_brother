@@ -91,21 +91,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     Route::resource('blog-categories', 'BlogCategoryController');
 });
 // Web
-Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home.index']);
-
-Route::get('/layout', function() {
-    return view('front.layouts.master');
-});
 
 Route::group(['namespace' => 'Front'], function() {
-<<<<<<< HEAD
     Route::get('/', ['uses' => 'HomeController@index', 'as' => 'front.index']);
-    Route::get('/about', ['uses' => 'AboutController@index', 'as' => 'about.index']);
-=======
+    Route::get('/dang-ky-hoc', ['uses' => 'HomeController@registerCourse', 'as' => 'register-course.index']);
+    Route::get('/giang-vien', ['uses' => 'TeachersController@index', 'as' => 'teachers.index']);
     Route::get('/ve-chung-toi', ['uses' => 'AboutController@index', 'as' => 'about.index']);
     Route::get('/giang-vien', ['uses' => 'TeachersController@index', 'as' => 'teachers.index']);
     Route::get('/giang-vien/{slug}', ['uses' => 'TeachersController@show', 'as' => 'teachers.show']);
->>>>>>> Add fronted teacher page.
     Route::get('/khoa-hoc', ['uses' => 'ProductsController@index', 'as' => 'products.index']);
     Route::get('/khoa-hoc/{slug}', ['uses' => 'ProductsController@show', 'as' => 'products.show']);
     Route::get('/danh-muc/{slug}', ['uses' => 'ProductCategoriesController@show', 'as' => 'product_categories.show']);
