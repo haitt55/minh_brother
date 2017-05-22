@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 
 class Student extends Authenticatable
 {
+    use Notifiable;
     /**
      * The attributes that are mass assignable.
      *
@@ -72,5 +75,26 @@ class Student extends Authenticatable
     {
         return self::where('id', $id)
           ->update(['del_flg' => true]);
+    }
+    
+    /**
+     * Create student
+     * 
+     * @param array $data
+     * @return boolean
+     */
+    public function createData($data)
+    {
+        DB::beginTransaction();
+        try {
+            $saved = $this->create($data);
+            if ($saved) {
+                DB::commit();
+                return $saved;
+            }
+        } catch (\Exception $e) {
+            Log::info($e->getMessage());
+            DB::rollback();
+        }
     }
 }

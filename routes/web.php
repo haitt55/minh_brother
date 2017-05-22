@@ -98,6 +98,13 @@ Route::get('/layout', function() {
 });
 
 Route::group(['namespace' => 'Front'], function() {
+    Route::get('/tai-khoan', ['uses' => 'Auth\LoginController@showLoginForm', 'as' => 'login.index']);
+    Route::post('login', ['uses' => 'Auth\LoginController@postLogin', 'as' => 'user.login'] );
+    Route::get('logout', ['uses' => 'Auth\LoginController@logout', 'as' => 'user.logout'] );
+    Route::post('register', ['uses' => 'Auth\RegisterController@index', 'as' => 'user.register'] );
+    Route::get('/tai-khoan-cua-toi', ['uses' => 'UsersController@index', 'as' => 'user.index']);
+    Route::get('/quen-mat-khau', ['uses' => 'Auth\ForgotPasswordController@showLinkRequestForm', 'as' => 'forget.index']);
+    Route::post('/sendlink', ['uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail', 'as' => 'forget.sendlink']);
     Route::get('/ve-chung-toi', ['uses' => 'AboutController@index', 'as' => 'about.index']);
     Route::get('/giang-vien', ['uses' => 'TeachersController@index', 'as' => 'teachers.index']);
     Route::get('/giang-vien/{slug}', ['uses' => 'TeachersController@show', 'as' => 'teachers.show']);
