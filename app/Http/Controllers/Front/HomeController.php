@@ -39,4 +39,9 @@ class HomeController extends Controller
 
         return view('front.index', compact('products', 'recentBlogs', 'productCategories', 'count'));
     }
+
+    public function registerCourse()
+    {
+        return view('front.products.register_course');
+    }
 }

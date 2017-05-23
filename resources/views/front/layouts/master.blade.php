@@ -168,7 +168,9 @@
 											<a href="{{ route('blog-menu.index', $blogMenu->slug) }}">{{ $blogMenu->name }}</a>
 										</li>
 									@endforeach
-									<li id="menu-item-2738" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2738"><a href="../dang-ky-khoa-hoc/index.html">Đăng ký học</a></li>
+									<li id="menu-item-2738" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2738">
+										<a href="{!! route('register-course.index') !!}">Đăng ký học</a>
+									</li>
 									<li id="menu-item-1541" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1541"><a href="../lien-he/index.html">Liên hệ</a></li>
 				                    <li>
 				                    	<form role="search" method="get" id="searchform-mobile" action="http://bim.edu.vn/">
@@ -242,7 +244,7 @@
 												<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2738"><a href="{{ route('blog-menu.index', $blogMenu->slug) }}">{{ $blogMenu->name }}</a></li>
 											@endif
 										@endforeach
-										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2738"><a href="../dang-ky-khoa-hoc/index.html">Đăng ký học</a></li>
+										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2738"><a href="{!! route('register-course.index') !!}">Đăng ký học</a></li>
 										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1541"><a href="../lien-he/index.html">Liên hệ</a></li>
 				    				</ul>
 			    				</div>
