@@ -5,11 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Teacher;
 
-class AboutController extends Controller
+class AboutController extends AdminController
 {
     /**
      * Create a new controller instance.
@@ -19,7 +18,7 @@ class AboutController extends Controller
     public function __construct()
     {
         $this->teachers= Teacher::getList();
-        $this->middleware('auth.admin');
+        parent::__construct();
     }
     
     /**
