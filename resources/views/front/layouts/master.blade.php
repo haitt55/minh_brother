@@ -439,5 +439,6 @@
 		})();
 	</script>
 	<!--End of Tawk.to Script-->
+	@yield('inline_scripts')
 </body>
 </html>

@@ -105,4 +105,5 @@ Route::group(['namespace' => 'Front'], function() {
     Route::get('/{parent_category}/{category}', ['uses' => 'BlogCategoryController@show', 'as' => 'blog-category.show']);
     Route::get('/{parent_category}/{category}/{slug_blog}', ['uses' => 'BlogController@show', 'as' => 'blog.show']);
     // Route::get('/blog/{slug}', ['uses' => 'BlogController@show', 'as' => 'blogs.show']);
+    Route::post('/comment/store',['uses' => 'CommentsController@store', 'as' => 'comment.store']);
 });
