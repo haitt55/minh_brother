@@ -22,7 +22,7 @@
                 <div class="col-md-6 col-sm-12">
                     <form method="post" class="lost_reset_password" action="{{ route('forget.sendlink') }}">
                         
-                        @include('admin.layouts.partials.errors')
+                        @include('front.layouts.partials.errors_student')
                         {{ csrf_field() }}
                         
                         <p>Quên mật khẩu? Vui lòng nhập tên đăng nhập hoặc địa chỉ email. Bạn sẽ nhận được một liên kết tạo mật khẩu mới qua email.</p>

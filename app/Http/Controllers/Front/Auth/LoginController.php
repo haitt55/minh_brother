@@ -65,9 +65,9 @@ class LoginController extends Controller
             'password' => 'required|min:6'
         ];
         $messages  = [
-            'email.required'    => 'Email là trường bắt buộc',
+            'email.required'    => 'Bạn chưa nhập email',
             'email.email'       => 'Email không đúng định dạng',
-            'password.required' => 'Mật khẩu là trường bắt buộc',
+            'password.required' => 'Bạn chưa nhập mật khẩu',
             'password.min'      => 'Mật khẩu phải chứa ít nhất 6 ký tự',
         ];
         $validator = Validator::make($request->all(), $rules, $messages);
