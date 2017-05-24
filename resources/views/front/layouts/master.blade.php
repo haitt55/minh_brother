@@ -173,9 +173,9 @@
 									</li>
 									<li id="menu-item-1541" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1541"><a href="../lien-he/index.html">Liên hệ</a></li>
 				                    <li>
-				                    	<form role="search" method="get" id="searchform-mobile" action="http://bim.edu.vn/">
+				                    	<form role="search" method="get" id="searchform-mobile" action="{!! route('front.search') !!}">
 										    <div class="search-wrapper">
-										        <input placeholder="Tìm kiếm..." type="text" class="form-control search-input" value="" name="s" />
+										        <input placeholder="Tìm kiếm..." type="text" class="form-control search-input" value="" name="search" />
 										        <button type="submit" class="search-submit" ><i class="fa fa-search"></i></button>
 										    </div>
 										</form>
@@ -384,9 +384,9 @@
 			<div class="modal-content">
 				<div class="modal-body heading_font">
 					<div class="search-title">Tìm kiếm</div>
-					<form role="search" method="get" id="searchform" action="http://bim.edu.vn/">
+					<form role="search" method="get" id="searchform" action="{!! route('front.search') !!}">
 					    <div class="search-wrapper">
-					        <input placeholder="Gõ vào đây..." type="text" class="form-control search-input" value="" name="s" id="s" />
+					        <input placeholder="Gõ vào đây..." type="text" class="form-control search-input" value="" name="search" id="s" />
 					        <button type="submit" class="search-submit" ><i class="fa fa-search"></i></button>
 					    </div>
 					</form>

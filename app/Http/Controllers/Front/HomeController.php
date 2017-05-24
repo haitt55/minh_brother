@@ -44,4 +44,11 @@ class HomeController extends Controller
     {
         return view('front.products.register_course');
     }
+
+    public function search(Request $request)
+    {
+        $products = Product::where('name', 'LIKE', '%' . $request->get('search') . '%')->get();
+
+        return view('front.search', compact('products'));
+    }
 }
