@@ -2,7 +2,7 @@
 <ul class="woocommerce-error">
     @foreach($errors->all() as $error)
     <li>
-        <i class="fa fa-times"></i><span>Error.</span> <strong>Error:</strong>
+        <i class="fa fa-times"></i><span>Error.</span> 
         {{ $error }}
     </li>
     @endforeach

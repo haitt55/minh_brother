@@ -164,4 +164,33 @@ class Student extends Authenticatable
             DB::rollback();
         }
     }
+    
+    /**
+     * Update student info
+     * 
+     * @param int $id
+     * @param array $data
+     * @return boolean
+     */
+    public function updateInfo($id, $data)
+    {
+        $student = $this->find($id);
+
+        DB::beginTransaction();
+        try {
+            $student->first_name = $data['first_name'];
+            $student->last_name  = $data['last_name'];
+            $student->email      = $data['email'];
+            $student->password   = $data['password'] ? bcrypt($data['password']) : $student->password;
+            $saved               = $student->save();
+
+            if ($saved) {
+                DB::commit();
+                return $saved;
+            }
+        } catch (\Exception $e) {
+            Log::info('Error update recieve info of student id: ' . $id);
+            DB::rollback();
+        }
+    }
 }

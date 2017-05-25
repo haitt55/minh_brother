@@ -104,11 +104,14 @@ Route::group(['namespace' => 'Front'], function() {
     Route::post('/tai-khoan/register', ['uses' => 'Auth\RegisterController@index', 'as' => 'user.register'] );
     Route::get('/tai-khoan/quen-mat-khau', ['uses' => 'Auth\ForgotPasswordController@showLinkRequestForm', 'as' => 'forget.index']);
     Route::post('/tai-khoan/sendlink', ['uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail', 'as' => 'forget.sendlink']);
+    Route::get('password/reset/{token}', ['uses' => 'Auth\ResetPasswordController@showResetForm', 'as' => 'password.reset']);
     Route::get('/tai-khoan-cua-toi', ['uses' => 'UsersController@index', 'as' => 'user.index']);
     Route::get('/tai-khoan/thanh-toan', ['uses' => 'UsersController@editPayment', 'as' => 'user.edit_payment']);
     Route::post('/users/updatePayment', ['uses' => 'UsersController@updatePayment', 'as' => 'user.update_payment']);
     Route::get('/tai-khoan/giao-nhan', ['uses' => 'UsersController@editRecieve', 'as' => 'user.edit_recieve']);
     Route::post('/users/updateRecieve', ['uses' => 'UsersController@updateRecieve', 'as' => 'user.update_recieve']);
+    Route::get('/tai-khoan/cap-nhat', ['uses' => 'UsersController@editInfo', 'as' => 'user.edit_info']);
+    Route::post('/tai-khoan/updateInfo', ['uses' => 'UsersController@updateInfo', 'as' => 'user.update_info']);
     Route::get('/ve-chung-toi', ['uses' => 'AboutController@index', 'as' => 'about.index']);
     Route::get('/giang-vien', ['uses' => 'TeachersController@index', 'as' => 'teachers.index']);
     Route::get('/giang-vien/{slug}', ['uses' => 'TeachersController@show', 'as' => 'teachers.show']);

@@ -26,12 +26,12 @@ class UserReciveRequest extends FormRequest
     public function rules()
     {
         return [
-            'recieve_first_name'   => 'required|max:255',
-            'recieve_last_name'    => 'required|max:255',
-            'recieve_company_name' => 'max:255',
+            'recieve_first_name'   => 'required|max:50',
+            'recieve_last_name'    => 'required|max:50',
+            'recieve_company_name' => 'max:50',
             'recieve_country'      => 'required',
-            'recieve_address'      => 'required|max:255',
-            'recieve_city'         => 'required|max:255',
+            'recieve_address'      => 'required|max:50',
+            'recieve_city'         => 'required|max:50',
             'recieve_post_code'    => 'postcode',
         ];
     }
@@ -44,15 +44,15 @@ class UserReciveRequest extends FormRequest
     public function messages()
     {
         return [
-            'recieve_first_name.required' => 'Họ là trường bắt buộc',
+            'recieve_first_name.required' => 'Vui lòng nhập họ của bạn',
             'recieve_first_name.max'      => 'Họ của bạn không hợp lệ',
-            'recieve_last_name.required'  => 'Tên là trường bắt buộc',
-            'recieve_last_name.max'       => 'Tên không hợp lệ',
+            'recieve_last_name.required'  => 'Vui lòng nhập tên của bạn',
+            'recieve_last_name.max'       => 'Tên của bạn không hợp lệ',
             'recieve_company_name.max'    => 'Tên công ty không hợp lệ',
-            'recieve_country.required'    => 'Tên quốc gia là trường bắt buộc',
-            'recieve_address.required'    => 'Địa chỉ là trường bắt buộc',
+            'recieve_country.required'    => 'Vui lòng chọn quốc gia',
+            'recieve_address.required'    => 'Vui lòng nhập địa chỉ',
             'recieve_address.max'         => 'Địa chỉ không hợp lệ',
-            'recieve_city.required'       => 'Địa chỉ tỉnh/thành phố là trường bắt buộc',
+            'recieve_city.required'       => 'Vui lòng nhập địa chỉ tỉnh/thành phố',
             'recieve_city.max'            => 'Địa chỉ tỉnh/thành phố không hợp lệ',
             'recieve_post_code.postcode'  => 'Mã bưu điện không hợp lệ',
         ];

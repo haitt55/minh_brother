@@ -40,4 +40,16 @@ class ForgotPasswordController extends Controller
         return view('front.auth.passwords.forget');
     }
     
+    /**
+     * Get the response for a successful password reset link.
+     *
+     * @param  string  $response
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function sendResetLinkResponse()
+    {
+        //TODO: send mail
+        return view('front.auth.passwords.send_link_success');
+    }
+    
 }

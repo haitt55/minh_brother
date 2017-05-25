@@ -28,7 +28,7 @@
                     Hello <strong>{{ Auth::user()->email }}</strong> (not {{ Auth::user()->email }}? 
                     <a href="{{ route('user.logout') }}">Sign out</a>).
                     From your account dashboard you can view your recent orders, manage your shipping and billing addresses and 
-                    <a href="/edit-account/">edit your password and account details</a>.
+                    <a href="{{ route('user.edit_info') }}">edit your password and account details</a>.
                 </p>
             @endif
             
