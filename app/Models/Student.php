@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use App\Notifications\ResetPassword as ResetPasswordNotification;
 
 class Student extends Authenticatable
 {
@@ -43,6 +44,12 @@ class Student extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    public function sendPasswordResetNotification($token)
+    {
+        // Your your own implementation.
+        $this->notify(new ResetPasswordNotification($token));
+    }
     
     /**
      * Get student by email

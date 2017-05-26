@@ -104,7 +104,8 @@ Route::group(['namespace' => 'Front'], function() {
     Route::post('/tai-khoan/register', ['uses' => 'Auth\RegisterController@index', 'as' => 'user.register'] );
     Route::get('/tai-khoan/quen-mat-khau', ['uses' => 'Auth\ForgotPasswordController@showLinkRequestForm', 'as' => 'forget.index']);
     Route::post('/tai-khoan/sendlink', ['uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail', 'as' => 'forget.sendlink']);
-    Route::get('password/reset/{token}', ['uses' => 'Auth\ResetPasswordController@showResetForm', 'as' => 'password.reset']);
+    Route::get('password/reset/{token}/{email}', ['uses' => 'Auth\ResetPasswordController@showResetForm', 'as' => 'password.reset']);
+    Route::post('password/reset', ['uses' => 'Auth\ResetPasswordController@reset', 'as' => 'lostpass.reset']);
     Route::get('/tai-khoan-cua-toi', ['uses' => 'UsersController@index', 'as' => 'user.index']);
     Route::get('/tai-khoan/thanh-toan', ['uses' => 'UsersController@editPayment', 'as' => 'user.edit_payment']);
     Route::post('/users/updatePayment', ['uses' => 'UsersController@updatePayment', 'as' => 'user.update_payment']);

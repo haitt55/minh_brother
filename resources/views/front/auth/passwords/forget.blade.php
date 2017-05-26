@@ -29,13 +29,12 @@
 
                         <p class="form-row form-row-first">
                             <label for="user_login">Tên đăng nhập hoặc email</label>
-                            <input class="input-text" type="email" name="email" id="email">
+                            <input class="input-text" type="email" name="email" id="email" value="{{ old('email') }}">
                         </p>
 
                         <div class="clear"></div>
 
                         <p class="form-row">
-                            <input type="hidden" name="wc_reset_password" value="true">
                             <input type="submit" class="button" value="Đặt lại mật khẩu">
                         </p>		
                     </form>

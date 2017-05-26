@@ -118,7 +118,7 @@
                                                             <a href="{{ route('login.index') }}">Đăng ký</a>
                                                         @else
                                                             <a href="{{ route('user.index') }}">
-                                                                <i class="fa fa-user"></i>{{ Auth::user()->email }}
+                                                                <i class="fa fa-user"></i>{{ show_username(Auth::user()->email) }}
                                                             </a>
                                                             <span class="vertical_divider"></span>
                                                             <a href="{{ route('user.logout') }}">Đăng xuất</a>

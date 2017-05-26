@@ -25,7 +25,7 @@
             @include('front.layouts.partials.errors_student')
             @if(!session()->has('message'))
                 <p class="myaccount_user">
-                    Hello <strong>{{ Auth::user()->email }}</strong> (not {{ Auth::user()->email }}? 
+                    Hello <strong>{{ show_username(Auth::user()->email) }}</strong> (not {{ show_username(Auth::user()->email) }}? 
                     <a href="{{ route('user.logout') }}">Sign out</a>).
                     From your account dashboard you can view your recent orders, manage your shipping and billing addresses and 
                     <a href="{{ route('user.edit_info') }}">edit your password and account details</a>.

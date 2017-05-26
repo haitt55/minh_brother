@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Front\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
 
 class ForgotPasswordController extends Controller
 {
@@ -48,7 +51,6 @@ class ForgotPasswordController extends Controller
      */
     public function sendResetLinkResponse()
     {
-        //TODO: send mail
         return view('front.auth.passwords.send_link_success');
     }
     
