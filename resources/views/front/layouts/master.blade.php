@@ -106,15 +106,23 @@
 				<div class="container">
 					<div class="clearfix">
 						<!-- Header Top bar Login -->
-						<div class="pull-right hidden-xs">
-							<div class="header_login_url">
-								<a href="../tai-khoan-bimhanoi/index.html">
-									<i class="fa fa-user"></i>Đăng nhập
-								</a>
-								<span class="vertical_divider"></span>
-								<a href="../tai-khoan-bimhanoi/index.html">Đăng ký</a>
-							</div>
-						</div>
+                                                <div class="pull-right hidden-xs">
+                                                    <div class="header_login_url">
+                                                        @if(!Auth::user())
+                                                            <a href="{{ route('login.index') }}">
+                                                                <i class="fa fa-user"></i>Đăng nhập
+                                                            </a>
+                                                            <span class="vertical_divider"></span>
+                                                            <a href="{{ route('login.index') }}">Đăng ký</a>
+                                                        @else
+                                                            <a href="{{ route('user.index') }}">
+                                                                <i class="fa fa-user"></i>{{ show_username(Auth::user()->email) }}
+                                                            </a>
+                                                            <span class="vertical_divider"></span>
+                                                            <a href="{{ route('user.logout') }}">Đăng xuất</a>
+                                                        @endif    
+                                                    </div>
+                                                </div>
 						<!-- Header top bar Socials -->
 						<div class="pull-right">
 							<div class="header_top_bar_socs">
@@ -245,7 +253,7 @@
 											@endif
 										@endforeach
 										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2738"><a href="{!! route('register-course.index') !!}">Đăng ký học</a></li>
-										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1541"><a href="../lien-he/index.html">Liên hệ</a></li>
+										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1541"><a href="{!! route('front.contact') !!}">Liên hệ</a></li>
 				    				</ul>
 			    				</div>
 		    				</div>
@@ -269,17 +277,17 @@
 							<aside id="text-2" class="widget widget_text">
 								<div class="widget_title"><h3>VỀ CHÚNG TÔI</h3></div>
 								<div class="textwidget">
-									<p>BIMhanoi - Trung tâm đào tạo BIM chuyên nghiệp, ủy quyền chính hãng Autodesk</p>
-									<p>Chúng tôi hy vọng xây dựng một cộng đồng BIM Việt Nam vững, mạnh cùng phát triển ngành xây dựng Việt Nam!<br>
-									<a href="{!! route('front.index') !!}" class="btn btn-default">tìm hiểu thêm</a></p>
+									{!! str_limit(DB::table('about')->first()->intro, 300) !!}
+									<br>
+									<a href="{!! route('about.index') !!}" class="btn btn-default">tìm hiểu thêm</a></p>
 								</div>
 							</aside>
 							<aside id="stm_pages-2" class="widget widget_pages">
 								<div class="widget_title"><h3>LINK NHANH</h3></div>
 								<ul class="style_1">
-									<li class="page_item page-item-645"><a href="../blog/index.html"><span class="h6">Blog</span></a></li>
-									<li class="page_item page-item-613"><a href="../giang-vien/index.html"><span class="h6">GIẢNG VIÊN</span></a></li>
-									<li class="page_item page-item-1504"><a href="../khoa-hoc/index.html"><span class="h6">Khóa học</span></a></li>
+									<li class="page_item page-item-645"><a href="/blog"><span class="h6">Blog</span></a></li>
+									<li class="page_item page-item-613"><a href="{!! route('teachers.index') !!}"><span class="h6">GIẢNG VIÊN</span></a></li>
+									<li class="page_item page-item-1504"><a href="{!! route('products.index') !!}"><span class="h6">Khóa học</span></a></li>
 								</ul>
 							</aside>
 							<aside id="contacts-2" class="widget widget_contacts">
@@ -357,7 +365,6 @@
 										<div class="copyright_socials">
 											<ul class="clearfix">
 												<li><a href='https://www.facebook.com/bimhanoi.edu.vn/'><i class='fa fa-facebook'></i></a></li>
-												<li><a href='https://www.linkedin.com/in/bim-hà-nội-698220130/'><i class='fa fa-linkedin'></i></a></li>
 												<li><a href='https://www.youtube.com/channel/UCMK2Riz0tx1_xiKAnio1c_Q'><i class='fa fa-youtube'></i></a></li>
 											</ul>
 										</div>
@@ -366,9 +373,7 @@
 								<div class="pull-right xs-pull-left hidden-sm hidden-xs">
 									<ul class="footer_menu heading_font clearfix">
 									    <li id="menu-item-1513" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1513"><a href="{!! route('front.index') !!}">home</a></li>
-										<li id="menu-item-1710" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1710"><a href="../khoa-hoc/index.html">Khóa học</a></li>
-										<li id="menu-item-1515" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1515"><a href="../blog/index.html">blog</a></li>
-										<li id="menu-item-1516" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1516"><a href="../events/index.html">events</a></li>
+										<li id="menu-item-1710" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1710"><a href="{!! route('products.index') !!}">Khóa học</a></li>
 								    </ul>
 								</div>
 							</div>

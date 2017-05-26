@@ -51,4 +51,9 @@ class HomeController extends Controller
 
         return view('front.search', compact('products'));
     }
+
+    public function contact(Request $request)
+    {
+        return view('front.contact');
+    }
 }

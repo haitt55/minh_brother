@@ -118,3 +118,9 @@ function get_time_from_now($time) {
         return $diff->m . ' month ago';
     }
 }
+
+function show_username($email)
+{
+    $position = strpos($email, "@");
+    return substr_replace($email, '', $position);
+}

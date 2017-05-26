@@ -676,7 +676,7 @@
                         </div>
                     </div>
                     <div class="heading_font text-center  btn_number_31074">
-                        <a href="/dang-ky-khoa-hoc/" class="icon-btn" title="ĐĂNG KÝ NGAY" style="color:#ffffff; border-color:#ffffff;" >
+                        <a href="{!! route('register-course.index') !!}" class="icon-btn" title="ĐĂNG KÝ NGAY" style="color:#ffffff; border-color:#ffffff;" >
                             <i class="fa fa-icon-stm_icon_doc_edit icon_in_btn" style="color:#ffffff; border-color:#ffffff; font-size:20px;"></i>
                             <span class="link-title" style="background-color:rgba(255,255,255,0.01);">Đăng ký học</span>
                         </a>
@@ -740,8 +740,8 @@
                                                     <div class="row">
                                                         <div class="col-md-3 col-sm-4 col-xs-12">
                                                             <div class="post_list_meta_unit">
-                                                                <div class="date-d">30</div>
-                                                                <div class="date-m">Th3</div>
+                                                                <div class="date-d">{!! rebuild_date('d', $recentBlog->updated_at->timestamp) !!}</div>
+                                                                <div class="date-m">{!! rebuild_date('M', $recentBlog->updated_at->timestamp) !!}</div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-9 col-sm-8 col-xs-12 ">

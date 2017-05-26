@@ -6,20 +6,9 @@ use App\Teacher;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class TeachersController extends Controller
+class TeachersController extends AdminController
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth.admin');
-    }
-    
     /**
      * Display a listing of the resource.
      *

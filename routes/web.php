@@ -35,7 +35,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     $this->delete('students/destroy', 'StudentsController@destroy')->name('admin.students.destroy');
 
     Route::get('/home', 'HomeController@index');
-    Route::group(['middleware' => 'auth.admin'], function () {
+    Route::group(['middleware' => 'auth:admins'], function () {
         Route::get('/', ['uses' => 'HomeController@index', 'as' => 'admin.home.index']);
     });
 
@@ -93,9 +93,25 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
 // Web
 
 Route::group(['namespace' => 'Front'], function() {
+    Route::get('/tai-khoan', ['uses' => 'Auth\LoginController@showLoginForm', 'as' => 'login.index']);
+    Route::post('tai-khoan/login', ['uses' => 'Auth\LoginController@postLogin', 'as' => 'user.login'] );
+    Route::get('/tai-khoan/logout', ['uses' => 'Auth\LoginController@logout', 'as' => 'user.logout'] );
+    Route::post('/tai-khoan/register', ['uses' => 'Auth\RegisterController@index', 'as' => 'user.register'] );
+    Route::get('/tai-khoan/quen-mat-khau', ['uses' => 'Auth\ForgotPasswordController@showLinkRequestForm', 'as' => 'forget.index']);
+    Route::post('/tai-khoan/sendlink', ['uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail', 'as' => 'forget.sendlink']);
+    Route::get('password/reset/{token}/{email}', ['uses' => 'Auth\ResetPasswordController@showResetForm', 'as' => 'password.reset']);
+    Route::post('password/reset', ['uses' => 'Auth\ResetPasswordController@reset', 'as' => 'lostpass.reset']);
+    Route::get('/tai-khoan-cua-toi', ['uses' => 'UsersController@index', 'as' => 'user.index']);
+    Route::get('/tai-khoan/thanh-toan', ['uses' => 'UsersController@editPayment', 'as' => 'user.edit_payment']);
+    Route::post('/users/updatePayment', ['uses' => 'UsersController@updatePayment', 'as' => 'user.update_payment']);
+    Route::get('/tai-khoan/giao-nhan', ['uses' => 'UsersController@editRecieve', 'as' => 'user.edit_recieve']);
+    Route::post('/users/updateRecieve', ['uses' => 'UsersController@updateRecieve', 'as' => 'user.update_recieve']);
+    Route::get('/tai-khoan/cap-nhat', ['uses' => 'UsersController@editInfo', 'as' => 'user.edit_info']);
+    Route::post('/tai-khoan/updateInfo', ['uses' => 'UsersController@updateInfo', 'as' => 'user.update_info']);
     Route::get('/', ['uses' => 'HomeController@index', 'as' => 'front.index']);
     Route::get('/dang-ky-hoc', ['uses' => 'HomeController@registerCourse', 'as' => 'register-course.index']);
     Route::get('/tim-kiem', ['uses' => 'HomeController@search', 'as' => 'front.search']);
+    Route::get('/lien-he', ['uses' => 'HomeController@contact', 'as' => 'front.contact']);
     Route::get('/giang-vien', ['uses' => 'TeachersController@index', 'as' => 'teachers.index']);
     Route::get('/ve-chung-toi', ['uses' => 'AboutController@index', 'as' => 'about.index']);
     Route::get('/giang-vien', ['uses' => 'TeachersController@index', 'as' => 'teachers.index']);
