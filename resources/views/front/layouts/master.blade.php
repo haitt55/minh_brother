@@ -106,15 +106,23 @@
 				<div class="container">
 					<div class="clearfix">
 						<!-- Header Top bar Login -->
-						<div class="pull-right hidden-xs">
-							<div class="header_login_url">
-								<a href="../tai-khoan-bimhanoi/index.html">
-									<i class="fa fa-user"></i>Đăng nhập
-								</a>
-								<span class="vertical_divider"></span>
-								<a href="../tai-khoan-bimhanoi/index.html">Đăng ký</a>
-							</div>
-						</div>
+                                                <div class="pull-right hidden-xs">
+                                                    <div class="header_login_url">
+                                                        @if(!Auth::user())
+                                                            <a href="{{ route('login.index') }}">
+                                                                <i class="fa fa-user"></i>Đăng nhập
+                                                            </a>
+                                                            <span class="vertical_divider"></span>
+                                                            <a href="{{ route('login.index') }}">Đăng ký</a>
+                                                        @else
+                                                            <a href="{{ route('user.index') }}">
+                                                                <i class="fa fa-user"></i>{{ show_username(Auth::user()->email) }}
+                                                            </a>
+                                                            <span class="vertical_divider"></span>
+                                                            <a href="{{ route('user.logout') }}">Đăng xuất</a>
+                                                        @endif    
+                                                    </div>
+                                                </div>
 						<!-- Header top bar Socials -->
 						<div class="pull-right">
 							<div class="header_top_bar_socs">

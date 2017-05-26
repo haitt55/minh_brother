@@ -17,6 +17,8 @@ class CreateStudentsTable extends Migration
             $table->increments('id');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('first_name', 50)->nullable();
+            $table->string('last_name', 50)->nullable();;
             //payment address
             $table->string('payment_first_name', 50)->nullable();
             $table->string('payment_last_name', 50)->nullable();;

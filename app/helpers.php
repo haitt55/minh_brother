@@ -27,3 +27,8 @@ function get_time_from_now($time) {
     }
 }
 
+function show_username($email)
+{
+    $position = strpos($email, "@");
+    return substr_replace($email, '', $position);
+}
