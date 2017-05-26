@@ -8,6 +8,7 @@ use App\Product;
 use App\ProductCategory;
 use App\Models\Blog;
 use App\Models\Student;
+use App\Models\Customer;
 
 class HomeController extends Controller
 {
@@ -55,5 +56,31 @@ class HomeController extends Controller
     public function contact(Request $request)
     {
         return view('front.contact');
+    }
+
+    public function customerContact(Request $request)
+    {
+        try {
+            $data = [
+                'name' => $request->get('name'),
+                'email' => $request->get('email'),
+                'subject' => $request->get('subject'),
+                'message' => $request->get('message'),
+            ];
+            $customer = Customer::create($data);
+
+            return response()->json([
+                // 'name' => $data['name'],
+                // 'comment' => $data['message'],
+                'success' => true,
+            ]);
+            // return redirect()->route('front.contact');
+        } catch(Exception $e) {
+            Log::info($e);
+
+            return response()->json([
+                'success' => false,
+            ]);
+        }
     }
 }

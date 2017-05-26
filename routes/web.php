@@ -112,6 +112,7 @@ Route::group(['namespace' => 'Front'], function() {
     Route::get('/dang-ky-hoc', ['uses' => 'HomeController@registerCourse', 'as' => 'register-course.index']);
     Route::get('/tim-kiem', ['uses' => 'HomeController@search', 'as' => 'front.search']);
     Route::get('/lien-he', ['uses' => 'HomeController@contact', 'as' => 'front.contact']);
+    Route::post('/customer-contact', ['uses' => 'HomeController@customerContact', 'as' => 'front.contact.comment']);
     Route::get('/giang-vien', ['uses' => 'TeachersController@index', 'as' => 'teachers.index']);
     Route::get('/ve-chung-toi', ['uses' => 'AboutController@index', 'as' => 'about.index']);
     Route::get('/giang-vien', ['uses' => 'TeachersController@index', 'as' => 'teachers.index']);
