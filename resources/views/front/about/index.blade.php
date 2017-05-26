@@ -26,7 +26,7 @@
 <div class="stm_breadcrumbs_unit">
     <div class="container">
         <div class="navxtBreads">
-            <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to BIMhanoi." href="http://bim.edu.vn" class="home"><span property="name">BIMhanoi</span></a><meta property="position" content="1"></span> &gt; <span property="itemListElement" typeof="ListItem"><span property="name">Về chúng tôi</span><meta property="position" content="2"></span>   
+            <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to BIMhanoi." href="http://bim.edu.vn" class="home"><span property="name">BIMhanoi</span></a><meta property="position" content="1"></span> &gt; <span property="itemListElement" typeof="ListItem"><span property="name">Về chúng tôi</span><meta property="position" content="2"></span>
         </div>
     </div>
 </div>

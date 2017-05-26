@@ -16,24 +16,22 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="../xmlrpc.php">
 
-    <title>Title</title>
+    <title>{!! app_settings('page_title') !!}</title>
 
 	<!-- This site is optimized with the Yoast SEO plugin v3.2.5 - https://yoast.com/wordpress/plugins/seo/ -->
-	<meta name="description" content="Trung tâm đào tạo BIM chuyên nghiệp Đào tạo Revit MEP - Architecture - Structure, Navisworks, Civil 3D, Infraworks Phòng học trang thiết bị hiện đại"/>
+	<meta name="description" content="{!! app_settings('meta_description') !!}"/>
 	<meta name="robots" content="noodp"/>
 	<link rel="canonical" href="index.html" />
 	<meta property="og:locale" content="vi_VN" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content="Trung tâm đào tạo BIM chuyên nghiệp - BIMhanoi" />
-	<meta property="og:description" content="Trung tâm đào tạo BIM chuyên nghiệp Đào tạo Revit MEP - Architecture - Structure, Navisworks, Civil 3D, Infraworks Phòng học trang thiết bị hiện đại" />
+	<meta property="og:title" content="{!! app_settings('page_title') !!}" />
+	<meta property="og:description" content="{!! app_settings('meta_description') !!}" />
 	<meta property="og:url" content="index.html" />
 	<meta property="og:site_name" content="BIMhanoi" />
 	<meta property="article:author" content="thao" />
-	<meta property="og:image" content="../../ebim.edu.vn/wp-content/uploads/2015/07/DSCN1213.jpg" />
 	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:description" content="Trung tâm đào tạo BIM chuyên nghiệp Đào tạo Revit MEP - Architecture - Structure, Navisworks, Civil 3D, Infraworks Phòng học trang thiết bị hiện đại" />
-	<meta name="twitter:title" content="Trung tâm đào tạo BIM chuyên nghiệp - BIMhanoi" />
-	<meta name="twitter:image" content="../../ebim.edu.vn/wp-content/uploads/2015/07/DSCN1213.jpg" />
+	<meta name="twitter:description" content="{!! app_settings('meta_description') !!}" />
+	<meta name="twitter:title" content="{!! app_settings('page_title') !!}" />
 	<!-- / Yoast SEO plugin. -->
 	<script type="text/javascript">
 		window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/bim.edu.vn\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.8"}};
@@ -149,7 +147,7 @@
 				    <div class="row">
 					    <div class="col-md-3 col-sm-12 col-xs-12">
 						    <div class="logo-unit">
-	        			        <a href="{!! route('home.index') !!}">
+	        			        <a href="{!! route('front.index') !!}">
 									<img class="img-responsive logo_transparent_static visible" src="/wp-content/uploads/2016/08/logobimhanoi-sat.png" style="width: 900px;" alt="BIMhanoi"/>
 						        </a>
 						    </div>
@@ -166,20 +164,21 @@
 						    <div class="collapse navbar-collapse header-menu-mobile" id="header_menu_toggler">
 							    <ul class="header-menu clearfix">
 								    <li id="menu-item-1510" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1510">
-								    	<a href="../index.html">Trang chủ</a>
+								    	<a href="{!! route('front.index') !!}">Trang chủ</a>
 								    </li>
 									<li id="menu-item-1598" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598">
-										<a href="{{ route('about.index') }}">Về chúng tôi</a>
+										<a href="index.html">Về chúng tôi</a>
 									</li>
-									<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598">
-										<a href="#">Khóa học</a>
-									</li>
+
+
 									@foreach($__parentBlogCategory as $blogMenu)
 										<li iclass="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598">
 											<a href="{{ route('blog-menu.index', $blogMenu->slug) }}">{{ $blogMenu->name }}</a>
 										</li>
 									@endforeach
-									<li id="menu-item-2738" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2738"><a href="../dang-ky-khoa-hoc/index.html">Đăng ký học</a></li>
+									<li id="menu-item-2738" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2738">
+										<a href="{!! route('register-course.index') !!}">Đăng ký học</a>
+									</li>
 									<li id="menu-item-1541" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1541"><a href="../lien-he/index.html">Liên hệ</a></li>
 				                    <li>
 				                    	<form role="search" method="get" id="searchform-mobile" action="http://bim.edu.vn/">
@@ -202,8 +201,40 @@
 							    </div>
 			    				<div class="collapse navbar-collapse pull-right">
 				    				<ul class="header-menu clearfix">
-					    				<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1510"><a href="../index.html">Trang chủ</a></li>
-										<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598"><a href="{{ route('about.index') }}">Về chúng tôi</a></li>
+					    				<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1510">
+					    					<a href="{!! route('front.index') !!}">Trang chủ</a>
+					    				</li>
+										<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-889 current_page_item menu-item-1598">
+											<a href="{!! route('about.index') !!}">Về chúng tôi</a>
+										</li>
+
+										<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1532">
+                                        <a href="{!! route('products.index') !!}">Khóa học</a>
+										<ul class="sub-menu">
+											@foreach($__products as $product)
+												@if(count($product->category) == 0)
+												<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1811">
+													<a href="{!! route('products.show', $product->slug) !!}">{!! $product->name !!}</a>
+												</li>
+												@endif
+											@endforeach
+											@foreach($__productCategories as $productCategory)
+											<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1824">
+												<a href="{!! route('product_categories.show', $productCategory->slug) !!}">
+													{!! $productCategory->name !!}
+												</a>
+												<ul class="sub-menu">
+													@foreach($productCategory->products as $product)
+														<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1810">
+															<a href="{!! route('products.show', $product->slug) !!}">{!! $product->name !!}</a>
+														</li>
+													@endforeach
+												</ul>
+											</li>
+											@endforeach
+										</ul>
+										<div class="magic_line" style="max-width: 75px;"></div>
+									</li>
 										@foreach($__parentBlogCategory as $blogMenu)
 											@if(count($blogMenu->childs) > 0)
 											<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1532"><a href="{{ route('blog-menu.index', $blogMenu->slug) }}">{!! $blogMenu->name  !!}</a>
@@ -221,7 +252,7 @@
 												<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2738"><a href="{{ route('blog-menu.index', $blogMenu->slug) }}">{{ $blogMenu->name }}</a></li>
 											@endif
 										@endforeach
-										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2738"><a href="../dang-ky-khoa-hoc/index.html">Đăng ký học</a></li>
+										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2738"><a href="{!! route('register-course.index') !!}">Đăng ký học</a></li>
 										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1541"><a href="../lien-he/index.html">Liên hệ</a></li>
 				    				</ul>
 			    				</div>
@@ -248,15 +279,15 @@
 								<div class="textwidget">
 									<p>BIMhanoi - Trung tâm đào tạo BIM chuyên nghiệp, ủy quyền chính hãng Autodesk</p>
 									<p>Chúng tôi hy vọng xây dựng một cộng đồng BIM Việt Nam vững, mạnh cùng phát triển ngành xây dựng Việt Nam!<br>
-									<a href="index.html" class="btn btn-default">tìm hiểu thêm</a></p>
+									<a href="{!! route('front.index') !!}" class="btn btn-default">tìm hiểu thêm</a></p>
 								</div>
 							</aside>
 							<aside id="stm_pages-2" class="widget widget_pages">
 								<div class="widget_title"><h3>LINK NHANH</h3></div>
 								<ul class="style_1">
 									<li class="page_item page-item-645"><a href="../blog/index.html"><span class="h6">Blog</span></a></li>
-									<li class="page_item page-item-613"><a href="{{ route('teachers.index') }}"><span class="h6">GIẢNG VIÊN</span></a></li>
-									<li class="page_item page-item-1504"><a href="{{ route('products.index') }}"><span class="h6">Khóa học</span></a></li>
+									<li class="page_item page-item-613"><a href="../giang-vien/index.html"><span class="h6">GIẢNG VIÊN</span></a></li>
+									<li class="page_item page-item-1504"><a href="../khoa-hoc/index.html"><span class="h6">Khóa học</span></a></li>
 								</ul>
 							</aside>
 							<aside id="contacts-2" class="widget widget_contacts">
@@ -342,8 +373,8 @@
 								</div>
 								<div class="pull-right xs-pull-left hidden-sm hidden-xs">
 									<ul class="footer_menu heading_font clearfix">
-									    <li id="menu-item-1513" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1513"><a href="../index.html">home</a></li>
-										<li id="menu-item-1710" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1710"><a href="{{ route('products.index') }}">Khóa học</a></li>
+									    <li id="menu-item-1513" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1513"><a href="{!! route('front.index') !!}">home</a></li>
+										<li id="menu-item-1710" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1710"><a href="../khoa-hoc/index.html">Khóa học</a></li>
 										<li id="menu-item-1515" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1515"><a href="../blog/index.html">blog</a></li>
 										<li id="menu-item-1516" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1516"><a href="../events/index.html">events</a></li>
 								    </ul>
@@ -371,9 +402,6 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript">
-		var cf7_custom_image = '/wp-content/themes/masterstudy-child/assets/img/index.html';
-	</script>
 	<script type='text/javascript' src='/wp-includes/js/jquery/ui/core.mine899.js?ver=1.11.4'></script>
 	<script type='text/javascript' src='/wp-includes/js/jquery/ui/widget.mine899.js?ver=1.11.4'></script>
 	<script type='text/javascript' src='/wp-includes/js/jquery/ui/mouse.mine899.js?ver=1.11.4'></script>
@@ -406,6 +434,8 @@
 	<script type='text/javascript' src='/wp-content/themes/masterstudy/assets/js/custom62ea.js?ver=1.2'></script>
 	<script type='text/javascript' src='/wp-includes/js/wp-embed.minfc12.js?ver=4.5.8'></script>
 	<script type='text/javascript' src='/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min5859.js?ver=4.9.1'></script>
+	<script type='text/javascript' src='/wp-content/plugins/js_composer/assets/lib/bower/skrollr/dist/skrollr.min5859.js?ver=4.9.1'></script>
+	<script type='text/javascript' src='/wp-content/themes/masterstudy/assets/js/countUp.min62ea.js?ver=1.2'></script>
 	<!--Start of Tawk.to Script-->
 	<script type="text/javascript">
 		var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -419,5 +449,6 @@
 		})();
 	</script>
 	<!--End of Tawk.to Script-->
+	@yield('inline_scripts')
 </body>
 </html>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Models\RateComment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
@@ -46,8 +47,11 @@ class ProductsController extends Controller
         ->leftJoin('product_categories', function ($join) use ($product) {
             $join->on('products.category_id', '=', 'product_categories.id');
         })->orderBy('category_id', 'desc')->take(5)->get();
+        $this->comments = RateComment::where('product_id', $product->id)->where('admin_checked', 1)->get();
 
         return view('front.products.show', compact('product'))->with([
-            'otherProducts' => $this->otherProducts]);
+            'otherProducts' => $this->otherProducts,
+            'comments' => $this->comments
+        ]);
     }
 }

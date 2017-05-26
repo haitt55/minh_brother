@@ -22,6 +22,12 @@ class AppServiceProvider extends ServiceProvider
 
         $__parentBlogCategory = \App\Models\BlogCategory::where('parent_id', 0)->get();
         view()->share('__parentBlogCategory', $__parentBlogCategory);
+
+        $__productCategories = \App\ProductCategory::all();
+        view()->share('__productCategories', $__productCategories);
+
+        $__products = \App\Product::all();
+        view()->share('__products', $__products);
         
         Validator::extend('phone', function($attribute, $value, $parameters, $validator) {
             return preg_match('%^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$%i', $value) && strlen($value) >= 10;

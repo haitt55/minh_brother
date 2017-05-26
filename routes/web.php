@@ -91,11 +91,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     Route::resource('blog-categories', 'BlogCategoryController');
 });
 // Web
-Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home.index']);
-
-Route::get('/layout', function() {
-    return view('front.layouts.master');
-});
 
 Route::group(['namespace' => 'Front'], function() {
     Route::get('/tai-khoan', ['uses' => 'Auth\LoginController@showLoginForm', 'as' => 'login.index']);
@@ -113,15 +108,18 @@ Route::group(['namespace' => 'Front'], function() {
     Route::post('/users/updateRecieve', ['uses' => 'UsersController@updateRecieve', 'as' => 'user.update_recieve']);
     Route::get('/tai-khoan/cap-nhat', ['uses' => 'UsersController@editInfo', 'as' => 'user.edit_info']);
     Route::post('/tai-khoan/updateInfo', ['uses' => 'UsersController@updateInfo', 'as' => 'user.update_info']);
+    Route::get('/', ['uses' => 'HomeController@index', 'as' => 'front.index']);
+    Route::get('/dang-ky-hoc', ['uses' => 'HomeController@registerCourse', 'as' => 'register-course.index']);
+    Route::get('/giang-vien', ['uses' => 'TeachersController@index', 'as' => 'teachers.index']);
     Route::get('/ve-chung-toi', ['uses' => 'AboutController@index', 'as' => 'about.index']);
     Route::get('/giang-vien', ['uses' => 'TeachersController@index', 'as' => 'teachers.index']);
     Route::get('/giang-vien/{slug}', ['uses' => 'TeachersController@show', 'as' => 'teachers.show']);
     Route::get('/khoa-hoc', ['uses' => 'ProductsController@index', 'as' => 'products.index']);
     Route::get('/khoa-hoc/{slug}', ['uses' => 'ProductsController@show', 'as' => 'products.show']);
     Route::get('/danh-muc/{slug}', ['uses' => 'ProductCategoriesController@show', 'as' => 'product_categories.show']);
-    Route::get('/blog/{slug}', ['uses' => 'BlogController@show', 'as' => 'blogs.show']);
     Route::get('/{slug}', ['uses' => 'BlogCategoryController@index', 'as' => 'blog-menu.index']);
     Route::get('/{parent_category}/{category}', ['uses' => 'BlogCategoryController@show', 'as' => 'blog-category.show']);
     Route::get('/{parent_category}/{category}/{slug_blog}', ['uses' => 'BlogController@show', 'as' => 'blog.show']);
     // Route::get('/blog/{slug}', ['uses' => 'BlogController@show', 'as' => 'blogs.show']);
+    Route::post('/comment/store',['uses' => 'CommentsController@store', 'as' => 'comment.store']);
 });

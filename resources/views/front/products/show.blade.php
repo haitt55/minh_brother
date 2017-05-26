@@ -341,88 +341,77 @@
 								<div id="reviews">
 									<div id="comments" class="comments-area stm_woo_comments">
 
-										<ul class="comment-list list-unstyled">
-											<li itemprop="review" itemscope="" itemtype="http://schema.org/Review" class="comment even thread-even depth-1" id="li-comment-9">
-
-												<div id="comment-9" class="comment_container">
-													<div class="stm_review_author_name">
-														<h4 itemprop="author">Thái Anh 
-														</h4>
-													</div>
-
-													<img alt="" src="http://0.gravatar.com/avatar/30924290d56a3586c7807987004e5478?s=75&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/30924290d56a3586c7807987004e5478?s=150&amp;d=mm&amp;r=g 2x" class="avatar avatar-75 photo" height="75" width="75">
-													<div class="comment-text">
-
-
-														<div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" class="star-rating" title="Xếp hạng 5 / 5">
-															<span style="width:100%"><strong itemprop="ratingValue">5</strong> trên 5</span>
-														</div>
-
-
-
-														<p class="meta">
-															<time itemprop="datePublished" datetime="2 năm ago">
-																2 năm ago					</time>
-															</p>
-
-
-															<div itemprop="description" class="description"><p><strong>Bánh rất ngon!</strong></p>
-																<p>Cám ơn thầy Huy, chị Thảo đã vừa giúp em học tốt vừa không để em học trong tình trạng đói bụng, hehe <img draggable="false" class="emoji" alt="😀" src="https://s.w.org/images/core/emoji/72x72/1f600.png"></p>
-															</div>
-														</div>
-													</div>
-													<ul class="children">
-														<li itemprop="review" itemscope="" itemtype="http://schema.org/Review" class="comment byuser comment-author-thaoptp odd alt depth-2" id="li-comment-49">
-
-															<div id="comment-49" class="comment_container">
-																<div class="stm_review_author_name">
-																	<h4 itemprop="author">thaoptp 
-																	</h4>
-																</div>
-
-																<img alt="" src="http://0.gravatar.com/avatar/948683af68dd3f02d0fba94251c6901f?s=75&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/948683af68dd3f02d0fba94251c6901f?s=150&amp;d=mm&amp;r=g 2x" class="avatar avatar-75 photo" height="75" width="75">
-																<div class="comment-text">
-
-
-
-																	<p class="meta">
-																		<time itemprop="datePublished" datetime="9 tháng ago">
-																			9 tháng ago					</time>
-																		</p>
-
-
-																		<div itemprop="description" class="description"><p>Cám ơn em, Thái Anh <img draggable="false" class="emoji" alt="😀" src="https://s.w.org/images/core/emoji/72x72/1f600.png"><br>
-																			Chúc em thành công nhé!</p>
-																		</div>
-																	</div>
-																</div>
-															</li><!-- #comment-## -->
-														</ul><!-- .children -->
-													</li><!-- #comment-## -->
-												</ul>
-
-
-											</div>
+										<ul class="comment-list list-unstyled" id="comment-list">
+											@include('front.layouts.comment_list', ['comments' => $comments])
+											<!-- #comment-## -->
+										</ul>
+									</div>
 											<div class="multiseparator"></div>
 
 
-											<div id="review_form_wrapper">
-												<div id="review_form" class="stm_woo_review_form">
-													<div id="respond" class="comment-respond">
-														<h3 id="reply-title" class="comment-reply-title">Thêm đánh giá <small><a rel="nofollow" id="cancel-comment-reply-link" href="/khoa-hoc/revit-mep-standard/#respond" style="display:none;">Hủy</a></small></h3>				<form action="http://bim.edu.vn/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
-														<div class="row"><div class="col-md-6 col-sm-6"><div class="form-group"><input class="form-control" id="author" name="author" type="text" value="" size="30" aria-required="true" placeholder="Tên *"></div></div>
-														<div class="col-md-6 col-sm-6"><div class="form-group"> <input class="form-control" id="email" name="email" type="text" value="" size="30" aria-required="true" placeholder="E-mail *"></div></div></div>
-														<p class="comment-form-rating woo_stm_rating_fields"><label for="rating">Đánh giá của bạn</label><p class="stars"><span><a class="star-1" href="#">1</a><a class="star-2" href="#">2</a><a class="star-3" href="#">3</a><a class="star-4" href="#">4</a><a class="star-5" href="#">5</a></span></p><select name="rating" id="rating" class="hidden select2-hidden-accessible" style="display: none;" tabindex="-1" aria-hidden="true">
+									<div id="review_form_wrapper">
+										<div id="review_form" class="stm_woo_review_form">
+											<div id="respond" class="comment-respond">
+												<h3 id="reply-title" class="comment-reply-title">Thêm đánh giá
+													<small><a rel="nofollow" id="cancel-comment-reply-link"
+															  href="/khoa-hoc/revit-mep-standard/#respond"
+															  style="display:none;">Hủy</a></small>
+												</h3>
+												<form action="{{ route('comment.store') }}" method="post"
+													  id="commentform" class="comment-form" novalidate="">
+													{!! csrf_field() !!}
+													<div class="row">
+														<div class="col-md-6 col-sm-6">
+															<div class="form-group"><input class="form-control"
+																						   id="author" name="name"
+																						   type="text" value=""
+																						   size="30"
+																						   aria-required="true"
+																						   placeholder="Tên *"></div>
+														</div>
+														<div class="col-md-6 col-sm-6">
+															<div class="form-group"><input class="form-control"
+																						   id="email" name="email"
+																						   type="text" value=""
+																						   size="30"
+																						   aria-required="true"
+																						   placeholder="E-mail *"></div>
+														</div>
+													</div>
+													<p class="comment-form-rating woo_stm_rating_fields"><label
+																for="rating">Đánh giá của bạn</label>
+
+													<p class="stars"><span><a class="star-1" href="#">1</a><a
+																	class="star-2" href="#">2</a><a class="star-3"
+																									href="#">3</a><a
+																	class="star-4" href="#">4</a><a class="star-5"
+																									href="#">5</a></span>
+													</p><select name="rate_number" id="rating"
+																class="hidden select2-hidden-accessible"
+																style="display: none;" tabindex="-1" aria-hidden="true">
 														<option value="">Xếp hạng…</option>
 														<option value="5">Rất tốt</option>
 														<option value="4">Tốt</option>
 														<option value="3">Trung bình</option>
 														<option value="2">Không tệ</option>
 														<option value="1">Rất Tệ</option>
-													</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-rating-container"><span class="select2-selection__rendered" id="select2-rating-container" title="Xếp hạng…">Xếp hạng…</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></p><div class="form-group"><textarea class="form-control" id="comment" name="comment" cols="45" rows="8" aria-required="true" placeholder="Đánh giá của bạn *"></textarea></div><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Gửi đi"> <input type="hidden" name="comment_post_ID" value="521" id="comment_post_ID">
-													<input type="hidden" name="comment_parent" id="comment_parent" value="0">
-												</p>				</form>
-											</div><!-- #respond -->
+													</select>
+
+													</p>
+													<div class="form-group">
+														<textarea class="form-control" id="comment" name="comment"
+																  cols="45" rows="8" aria-required="true"
+																  placeholder="Đánh giá của bạn *"></textarea></div>
+													<p class="form-submit">
+														<input id="submit" class="submit"
+															   value="Gửi đi">
+														<input type="hidden" name="product_id" value="{{ $product->id }}"
+															   id="comment_post_ID">
+														<input type="hidden" name="comment_parent" id="comment_parent"
+															   value="0">
+													</p></form>
+											</div>
+											<!-- #respond -->
 										</div>
 									</div>
 
@@ -558,4 +547,41 @@
 		</div>
 	</div>			
 </div> <!-- container -->
+@endsection
+@section('inline_scripts')
+     <script type="text/javascript">
+	var button = document.getElementById( 'submit' );
+	var form = document.getElementById( 'commentform' );
+		button.addEventListener( 'click', function( e )
+    {
+		var ajaxData = new FormData( form );
+        // ajax request
+        var ajax = new XMLHttpRequest();
+        ajax.open( form.getAttribute( 'method' ), form.getAttribute( 'action' ), true );
+
+        ajax.onload = function()
+        {
+            if( ajax.status >= 200 && ajax.status < 400 )
+            {
+                var data = JSON.parse( ajax.responseText );
+                form.classList.add( data.success == true ? 'is-success' : 'is-error' );
+				var html = "<li itemprop=\"review\" itemscope=\"\" itemtype=\"http://schema.org/Review\" class=\"comment even thread-odd thread-alt depth-1\" id=\"li-comment-template\"> <div id=\"comment-1785\" class=\"comment_container\"> <div class=\"stm_review_author_name\"> <h4 itemprop=\"author\">"+data.name+" </h4> </div> <img alt=\"\" src=\"http://0.gravatar.com/avatar/97b8a6e9cde37574ed0ce585db644a28?s=75&amp;d=mm&amp;r=g\" srcset=\"http://0.gravatar.com/avatar/97b8a6e9cde37574ed0ce585db644a28?s=150&amp;d=mm&amp;r=g 2x\" class=\"avatar avatar-75 photo\" height=\"75\" width=\"75\"> <div class=\"comment-text\"> <div itemprop=\"reviewRating\" itemscope=\"\" itemtype=\"http://schema.org/Rating\" class=\"star-rating\" title=\"Xếp hạng 3 / 5\"> <span style=\"width:"+(parseInt(data.rate_number)/5)*100+"%\"><strong itemprop=\"ratingValue\">"+parseInt(data.rate_number)+"</strong> trên 5</span> </div> <p class=\"meta\"><em>Bình luận của bạn đang chờ được kiểm duyệt</em></p> <div itemprop=\"description\" class=\"description\"><p>"+data.comment+"</p> </div> </div> </div> </li>";
+				var div = document.getElementById('comment-list');
+				div.innerHTML += html;
+				document.getElementById('author').value='';
+				document.getElementById('comment').value='';
+				document.getElementById('rating').value='';
+				document.getElementById('email').value='';
+            }
+            else console.log( 'Error. Please, contact the webmaster!' );
+        };
+
+        ajax.onerror = function()
+        {
+            form.classList.remove( 'is-uploading' );
+            alert( 'Error. Please, try again!' );
+        };
+        ajax.send( ajaxData );
+    });
+     </script>
 @endsection
