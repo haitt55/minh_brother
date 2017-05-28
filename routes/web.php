@@ -37,9 +37,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     Route::get('/home', 'HomeController@index');
     Route::group(['middleware' => 'auth:admins'], function () {
         Route::get('/', ['uses' => 'HomeController@index', 'as' => 'admin.home.index']);
-    });
-
-    Route::resource('products', 'ProductController', ['names' => [
+        Route::resource('products', 'ProductController', ['names' => [
             'index' => 'admin.products.index',
             'store' => 'admin.products.store',
             'create' => 'admin.products.create',
@@ -48,8 +46,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
             'update' => 'admin.products.update',
             'destroy' => 'admin.products.destroy'
         ]]);
-    Route::post('/products/store','ProductController@store');
-    Route::resource('product_categories', 'ProductCategoryController', ['names' => [
+        Route::post('/products/store','ProductController@store');
+        Route::resource('product_categories', 'ProductCategoryController', ['names' => [
             'index' => 'admin.product_categories.index',
             'create' => 'admin.product_categories.create',
             'show' => 'admin.product_categories.show',
@@ -57,38 +55,39 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
             'update' => 'admin.product_categories.update',
             'destroy' => 'admin.product_categories.destroy'
         ]]);
-    Route::post('/product_categories/store','ProductCategoryController@store');
+        Route::post('/product_categories/store','ProductCategoryController@store');
 
-    Route::delete('teachers/destroy', 'TeachersController@destroy')->name('admin.teachers.destroy');
-    Route::resource('teachers', 'TeachersController', ['names' => [
+        Route::delete('teachers/destroy', 'TeachersController@destroy')->name('admin.teachers.destroy');
+        Route::resource('teachers', 'TeachersController', ['names' => [
             'index' => 'admin.teachers.index',
             'store' => 'admin.teachers.store',
             'create' => 'admin.teachers.create',
             'show' => 'admin.teachers.show',
             'edit' => 'admin.teachers.edit',
         ]]);
-    Route::post('/teachers/store','TeachersController@store');
-    Route::post('/teachers/update/{id?}','TeachersController@update')->name('admin.teachers.update');
+        Route::post('/teachers/store','TeachersController@store');
+        Route::post('/teachers/update/{id?}','TeachersController@update')->name('admin.teachers.update');
 
-    Route::resource('customers', 'CustomerController', ['names' => [
-        'index' => 'admin.customers.index',
-        'store' => 'admin.customers.store'
-    ]]);
-    Route::post('/customers/changeStatus',['uses' => 'CustomerController@changeStatus', 'as' => 'admin.customers.changeStatus']);
+        Route::resource('customers', 'CustomerController', ['names' => [
+            'index' => 'admin.customers.index',
+            'store' => 'admin.customers.store'
+        ]]);
+        Route::post('/customers/changeStatus',['uses' => 'CustomerController@changeStatus', 'as' => 'admin.customers.changeStatus']);
 
-    Route::get('/about','AboutController@index')->name('admin.about.index');
+        Route::get('/about','AboutController@index')->name('admin.about.index');
 
-    Route::resource('about', 'AboutController', ['names' => [
+        Route::resource('about', 'AboutController', ['names' => [
             'index' => 'admin.about.index',
             'store' => 'admin.about.store',
             'create' => 'admin.about.create',
             'edit' => 'admin.about.edit',
         ]]);
-    Route::get('appSettings/general', ['uses' => 'AppSettingsController@general', 'as' => 'admin.appSettings.general']);
-    Route::put('appSettings/general', ['uses' => 'AppSettingsController@updateGeneral', 'as' => 'admin.appSettings.updateGeneral']);
-    Route::post('/products/store', 'ProductController@store');
-    Route::resource('blogs', 'BlogController');
-    Route::resource('blog-categories', 'BlogCategoryController');
+        Route::get('appSettings/general', ['uses' => 'AppSettingsController@general', 'as' => 'admin.appSettings.general']);
+        Route::put('appSettings/general', ['uses' => 'AppSettingsController@updateGeneral', 'as' => 'admin.appSettings.updateGeneral']);
+        Route::post('/products/store', 'ProductController@store');
+        Route::resource('blogs', 'BlogController');
+        Route::resource('blog-categories', 'BlogCategoryController');
+    });
 });
 // Web
 
@@ -110,6 +109,7 @@ Route::group(['namespace' => 'Front'], function() {
     Route::post('/tai-khoan/updateInfo', ['uses' => 'UsersController@updateInfo', 'as' => 'user.update_info']);
     Route::get('/', ['uses' => 'HomeController@index', 'as' => 'front.index']);
     Route::get('/dang-ky-hoc', ['uses' => 'HomeController@registerCourse', 'as' => 'register-course.index']);
+    Route::post('/dang-ky-hoc', ['uses' => 'HomeController@storeCourse', 'as' => 'register-course.store']);
     Route::get('/tim-kiem', ['uses' => 'HomeController@search', 'as' => 'front.search']);
     Route::get('/lien-he', ['uses' => 'HomeController@contact', 'as' => 'front.contact']);
     Route::post('/customer-contact', ['uses' => 'HomeController@customerContact', 'as' => 'front.contact.comment']);

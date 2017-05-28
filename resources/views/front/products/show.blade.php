@@ -106,17 +106,7 @@
 
 									<p class="stock in-stock">còn 39 hàng (can be backordered)</p>
 
-
-
-									<form class="cart" method="post" enctype="multipart/form-data">
-
-										<div class="quantity"><input type="number" step="1" min="1" name="quantity" value="1" title="SL" class="input-text qty text" size="4"></div>
-
-										<input type="hidden" name="add-to-cart" value="521">
-
-										<button type="submit" class="single_add_to_cart_button button alt">Đăng ký khóa học</button>
-
-									</form>
+								<a href="{{ route('register-course.index') }}?product_id={{ $product->id }}" class="single_add_to_cart_button button alt" style="padding-top: 25px;">Đăng ký khóa học</a>
 
 
 
@@ -450,15 +440,16 @@
 
 
 
-									<form class="cart" method="post" enctype="multipart/form-data">
+									{{--<form class="cart" method="post" enctype="multipart/form-data">--}}
 
-										<div class="quantity"><input type="number" step="1" min="1" name="quantity" value="1" title="SL" class="input-text qty text" size="4"></div>
+										{{--<div class="quantity"><input type="number" step="1" min="1" name="quantity" value="1" title="SL" class="input-text qty text" size="4"></div>--}}
 
-										<input type="hidden" name="add-to-cart" value="521">
+										{{--<input type="hidden" name="add-to-cart" value="521">--}}
 
-										<button type="submit" class="single_add_to_cart_button button alt">Đăng ký khóa học</button>
+										{{--<button type="submit" class="single_add_to_cart_button button alt">Đăng ký khóa học</button>--}}
 
-									</form>
+									{{--</form>--}}
+								<a href="{{ route('register-course.index') }}?product_id={{ $product->id }}" class="single_add_to_cart_button button alt" style="padding-top: 25px;">Đăng ký khóa học</a>
 
 
 
