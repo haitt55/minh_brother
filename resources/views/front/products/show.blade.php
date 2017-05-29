@@ -4,7 +4,7 @@
 <!-- Breads -->
 <nav class="woocommerce-breadcrumb">		
 	<div class="container">
-		<a href="http://bim.edu.vn">Trang chủ</a><i class="fa fa-chevron-right"></i><a href="{{ route('product_categories.show', $product->category? $product->category->slug : '') }}">{{ $product->category ? $product->category->name : '' }}</a><i class="fa fa-chevron-right"></i>Khóa học {{ $product->name }}		</div>
+		<a href="{{ route('front.index') }}">Trang chủ</a><i class="fa fa-chevron-right"></i><a href="{{ route('product_categories.show', $product->category? $product->category->slug : '') }}">{{ $product->category ? $product->category->name : '' }}</a><i class="fa fa-chevron-right"></i>Khóa học {{ $product->name }}		</div>
 
 	</nav>
 	<div class="container">
@@ -62,7 +62,7 @@
 
 								<span class="price"><span class="woocommerce-Price-amount amount">{{ number_format($product->price) }}<span class="woocommerce-Price-currencySymbol">₫</span></span></span>
 								<div class="meta-unit text-right xs-text-left">
-									<div class="value h6">2 Đánh giá</div>
+									<div class="value h6">{{ $totalRate }} Đánh giá</div>
 								</div>
 							</div>
 						</div>
@@ -118,7 +118,7 @@
 										<table>
 											<tbody><tr>
 												<td class="icon"><i class="fa-icon-stm_icon_users"></i></td>
-												<td class="value h5">39 Học viên đăng ký</td>
+												<td class="value h5">{{ $numberOfStudent }} Học viên đăng ký</td>
 											</tr>
 										</tbody></table>
 									</div> <!-- unit -->
@@ -235,7 +235,7 @@
 							<h3 class="teacher_single_product_page_title">Giảng viên</h3>
 							<div class="teacher_single_product_page clearfix">
 								<a href="{{ route('teachers.show', $product->teacher ? $product->teacher->slug : '') }}" title="Watch Expert Page">
-									<img class="img-responsive" src="http://bim.edu.vn/wp-content/uploads/2015/06/IMG_6163-129x129.jpg">
+									<img style="width: 100px; height: 100px;" class="img-responsive" src="{{ url($product->teacher ? $product->teacher->image : '') }}">
 									<div class="title h4">Giảng viên {{ $product->teacher ? $product->teacher->full_name : '' }}</div>
 									<label class="job">{{ $product->category ? $product->category->name : '' }}</label>
 								</a>
@@ -262,14 +262,14 @@
 								<div class="average_rating">
 									<p class="rating_sub_title">Trung bình hạng</p>
 									<div class="average_rating_unit heading_font">
-										<div class="average_rating_value">5</div>
+										<div class="average_rating_value">{{ $totalRate ? (($arrRate[1]*1 + $arrRate[2]*2 + $arrRate[3]*3 + $arrRate[4]*4 + $arrRate[5]*5)/$totalRate) : '' }}</div>
 										<div class="average-rating-stars">
 
 
 											<span class="price"><span class="woocommerce-Price-amount amount">{{ number_format($product->price) }}<span class="woocommerce-Price-currencySymbol">₫</span></span></span>
 										</div>
 										<div class="average_rating_num">
-											1 Xếp hạng					</div>
+											{{ $totalRate }} Xếp hạng					</div>
 										</div>
 									</div>
 									<!-- Reviews Average ratings END -->
@@ -282,46 +282,46 @@
 												<td class="key">Sao 5</td>
 												<td class="bar">
 													<div class="full_bar">
-														<div class="bar_filler" style="width:100%"></div>
+														<div class="bar_filler" style="width:{{ $totalRate ? ($arrRate[5]/$totalRate)*100 : '' }}%"></div>
 													</div>
 												</td>
-												<td class="value">1</td>
+												<td class="value">{{ $arrRate[5] }}</td>
 											</tr>
 											<tr class="stars_4">
 												<td class="key">Sao 4</td>
 												<td class="bar">
 													<div class="full_bar">
-														<div class="bar_filler" style="width:0%"></div>
+														<div class="bar_filler" style="width:{{ $totalRate ? ($arrRate[4]/$totalRate)*100 : '' }}%"></div>
 													</div>
 												</td>
-												<td class="value">0</td>
+												<td class="value">{{ $arrRate[4] }}</td>
 											</tr>
 											<tr class="stars_3">
 												<td class="key">Sao 3</td>
 												<td class="bar">
 													<div class="full_bar">
-														<div class="bar_filler" style="width:0%"></div>
+														<div class="bar_filler" style="width:{{ $totalRate ? ($arrRate[3]/$totalRate)*100 : '' }}%"></div>
 													</div>
 												</td>
-												<td class="value">0</td>
+												<td class="value">{{ $arrRate[3] }}</td>
 											</tr>
 											<tr class="stars_2">
 												<td class="key">Sao 2</td>
 												<td class="bar">
 													<div class="full_bar">
-														<div class="bar_filler" style="width:0%"></div>
+														<div class="bar_filler" style="width:{{ $totalRate ? ($arrRate[2]/$totalRate)*100 : '' }}%"></div>
 													</div>
 												</td>
-												<td class="value">0</td>
+												<td class="value">{{ $arrRate[2] }}</td>
 											</tr>
 											<tr class="stars_1">
 												<td class="key">Sao 1</td>
 												<td class="bar">
 													<div class="full_bar">
-														<div class="bar_filler" style="width:0%"></div>
+														<div class="bar_filler" style="width:{{ $totalRate ? ($arrRate[1]/$totalRate)*100 : '' }}%"></div>
 													</div>
 												</td>
-												<td class="value">0</td>
+												<td class="value">{{ $arrRate[1] }}</td>
 											</tr>
 										</tbody></table>
 									</div>
@@ -371,12 +371,13 @@
 													<p class="comment-form-rating woo_stm_rating_fields"><label
 																for="rating">Đánh giá của bạn</label>
 
-													<p class="stars"><span><a class="star-1" href="#">1</a><a
+													<p class="stars hide"><span><a class="star-1" href="#">1</a><a
 																	class="star-2" href="#">2</a><a class="star-3"
 																									href="#">3</a><a
 																	class="star-4" href="#">4</a><a class="star-5"
 																									href="#">5</a></span>
-													</p><select name="rate_number" id="rating"
+													</p>
+													<select name="rate_number" id="rating"
 																class="hidden select2-hidden-accessible"
 																style="display: none;" tabindex="-1" aria-hidden="true">
 														<option value="">Xếp hạng…</option>
@@ -461,7 +462,7 @@
 										<table>
 											<tbody><tr>
 												<td class="icon"><i class="fa-icon-stm_icon_users"></i></td>
-												<td class="value h5">39 Học viên đăng ký</td>
+												<td class="value h5">{{ $numberOfStudent }} Học viên đăng ký</td>
 											</tr>
 										</tbody></table>
 									</div> <!-- unit -->
