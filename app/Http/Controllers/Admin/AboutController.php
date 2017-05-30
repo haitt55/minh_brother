@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Teacher;
 
-class AboutController extends AdminController
+class AboutController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -18,7 +19,6 @@ class AboutController extends AdminController
     public function __construct()
     {
         $this->teachers= Teacher::getList();
-        parent::__construct();
     }
     
     /**

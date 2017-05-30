@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
-class StudentsController extends AdminController
+class StudentsController extends Controller
 {
     /**
      * Show all students.

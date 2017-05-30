@@ -65,14 +65,14 @@ class HomeController extends Controller
         ],
             array(
                 'payment_first_name.required' => 'H? is required.',
-                'payment_last_name.required' => 'Tên is required.',
+                'payment_last_name.required' => 'Tï¿½n is required.',
                 'payment_phone_number.required' => 'S? ?i?n tho?i is required.',
                 'payment_phone_number.numeric' => 'S? ?i?n tho?i is number.',
                 'payment_email.required' => 'Email is required.',
                 'payment_email.email' => 'Email is not valid.',
                 'payment_email.unique' => 'Email has been used.',
-                'payment_city.required' => 'N?i làm vi?c is required.',
-                'product_id.required' => 'Khóa h?c is required.'
+                'payment_city.required' => 'N?i lï¿½m vi?c is required.',
+                'product_id.required' => 'Khï¿½a h?c is required.'
             )
         );
         if ($validator->errors() && count($validator->errors())) {

@@ -62,7 +62,13 @@
                         
                         <h4>Đăng ký</h4>
                         <p class="form-row form-row-wide">
-                            <input type="email" class="input-text" name="email" id="reg_email" value="" placeholder="Địa chỉ email *">
+                            <input type="email" class="input-text" name="email" id="reg_email" value="{{ old('email') }}" placeholder="Địa chỉ email *">
+                        </p>
+                        <p class="form-row form-row-wide">
+                            <input class="input-text" type="password" name="password" id="password" placeholder="Mật khẩu *">
+                        </p>
+                        <p class="form-row form-row-wide">
+                            <input class="input-text" type="password" name="password_confirmation" id="password_confirmation" placeholder="Xác nhận mật khẩu *">
                         </p>
                         <p class="form-row">
                             <input type="submit" class="button" value="Đăng ký">
