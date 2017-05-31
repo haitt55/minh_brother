@@ -1,4 +1,6 @@
 @extends('front.layouts.master')
+@section('page_title', $blog->page_title)
+@section('meta_description', $blog->meta_description)
 
 @section('content')
     <div class="stm_single_post">

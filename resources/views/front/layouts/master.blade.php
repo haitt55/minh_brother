@@ -16,22 +16,22 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="../xmlrpc.php">
 
-    <title>{!! app_settings('page_title') !!}</title>
+    <title>@yield('page_title')</title>
 
 	<!-- This site is optimized with the Yoast SEO plugin v3.2.5 - https://yoast.com/wordpress/plugins/seo/ -->
-	<meta name="description" content="{!! app_settings('meta_description') !!}"/>
+	<meta name="description" content="@yield('meta_description')"/>
 	<meta name="robots" content="noodp"/>
 	<link rel="canonical" href="index.html" />
 	<meta property="og:locale" content="vi_VN" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content="{!! app_settings('page_title') !!}" />
-	<meta property="og:description" content="{!! app_settings('meta_description') !!}" />
+	<meta property="og:title" content="@yield('page_title')" />
+	<meta property="og:description" content="@yield('meta_description')" />
 	<meta property="og:url" content="index.html" />
 	<meta property="og:site_name" content="BIMhanoi" />
 	<meta property="article:author" content="thao" />
 	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:description" content="{!! app_settings('meta_description') !!}" />
-	<meta name="twitter:title" content="{!! app_settings('page_title') !!}" />
+	<meta name="twitter:description" content="@yield('meta_description')" />
+	<meta name="twitter:title" content="@yield('page_title')" />
 	<!-- / Yoast SEO plugin. -->
 	<script type="text/javascript">
 		window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/bim.edu.vn\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.8"}};

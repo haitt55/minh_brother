@@ -141,9 +141,17 @@ class BlogController extends Controller
     public function destroy(Blog $blog)
     {
         try {
-            $blog->destroy();
+            $blog->delete();
         } catch(Exception $e) {
             Log::info($e->getMessage());
+
+            return response()->json([
+                'error' => [
+                    'message' => $ex->getMessage(),
+                ]
+            ]);
         }
+
+        return response()->json();
     }
 }

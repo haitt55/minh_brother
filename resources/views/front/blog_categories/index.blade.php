@@ -1,4 +1,6 @@
 @extends('front.layouts.master')
+@section('page_title', $blogCategory->page_title)
+@section('meta_description', $blogCategory->meta_description)
 
 @section('content')
     <!-- Breads -->

@@ -1,4 +1,6 @@
 @extends('front.layouts.master')
+@section('page_title', app_settings('page_title'))
+@section('meta_description', app_settings('meta_description'))
 
 @section('content')
 
