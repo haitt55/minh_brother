@@ -120,7 +120,7 @@
                                                             </a>
                                                             <span class="vertical_divider"></span>
                                                             <a href="{{ route('user.logout') }}">Đăng xuất</a>
-                                                        @endif    
+                                                        @endif
                                                     </div>
                                                 </div>
 						<!-- Header top bar Socials -->
@@ -285,7 +285,9 @@
 							<aside id="stm_pages-2" class="widget widget_pages">
 								<div class="widget_title"><h3>LINK NHANH</h3></div>
 								<ul class="style_1">
-									<li class="page_item page-item-645"><a href="/blog"><span class="h6">Blog</span></a></li>
+									@foreach($__parentBlogCategory as $category)
+									<li class="page_item page-item-645"><a href="{!! route('blog-menu.index', $category->slug) !!}"><span class="h6">{!! $category->name !!}</span></a></li>
+									@endforeach
 									<li class="page_item page-item-613"><a href="{!! route('teachers.index') !!}"><span class="h6">GIẢNG VIÊN</span></a></li>
 									<li class="page_item page-item-1504"><a href="{!! route('products.index') !!}"><span class="h6">Khóa học</span></a></li>
 								</ul>
@@ -352,9 +354,9 @@
 						<div class="col-md-6 col-sm-8">
 							<div class="clearfix">
 								<div class="pull-left">
-									<img class="footer_logo" src="/wp-content/uploads/2016/09/logo-EBIM-BIMhanoi-trang-50x56.png" alt="Footer logo"/>
+									<img class="footer_logo" src="/wp-content/uploads/2016/09/logo-footer.png" alt="Footer logo"/>
 								</div>
-								<div class="copyright_text">Copyright &copy; 2016 BIM Hanoi Solutions Ltd., Co</div>
+								<div class="copyright_text">Copyright &copy; 2017 Xay Dung Solutions Ltd., Co</div>
 							</div>
 						</div>
 						<div class="col-md-6 col-sm-4">

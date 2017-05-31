@@ -628,7 +628,7 @@
                                             <div class="icon" style="height: 72px;"><i style="font-size: 65px;" class="fa fa-icon-stm_icon_users"></i>
                                         </div>
                                         <div class="h1" id="counter_member" style="color:#1e478d"></div>
-                                        <div class="stats_counter_title h5" style="color:#fff">KIẾN TRÚC SƯ, KẾT CẤU SƯ</div>
+                                        <div class="stats_counter_title h5" style="color:#fff">Giáo viên</div>
                                         <script type="text/javascript">
                                             jQuery(document).ready(function($) {
                                                 var counter_member = new countUp("counter_member", 0, {!! $count['member'] !!}, 0, 2.5, {
@@ -774,71 +774,7 @@
             </div>
         </div>
     </div>
-    <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1433848297784 vc_row-has-fill" style="position: relative; left: -320px; box-sizing: border-box; width: 1840px; padding-left: 320px; padding-right: 320px;">
-        <div class="wpb_column vc_column_container vc_col-sm-7">
-            <div class="vc_column-inner ">
-                <div class="wpb_wrapper">
-                    <div class="icon_box vc_custom_1460516896948 standart clearfix" style="background:; color:#555555">
-                        <div class="icon_alignment_left">
-                            <div class="icon" style=width:65px>
-                                <i style="font-size: 60px; color:#333333" class="fa fa-icon-stm_icon_book"></i>
-                            </div>
-                            <div class="icon_text">
-                                <h3><span style="color: #1e478d;">HỌC NHIỀU HƠN</span> VỚI BIMHANOI</h3>
-                                <p>Theo dõi chúng tôi ngay để nhận ngay bộ cài đặt phần mềm, thư viện dữ liệu, file thực hành và cập nhật nhiều hơn nữa các tin hay về BIM!</p>
-                            </div>
-                        </div> <!-- align icons -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="wpb_column vc_column_container vc_col-sm-5">
-            <div class="vc_column-inner ">
-                <div class="wpb_wrapper">
-                    <div class="stm_subscribe ">
-                        <div class="widget widget_mailchimp">
-                            <h5 class="stm_subscribe_title">EMAIL CỦA BẠN</h5>
-                            <form action="/" class="stm_subscribe_1495161692">
-                                <div class="stm_mailchimp_unit">
-                                    <div class="form-group">
-                                        <input type="email" name="email" class="form-control stm_subscribe_email" required/>
-                                    </div>
-                                    <button class="button"><span class="h5">Theo dõi</span></button>
-                                    <div class="stm_subscribe_preloader">Please wait...</div>
-                                </div>
-                            </form>
-                            <script type="text/javascript">
-                                jQuery(document).ready( function($){
-                                    $(".stm_subscribe_1495161692").on('submit', function (e) {
-                                        e.preventDefault;
-                                        var $this = $(this);
-                                        $(".stm_subscribe_preloader").addClass("loading");
-                                        $.ajax({
-                                            type: 'POST',
-                                            data: 'action=stm_subscribe&email=' + $($this).find(".stm_subscribe_email").val(),
-                                            dataType: 'json',
-                                            url: ajaxurl,
-                                            success: function (json) {
-                                                if (json['success']) {
-                                                    $($this).replaceWith('<div class="success_message">' + json['success'] + '</div>');
-                                                }
-                                                if (json['error']) {
-                                                    alert(json['error']);
-                                                }
-                                                $(".stm_subscribe_preloader").removeClass("loading");
-                                            }
-                                        });
 
-                                        return false;
-                                    });
-                                })
-                            </script>
-                        </div>
-                    </div> <!-- stm_subscribe -->
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="vc_row-full-width"></div>
     <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1460603170970 vc_row-has-fill" style="position: relative;left: -320px;box-sizing: border-box;width: 1840px;padding-left: 320px;padding-right: 320px;">
         <div class="wpb_column vc_column_container vc_col-sm-12">
@@ -1132,10 +1068,8 @@
                                     {{-- </p> --}}
                                 </div>
                                 <div class="stm_theme_wpb_video_wrapper">
-                                    <div class="stm_video_preview" style="background-image:url(/wp-content/uploads/2016/07/ebim.png)"></div>
-                                    <div class="wpb_video_wrapper ">
-                                        <iframe width="1170" height="658" src="https://www.youtube.com/embed/oVymWfINSTU?feature=oembed" frameborder="0" allowfullscreen></iframe>
-                                    </div>
+                                    <div class="stm_video_preview video_preloader_hidden" style="background-image:url(/wp-content/uploads/2015/07/Backdrop.png)"></div>
+                                    <div class="wpb_video_wrapper  video_autoplay_true"><iframe width="1170" height="658" src="https://www.youtube.com/embed/{{ $about->id_youtube }}?feature=oembed&amp;autoplay=1" frameborder="0" allowfullscreen=""></iframe></div>
                                 </div>
                             </div>
                         </div>

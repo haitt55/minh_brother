@@ -8,6 +8,7 @@ use App\Product;
 use App\ProductCategory;
 use App\Models\Blog;
 use App\Models\Student;
+use App\Teacher;
 use App\Models\Customer;
 use Validator;
 use DB;
@@ -36,11 +37,19 @@ class HomeController extends Controller
         $count = [
             'class' => count($products),
             'company' => 125,
-            'member' => 230,
+            'member' => count(Teacher::all()),
             'student' => count(Student::all()),
         ];
+        $about = DB::table('about')->first();
+        $linkYoutube = $about->link_youtube;
+        $about->id_youtube = null;
+        if ($linkYoutube) {
+            $pattern = "#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#";
+            preg_match($pattern, $linkYoutube, $matches);
+            $about->id_youtube = !empty($matches) ? $matches[0] : null;
+        }
 
-        return view('front.index', compact('products', 'recentBlogs', 'productCategories', 'count'));
+        return view('front.index', compact('products', 'recentBlogs', 'productCategories', 'count', 'about'));
     }
 
     public function registerCourse(Request $request)
