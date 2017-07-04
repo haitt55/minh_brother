@@ -9,5 +9,6 @@ return [
     'certified' => [
         'AUTODESK',
         'TEKLA',
-    ]
+    ],
+    'company_name' => App\Models\AppSetting::companyName(),
 ];

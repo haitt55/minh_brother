@@ -58,7 +58,6 @@
                                     <select id="product_categories_filter" tabindex="-1"
                                             class="select2-hidden-accessible" aria-hidden="true">
                                         @foreach($categoryOptions as $key => $value)
-                                        <!-- <option value="http://bim.edu.vn/shop/">All courses</option> -->
                                         <option value="{{ route('product_categories.show', $key) }}"
                                         @if($key == $category->slug) selected @endif>{{ $value }}</option>
                                         @endforeach

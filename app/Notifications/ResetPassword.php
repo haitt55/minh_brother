@@ -47,7 +47,6 @@ class ResetPassword extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->from(config('mail')['username'], 'Admin <daotao@edu.vn>')
                     ->subject('Cấp lại mật khẩu')
                     ->line('Một người nào đó đã yêu cầu khôi phục lại mật khẩu của tài khoản')
                     ->line("Email: $notifiable->email")

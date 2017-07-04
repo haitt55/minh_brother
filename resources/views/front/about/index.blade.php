@@ -26,7 +26,7 @@
 <div class="stm_breadcrumbs_unit">
     <div class="container">
         <div class="navxtBreads">
-            <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to BIMhanoi." href="http://bim.edu.vn" class="home"><span property="name">BIMhanoi</span></a><meta property="position" content="1"></span> &gt; <span property="itemListElement" typeof="ListItem"><span property="name">Về chúng tôi</span><meta property="position" content="2"></span>
+            <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to {{ config('custom.company_name') }}" href="/" class="home"><span property="name">{{ config('custom.company_name') }}</span></a><meta property="position" content="1"></span> &gt; <span property="itemListElement" typeof="ListItem"><span property="name">Về chúng tôi</span><meta property="position" content="2"></span>
         </div>
     </div>
 </div>
@@ -50,7 +50,6 @@
                         <div class="wpb_video_widget wpb_content_element">
                             <div class="wpb_wrapper">
                                 <div class="stm_theme_wpb_video_wrapper">
-                                    <div class="stm_video_preview video_preloader_hidden" style="background-image:url(http://bim.edu.vn/wp-content/uploads/2015/07/Backdrop.png)"></div>
                                     <div class="wpb_video_wrapper  video_autoplay_true"><iframe width="1170" height="658" src="https://www.youtube.com/embed/{{ $about->id_youtube }}?feature=oembed&amp;autoplay=1" frameborder="0" allowfullscreen=""></iframe></div>
                                 </div>
                             </div>
@@ -140,69 +139,6 @@
             <div class="vc_column-inner ">
                 <div class="wpb_wrapper">
                     {!! $about->certificate !!}
-<!--                    <div class="multiseparator vc_custom_1435819083449">
-
-                    </div>
-                    <div class="vc_custom_heading vc_custom_1459841840140">
-                        <h2 style="text-align: left">Chứng nhận</h2>
-                    </div>
-                    <div class="vc_row wpb_row vc_inner vc_row-fluid">
-                        <div class="wpb_column vc_column_container vc_col-sm-6">
-                            <div class="vc_column-inner "><div class="wpb_wrapper">
-                                    <div class="certificate ">
-                                        <div class="certificate-frame">
-                                            <div class="certificate-holder">
-                                                <img class="img-responsive" src="http://bim.edu.vn/wp-content/uploads/2015/07/0-Mr.Huy-certification-1024x624-1-470x282.png">
-                                            </div>
-                                        </div>
-                                        <div class="h4 title text-center">Autodesk Certified Professional</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="wpb_column vc_column_container vc_col-sm-6">
-                            <div class="vc_column-inner "><div class="wpb_wrapper">
-                                    <div class="certificate ">
-                                        <div class="certificate-frame">
-                                            <div class="certificate-holder">
-                                                <img class="img-responsive" src="http://bim.edu.vn/wp-content/uploads/2015/07/civil-470x352.png">
-                                            </div>
-                                        </div>
-                                        <div class="h4 title text-center">Autodesk Certified Professional</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="vc_row wpb_row vc_inner vc_row-fluid">
-                        <div class="wpb_column vc_column_container vc_col-sm-3">
-                            <div class="vc_column-inner ">
-                                <div class="wpb_wrapper">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="wpb_column vc_column_container vc_col-sm-6">
-                            <div class="vc_column-inner ">
-                                <div class="wpb_wrapper">
-                                    <div class="certificate ">
-                                        <div class="certificate-frame">
-                                            <div class="certificate-holder">
-                                                <img class="img-responsive" src="http://bim.edu.vn/wp-content/uploads/2015/07/Chứng-chỉ-tekla-1-470x742.png" style="">
-                                            </div>
-                                        </div>
-                                        <div class="h4 title text-center">Tekla Certified Trainer</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="wpb_column vc_column_container vc_col-sm-3">
-                            <div class="vc_column-inner ">
-                                <div class="wpb_wrapper">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
                 </div>
             </div>
         </div>
@@ -216,18 +152,6 @@
                 <div class="wpb_wrapper">
                     <div class="multiseparator vc_custom_1435819083449"></div>
                     {!! $about->intro_edu !!}
-<!--                    <div class="vc_custom_heading">
-                        <h2 style="text-align: left">Phòng đào tạo</h2>
-                    </div>
-                    <div class="wpb_text_column wpb_content_element ">
-                        <div class="wpb_wrapper">
-                            <p style="text-align: justify;">Phòng đào tạo của BIMhanoi được thiết kế vuông vắn, không gian sắp đặt cho 1&nbsp;lớp học 12 học viên.</p>
-                            <p style="text-align: justify;"><img class="aligncenter wp-image-2375 " src="http://ebim.edu.vn/wp-content/uploads/2015/07/DSCN1213.jpg" alt="" width="499" height="375" srcset="http://bim.edu.vn/wp-content/uploads/2015/07/DSCN1213.jpg 900w, http://bim.edu.vn/wp-content/uploads/2015/07/DSCN1213-300x225.jpg 300w, http://bim.edu.vn/wp-content/uploads/2015/07/DSCN1213-768x576.jpg 768w, http://bim.edu.vn/wp-content/uploads/2015/07/DSCN1213-470x353.jpg 470w" sizes="(max-width: 499px) 100vw, 499px"></p>
-                            <p style="text-align: justify;">Phòng đã được trang bị giàn 6 máy trạm chuyên dụng cho thiết kế xây dựng (các máy này phục vụ cho các học viên không tiện sử dụng máy tính cá nhân do cấu hình máy không đủ để cài đặt phần mềm thiết kế). Kèm theo đó là hệ thống máy chiếu, âm thanh phục vụ tốt nhất yêu cầu giảng dạy.</p>
-                            <p>Đăng ký <a href="http://ebim.edu.vn/khoa-hoc/" target="_blank">khóa học</a>&nbsp;tại BIMhanoi để khám phá bí mật BIM ngay hôm nay!</p>
-
-                        </div>
-                    </div>-->
                 </div>
             </div>
         </div>

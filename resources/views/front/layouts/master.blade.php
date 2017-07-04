@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="vi" lang="vi-VN">
 
-<!-- Mirrored from bim.edu.vn/ve-bimhanoi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Apr 2017 14:01:32 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <!-- seo -->
@@ -27,7 +26,7 @@
 	<meta property="og:title" content="@yield('page_title')" />
 	<meta property="og:description" content="@yield('meta_description')" />
 	<meta property="og:url" content="index.html" />
-	<meta property="og:site_name" content="BIMhanoi" />
+	<meta property="og:site_name" content="{{ config('custom.company_name') }}" />
 	<meta property="article:author" content="thao" />
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:description" content="@yield('meta_description')" />
