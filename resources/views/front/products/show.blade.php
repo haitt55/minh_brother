@@ -1,6 +1,10 @@
 @extends('front.layouts.master')
 @section('content')
-
+	<style>
+		.select2-container {
+			display: none;
+		}
+	</style>
 <!-- Breads -->
 <nav class="woocommerce-breadcrumb">		
 	<div class="container">
@@ -377,6 +381,9 @@
 																	class="star-4" href="#">4</a><a class="star-5"
 																									href="#">5</a></span>
 													</p>
+
+													<div id="shop"></div>
+
 													<select name="rate_number" id="rating"
 																class="hidden select2-hidden-accessible"
 																style="display: none;" tabindex="-1" aria-hidden="true">
@@ -541,6 +548,59 @@
 </div> <!-- container -->
 @endsection
 @section('inline_scripts')
+	<script>
+		(function() {
+
+			'use strict';
+
+			// SHOP ELEMENT
+			var shop = document.querySelector('#shop');
+
+			// DUMMY DATA
+			var data = [
+				{
+					title: null,
+					description: null,
+					rating: null
+				}
+			];
+
+			// INITIALIZE
+			(function init() {
+				for (var i = 0; i < data.length; i++) {
+					addRatingWidget(buildShopItem(data[i]), data[i]);
+				}
+			})();
+
+			// BUILD SHOP ITEM
+			function buildShopItem(data) {
+				var shopItem = document.createElement('div');
+
+				var html = '<div class="c-shop-item__img"></div>' +
+						'<div class="c-shop-item__details">' +
+						'<ul class="c-rating"></ul>' +
+						'</div>';
+
+				shopItem.classList.add('c-shop-item');
+				shopItem.innerHTML = html;
+				shop.appendChild(shopItem);
+
+				return shopItem;
+			}
+
+			// ADD RATING WIDGET
+			function addRatingWidget(shopItem, data) {
+				var ratingElement = shopItem.querySelector('.c-rating');
+				var currentRating = data.rating;
+				var maxRating = 5;
+				var callback = function(rating) {
+					document.getElementById('rating').value=rating;
+				};
+				var r = rating(ratingElement, currentRating, maxRating, callback);
+			}
+
+		})();
+	</script>
      <script type="text/javascript">
 	var button = document.getElementById( 'submit' );
 	var form = document.getElementById( 'commentform' );

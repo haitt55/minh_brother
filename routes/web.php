@@ -87,6 +87,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
         Route::post('/products/store', 'ProductController@store');
         Route::resource('blogs', 'BlogController');
         Route::resource('blog-categories', 'BlogCategoryController');
+        Route::resource('comments', 'CommentController', ['names' => [
+            'index' => 'admin.comments.index',
+            'store' => 'admin.comments.store',
+        ]]);
+        Route::post('/comments/updateComment',['uses' => 'CommentController@updateComment', 'as' => 'admin.comments.updateComment']);
+        Route::post('/comments/addComment',['uses' => 'CommentController@addComment', 'as' => 'admin.comments.addComment']);
     });
 });
 // Web

@@ -60,6 +60,7 @@
 	<link rel='stylesheet' id='ebim-custom-css-css'  href='/wp-content/themes/masterstudy-child/assets/css/ebim1576.css?ver=1.2.1' type='text/css' media='all' />
 	<link rel='stylesheet' id='js_composer_front-css'  href='/wp-content/plugins/js_composer/assets/css/js_composer.min5859.css?ver=4.9.1' type='text/css' media='all' />
 	<link rel='stylesheet' id='redux-google-fonts-stm_option-css'  href='http://fonts.googleapis.com/css?family=Montserrat%3A400%2C700%7COpen+Sans%3A300%2C400%2C600%2C700%2C800%2C300italic%2C400italic%2C600italic%2C700italic%2C800italic&amp;subset=latin&amp;ver=1490586242' type='text/css' media='all' />
+	<link rel='stylesheet' href='/js/five-star-rating-master/css/rating.min.css' type='text/css' media='all' />
 	<script type='text/javascript' src='/wp-includes/js/jquery/jqueryb8ff.js?ver=1.12.4'></script>
 	<script type='text/javascript' src='/wp-includes/js/jquery/jquery-migrate.min330a.js?ver=1.4.1'></script>
 	<script type='text/javascript' src='/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.tools.minc6ac.js?ver=5.1.5'></script>
@@ -433,6 +434,23 @@
 	<script type='text/javascript' src='/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min5859.js?ver=4.9.1'></script>
 	<script type='text/javascript' src='/wp-content/plugins/js_composer/assets/lib/bower/skrollr/dist/skrollr.min5859.js?ver=4.9.1'></script>
 	<script type='text/javascript' src='/wp-content/themes/masterstudy/assets/js/countUp.min62ea.js?ver=1.2'></script>
+	<script>
+		// target element
+		var el = document.querySelector('#el');
+
+		// current rating, or initial rating
+		var currentRating = 0;
+
+		// max rating, i.e. number of stars you want
+		var maxRating= 5;
+
+		// callback to run after setting the rating
+		var callback = function(rating) { alert(rating); };
+
+		// rating instance
+		var myRating = rating(el, currentRating, maxRating, callback);
+	</script>
+	<script type='text/javascript' src='/js/five-star-rating-master/js/src/rating.js'></script>
 	<!--Start of Tawk.to Script-->
 	<script type="text/javascript">
 		var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
