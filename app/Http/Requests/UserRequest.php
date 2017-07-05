@@ -63,7 +63,6 @@ class UserRequest extends FormRequest
             'password.required'              => 'Vui lòng nhập mật khẩu',
             'password_confirmation.required' => 'Vui lòng nhập xác nhận mật khẩu',
             'password_confirmation.same'     => 'Xác nhận mật khẩu không chính xác',
-            'password_confirmation.same'     => 'Xác nhận mật khẩu không chính xác',
             'email.required'                 => 'Vui lòng nhập địa chỉ email',
             'email.email'                    => 'Email không hợp lệ',
             'email.unique'                   => 'Email đã có người đăng ký',

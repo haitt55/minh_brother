@@ -8,6 +8,7 @@ use App\Product;
 use App\ProductCategory;
 use App\Models\Blog;
 use App\Models\Student;
+use App\Teacher;
 use App\Models\Customer;
 use Validator;
 use DB;
@@ -36,11 +37,19 @@ class HomeController extends Controller
         $count = [
             'class' => count($products),
             'company' => 125,
-            'member' => 230,
+            'member' => count(Teacher::all()),
             'student' => count(Student::all()),
         ];
+        $about = DB::table('about')->first();
+        $linkYoutube = $about->link_youtube;
+        $about->id_youtube = null;
+        if ($linkYoutube) {
+            $pattern = "#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#";
+            preg_match($pattern, $linkYoutube, $matches);
+            $about->id_youtube = !empty($matches) ? $matches[0] : null;
+        }
 
-        return view('front.index', compact('products', 'recentBlogs', 'productCategories', 'count'));
+        return view('front.index', compact('products', 'recentBlogs', 'productCategories', 'count', 'about'));
     }
 
     public function registerCourse(Request $request)
@@ -65,14 +74,14 @@ class HomeController extends Controller
         ],
             array(
                 'payment_first_name.required' => 'H? is required.',
-                'payment_last_name.required' => 'Tên is required.',
+                'payment_last_name.required' => 'Tï¿½n is required.',
                 'payment_phone_number.required' => 'S? ?i?n tho?i is required.',
                 'payment_phone_number.numeric' => 'S? ?i?n tho?i is number.',
                 'payment_email.required' => 'Email is required.',
                 'payment_email.email' => 'Email is not valid.',
                 'payment_email.unique' => 'Email has been used.',
-                'payment_city.required' => 'N?i làm vi?c is required.',
-                'product_id.required' => 'Khóa h?c is required.'
+                'payment_city.required' => 'N?i lï¿½m vi?c is required.',
+                'product_id.required' => 'Khï¿½a h?c is required.'
             )
         );
         if ($validator->errors() && count($validator->errors())) {

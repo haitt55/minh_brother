@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\MessageBag;
 use App\Models\Student;
+use App\Http\Requests\UserRequest;
 
 class RegisterController extends Controller
 {
@@ -57,7 +58,7 @@ class RegisterController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         } else {
             $email            = $data['email'];
-            $password         = str_random(10);
+            $password         = $data['password'];
             $data['password'] = bcrypt($password);
 
             //Create account
@@ -86,13 +87,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         $rules    = [
-            'email' => 'required|email|unique:students',
+            'email'                 => 'required|email|unique:students',
+            'password'              => 'required',
+            'password_confirmation' => 'required|same:password',
         ];
-        $messages = [
-            'email.required' => 'Email là trường bắt buộc',
-            'email.email'    => 'Email không đúng định dạng',
-            'email.unique'   => 'Email đã được đăng ký',
-        ];
-        return Validator::make($data, $rules, $messages);
+        return Validator::make($data, $rules, UserRequest::messageError());
     }
 }

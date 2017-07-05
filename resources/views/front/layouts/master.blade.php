@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="vi" lang="vi-VN">
 
-<!-- Mirrored from bim.edu.vn/ve-bimhanoi/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Apr 2017 14:01:32 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <!-- seo -->
@@ -16,22 +15,22 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="../xmlrpc.php">
 
-    <title>{!! app_settings('page_title') !!}</title>
+    <title>@yield('page_title')</title>
 
 	<!-- This site is optimized with the Yoast SEO plugin v3.2.5 - https://yoast.com/wordpress/plugins/seo/ -->
-	<meta name="description" content="{!! app_settings('meta_description') !!}"/>
+	<meta name="description" content="@yield('meta_description')"/>
 	<meta name="robots" content="noodp"/>
 	<link rel="canonical" href="index.html" />
 	<meta property="og:locale" content="vi_VN" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content="{!! app_settings('page_title') !!}" />
-	<meta property="og:description" content="{!! app_settings('meta_description') !!}" />
+	<meta property="og:title" content="@yield('page_title')" />
+	<meta property="og:description" content="@yield('meta_description')" />
 	<meta property="og:url" content="index.html" />
-	<meta property="og:site_name" content="BIMhanoi" />
+	<meta property="og:site_name" content="{{ config('custom.company_name') }}" />
 	<meta property="article:author" content="thao" />
 	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:description" content="{!! app_settings('meta_description') !!}" />
-	<meta name="twitter:title" content="{!! app_settings('page_title') !!}" />
+	<meta name="twitter:description" content="@yield('meta_description')" />
+	<meta name="twitter:title" content="@yield('page_title')" />
 	<!-- / Yoast SEO plugin. -->
 	<script type="text/javascript">
 		window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/bim.edu.vn\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.8"}};
@@ -121,7 +120,7 @@
                                                             </a>
                                                             <span class="vertical_divider"></span>
                                                             <a href="{{ route('user.logout') }}">Đăng xuất</a>
-                                                        @endif    
+                                                        @endif
                                                     </div>
                                                 </div>
 						<!-- Header top bar Socials -->
@@ -286,7 +285,9 @@
 							<aside id="stm_pages-2" class="widget widget_pages">
 								<div class="widget_title"><h3>LINK NHANH</h3></div>
 								<ul class="style_1">
-									<li class="page_item page-item-645"><a href="/blog"><span class="h6">Blog</span></a></li>
+									@foreach($__parentBlogCategory as $category)
+									<li class="page_item page-item-645"><a href="{!! route('blog-menu.index', $category->slug) !!}"><span class="h6">{!! $category->name !!}</span></a></li>
+									@endforeach
 									<li class="page_item page-item-613"><a href="{!! route('teachers.index') !!}"><span class="h6">GIẢNG VIÊN</span></a></li>
 									<li class="page_item page-item-1504"><a href="{!! route('products.index') !!}"><span class="h6">Khóa học</span></a></li>
 								</ul>
@@ -353,9 +354,9 @@
 						<div class="col-md-6 col-sm-8">
 							<div class="clearfix">
 								<div class="pull-left">
-									<img class="footer_logo" src="/wp-content/uploads/2016/09/logo-EBIM-BIMhanoi-trang-50x56.png" alt="Footer logo"/>
+									<img class="footer_logo" src="/wp-content/uploads/2016/09/logo-footer.png" alt="Footer logo"/>
 								</div>
-								<div class="copyright_text">Copyright &copy; 2016 BIM Hanoi Solutions Ltd., Co</div>
+								<div class="copyright_text">Copyright &copy; 2017 Xay Dung Solutions Ltd., Co</div>
 							</div>
 						</div>
 						<div class="col-md-6 col-sm-4">

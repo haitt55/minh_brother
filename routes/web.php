@@ -28,15 +28,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('admin.password.reset');
     $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
-    //Students page
-    $this->get('students', 'StudentsController@index')->name('admin.students');
-    $this->get('students/show_payment/{id?}', 'StudentsController@showPayment')->name('admin.students.show_payment');
-    $this->get('students/show_recieve/{id?}', 'StudentsController@showRecieve')->name('admin.students.show_recieve');
-    $this->delete('students/destroy', 'StudentsController@destroy')->name('admin.students.destroy');
 
     Route::get('/home', 'HomeController@index');
     Route::group(['middleware' => 'auth:admins'], function () {
         Route::get('/', ['uses' => 'HomeController@index', 'as' => 'admin.home.index']);
+        //Students page
+        $this->get('students', 'StudentsController@index')->name('admin.students');
+        $this->get('students/show_payment/{id?}', 'StudentsController@showPayment')->name('admin.students.show_payment');
+        $this->get('students/show_recieve/{id?}', 'StudentsController@showRecieve')->name('admin.students.show_recieve');
+        $this->delete('students/destroy', 'StudentsController@destroy')->name('admin.students.destroy');
         Route::resource('products', 'ProductController', ['names' => [
             'index' => 'admin.products.index',
             'store' => 'admin.products.store',

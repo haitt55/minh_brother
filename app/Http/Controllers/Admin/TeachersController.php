@@ -6,8 +6,9 @@ use App\Teacher;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class TeachersController extends AdminController
+class TeachersController extends Controller
 {
     /**
      * Display a listing of the resource.
