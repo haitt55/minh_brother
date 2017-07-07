@@ -21,4 +21,9 @@ class RateComment extends Model
     protected $fillable = [
         'email', 'name', 'comment', 'rate_number', 'product_id', 'type', 'admin_checked', 'admin_reply'
     ];
+
+    public function product()
+    {
+        return $this->belongsTo('App\Product', 'product_id');
+    }
 }

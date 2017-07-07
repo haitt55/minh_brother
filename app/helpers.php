@@ -1,6 +1,5 @@
 <?php
 use App\Models\AppSetting;
-use DateTime;
 // use DB;
 
 function create_slug($string){
@@ -108,8 +107,8 @@ function rebuild_date( $format, $time = 0 )
 }
 
 function get_time_from_now($time) {
-    $d1 = new DateTime($time);
-    $d2 = new DateTime();
+    $d1 = new \DateTime($time);
+    $d2 = new \DateTime();
 
     $diff = $d2->diff($d1);
     if ($diff->y >= 1) {

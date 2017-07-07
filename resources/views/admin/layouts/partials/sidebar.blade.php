@@ -26,6 +26,9 @@
                 <a href="{{ route('blogs.index') }}"><i class="fa fa-users fa-fw"></i> Tin tức</a>
             </li>
             <li>
+                <a href="{{ route('admin.comments.index') }}"><i class="fa fa-info-circle fa-fw"></i> Bình luận</a>
+            </li>
+            <li>
                 <a href="{{ route('admin.appSettings.general') }}"><i class="fa fa-wrench fa-fw"></i> Thông tin chung</a>
             </li>
             <li>
