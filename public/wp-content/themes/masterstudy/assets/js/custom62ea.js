@@ -476,11 +476,6 @@ var sliderHeight = 0;
 				li_anchestor = $(this);
 			}
 		});
-		if(hasCurrentMenuItem && li_anchestor != 'undefined') {
-			var lineFirstW = li_anchestor.innerWidth() - 28 ;
-			var lineFirstPos = li_anchestor.position().left + 14;
-			$(li_anchestor).find('.magic_line').addClass('line_visible');
-		} 
 	}
 	
 	function changeCF7CustomPreloader(){

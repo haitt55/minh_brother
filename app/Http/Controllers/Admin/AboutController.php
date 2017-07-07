@@ -59,6 +59,7 @@ class AboutController extends Controller
         $teacherId = isset($data['teacher_id']) ? implode(',', $data['teacher_id']) : null;
         
         $about = [
+            'title'            => $data['title'],
             'intro'            => $data['intro'],
             'link_youtube'     => $data['link_youtube'],
             'certificate'      => $data['certificate'],

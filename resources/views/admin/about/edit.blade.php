@@ -21,6 +21,10 @@
                                 {!! csrf_field() !!}
                                 
                                 <div class="form-group">
+                                    <label for="title">Tiêu đề </label>
+                                    <input type="text" name="title" id="link_youtube" class="form-control" value="{{ old('title', $about->title) }}">
+                                </div>
+                                <div class="form-group">
                                     <label for="intro">Giới thiệu <span class="required">(*)</span></label>
                                     <textarea name="intro" id="intro">{{ old('intro', $about->intro) }}</textarea>
                                 </div>

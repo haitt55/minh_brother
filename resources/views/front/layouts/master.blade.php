@@ -41,7 +41,11 @@
 	<link rel='stylesheet' id='contact-form-7-css'  href='/wp-content/plugins/contact-form-7/includes/css/stylesc1f9.css?ver=4.4.2' type='text/css' media='all' />
 	<link rel='stylesheet' id='rs-plugin-settings-css'  href='/wp-content/plugins/revslider/public/assets/css/settingsc6ac.css?ver=5.1.5' type='text/css' media='all' />
 	<style id='rs-plugin-settings-inline-css' type='text/css'>
-	#rs-demo-id {}
+        .activeUrl .magic_line {
+            visibility: visible !important;
+            margin-bottom: 0 !important;
+            opacity: 0.9 !important;
+        }
 	</style>
 	<link rel='stylesheet' id='boostrap-css'  href='/wp-content/themes/masterstudy/assets/css/bootstrap.min62ea.css?ver=1.2' type='text/css' media='all' />
 	<link rel='stylesheet' id='font-awesome-min-css'  href='/wp-content/themes/masterstudy/assets/css/font-awesome.min62ea.css?ver=1.2' type='text/css' media='all' />
@@ -97,6 +101,27 @@
 			.wpb_animate_when_almost_visible { opacity: 1; }
 		</style>
 	</noscript>
+        
+        <script type="text/javascript">
+            (function ($) {
+                $(document).ready(function() {
+                    var url = window.location.href;
+                    var postions = locations('/', url);
+                    if (postions.length > 3) {
+                        url = url.substring(0, postions[3]);
+                    }
+                    var liActive = $('#header-menu ul li a[href="'+url+'"]').parent();
+                    liActive.addClass('activeUrl');
+                });
+                function locations(substring,string){
+                    var a=[],i=-1;
+                    while((i=string.indexOf(substring,i+1)) >= 0) a.push(i);
+                    return a;
+                }
+
+            })(jQuery);
+        </script>
+        
 </head>
 <body class="page page-id-889 page-template-default skin_custom_color wpb-js-composer js-comp-ver-4.9.1 vc_responsive">
 	<div id="wrapper">
@@ -198,8 +223,8 @@
 								    	<div class="search-toggler" data-toggle="modal" data-target="#searchModal"><i class="fa fa-search"></i></div>
 								    </div>
 							    </div>
-			    				<div class="collapse navbar-collapse pull-right">
-				    				<ul class="header-menu clearfix">
+			    				<div class="collapse navbar-collapse pull-right" id="header-menu">
+                                                                <ul class="header-menu clearfix">
 					    				<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1510">
 					    					<a href="{!! route('front.index') !!}">Trang chủ</a>
 					    				</li>

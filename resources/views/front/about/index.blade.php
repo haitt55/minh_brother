@@ -37,6 +37,9 @@
         <div class="wpb_column vc_column_container vc_col-sm-6">
             <div class="vc_column-inner ">
                 <div class="wpb_wrapper">
+                    <div class="vc_custom_heading vc_custom_1459846942543">
+                        <h2 style="text-align: left">{!! $about->title !!}</h2>
+                    </div><br>
                     <div class="wpb_text_column wpb_content_element  vc_custom_1460521512346">
                         <div class="wpb_wrapper">
                             {!! $about->intro !!}
@@ -181,8 +184,7 @@
           $(this).closest('.stm_video_wrapper').find('.wpb_video_wrapper').addClass('video_autoplay_true');
           $(this).closest('.stm_video_wrapper').find('iframe').attr('src', addPlay + '&autoplay=1');
         });
-      }
-      ;
+      };
 
     })(jQuery);
 </script>
