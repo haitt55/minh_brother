@@ -14,8 +14,8 @@
             <div class="navxtBreads">
                 <!-- Breadcrumb NavXT 5.6.0 -->
                 <span property="itemListElement" typeof="ListItem">
-                    <a property="item" typeof="WebPage" title="Go to BIMhanoi." href="/" class="home">
-                        <span property="name">BIMhanoi</span>
+                    <a property="item" typeof="WebPage" title="Go to {{ config('custom.company_name') }}." href="/" class="home">
+                        <span property="name">{{ config('custom.company_name') }}</span>
                     </a>
                     <meta property="position" content="1">
                 </span> &gt; 
