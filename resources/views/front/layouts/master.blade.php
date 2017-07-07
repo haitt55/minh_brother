@@ -41,7 +41,7 @@
 	<link rel='stylesheet' id='contact-form-7-css'  href='/wp-content/plugins/contact-form-7/includes/css/stylesc1f9.css?ver=4.4.2' type='text/css' media='all' />
 	<link rel='stylesheet' id='rs-plugin-settings-css'  href='/wp-content/plugins/revslider/public/assets/css/settingsc6ac.css?ver=5.1.5' type='text/css' media='all' />
 	<style id='rs-plugin-settings-inline-css' type='text/css'>
-        .activeUrl .magic_line {
+        .activeUrl .magic_line:first-of-type {
             visibility: visible !important;
             margin-bottom: 0 !important;
             opacity: 0.9 !important;
