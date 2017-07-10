@@ -26,7 +26,7 @@
 	<meta property="og:title" content="@yield('page_title')" />
 	<meta property="og:description" content="@yield('meta_description')" />
 	<meta property="og:url" content="index.html" />
-	<meta property="og:site_name" content="{{ config('custom.company_name') }}" />
+	<meta property="og:site_name" content="{!! app_settings('company') !!}" />
 	<meta property="article:author" content="thao" />
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:description" content="@yield('meta_description')" />

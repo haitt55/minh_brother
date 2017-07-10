@@ -23,11 +23,4 @@ class AppSetting extends Model
 
         return $settings;
     }
-    
-    public static function companyName()
-    {
-        $appSetting = new AppSetting;
-        $settings = $appSetting->settings();
-        return !empty($settings['company']) ? $settings['company'] : null;
-    }
 }

@@ -10,5 +10,4 @@ return [
         'AUTODESK',
         'TEKLA',
     ],
-    'company_name' => App\Models\AppSetting::companyName(),
 ];
