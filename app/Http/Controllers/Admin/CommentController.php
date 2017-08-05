@@ -87,7 +87,7 @@ class CommentController extends Controller
             $rateComment->admin_reply = $data['admin_reply'];;
             $rateComment->save();
 
-            return redirect('admin.comments.index');
+            return redirect()->route('admin.comments.index');
         } catch (Exception $e) {
 
             return redirect()->route('admin.comments.index');
@@ -102,10 +102,10 @@ class CommentController extends Controller
             $rateComment->admin_reply = $data['admin_reply'];;
             $rateComment->save();
 
-            return redirect('admin.comments.index');
+            return redirect()->route('admin.comments.index');
         } catch (Exception $e) {
 
-            return redirect('admin.comments.index');
+            return redirect()->route('admin.comments.index');
         }
     }
 
