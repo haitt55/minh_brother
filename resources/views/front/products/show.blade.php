@@ -78,8 +78,8 @@
 							<div class="stm_custom_product_gallery">
 
 
-								<a href="{{ url($product->image) }}" class="stm_fancybox stm_product_gallery_images active" data-custom="stm_slide-1629" rel="stm_product_gallery">
-									<img width="600" height="500" src="{{ url($product->image) }}" class="attachment-shop_single size-shop_single wp-post-image" alt="học {{ $product->category ? $product->category->name : '' }} tại BIMhanoi" title="học {{ $product->category ? $product->category->name : '' }} tại BIMhanoi">					</a>
+								<a href="{{ $product->image ? url($product->image) : '' }}" class="stm_fancybox stm_product_gallery_images active" data-custom="stm_slide-1629" rel="stm_product_gallery">
+									<img width="600" height="500" src="{{ $product->image ? url($product->image) : '' }}" class="attachment-shop_single size-shop_single wp-post-image" alt="học {{ $product->category ? $product->category->name : '' }} tại BIMhanoi" title="học {{ $product->category ? $product->category->name : '' }} tại BIMhanoi">					</a>
 
 
 									<!-- Gallery images -->
@@ -225,7 +225,7 @@
 											<div class="course-panel-body">
 												Dưới đây là file Pdf chi tiết nội dung, lộ trình khóa học {{ $product->name }}<p></p>
 												<p>Cám ơn bạn đã tham khảo chương trình học của {!! app_settings('company') !!}</p>
-												<p><a href="{{ url($product->content) }}" target="_blank">Download PDF</a>				</p></div>
+												<p><a href="{{ $product->content ? url($product->content) : '' }}" target="_blank">Download PDF</a>				</p></div>
 											</div>
 										</div>
 									</div>		</div>
@@ -419,7 +419,7 @@
 
 								<!-- Reviews END -->
 
-								<meta itemprop="url" content="http://bim.edu.vn/khoa-hoc/revit-mep-standard/">
+								<meta itemprop="url" content="{{ route('products.show', $product->slug) }}">
 
 							</div><!-- #product-521 -->
 
@@ -520,17 +520,17 @@
 											<select id="archives-dropdown-3" name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
 
 												<option value="">Chọn tháng</option>
-												<option value="http://bim.edu.vn/2017/03/"> Tháng Ba 2017 </option>
-												<option value="http://bim.edu.vn/2017/02/"> Tháng Hai 2017 </option>
-												<option value="http://bim.edu.vn/2016/08/"> Tháng Tám 2016 </option>
-												<option value="http://bim.edu.vn/2016/07/"> Tháng Bảy 2016 </option>
-												<option value="http://bim.edu.vn/2016/06/"> Tháng Sáu 2016 </option>
-												<option value="http://bim.edu.vn/2016/05/"> Tháng Năm 2016 </option>
-												<option value="http://bim.edu.vn/2016/04/"> Tháng Tư 2016 </option>
-												<option value="http://bim.edu.vn/2016/03/"> Tháng Ba 2016 </option>
-												<option value="http://bim.edu.vn/2016/02/"> Tháng Hai 2016 </option>
-												<option value="http://bim.edu.vn/2015/05/"> Tháng Năm 2015 </option>
-												<option value="http://bim.edu.vn/2015/03/"> Tháng Ba 2015 </option>
+												<option value=""> Tháng Ba 2017 </option>
+												<option value=""> Tháng Hai 2017 </option>
+												<option value=""> Tháng Tám 2016 </option>
+												<option value=""> Tháng Bảy 2016 </option>
+												<option value=""> Tháng Sáu 2016 </option>
+												<option value=""> Tháng Năm 2016 </option>
+												<option value=""> Tháng Tư 2016 </option>
+												<option value=""> Tháng Ba 2016 </option>
+												<option value=""> Tháng Hai 2016 </option>
+												<option value=""> Tháng Năm 2015 </option>
+												<option value=""> Tháng Ba 2015 </option>
 
 											</select>
 										</aside>

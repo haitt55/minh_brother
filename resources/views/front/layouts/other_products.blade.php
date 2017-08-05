@@ -1,12 +1,13 @@
  @foreach($items as $item)
  <li>
  	<a href="{{ route('products.show', $item->slug) }}" title="Khóa học {{ $item->name }}">
-	<img class="img-responsive" style="width:75px;" src="{{ url($item->image) }}">
+	<img class="img-responsive" style="width:75px;" src="{{ $item->image ? url($item->image) : '' }}">
 	<div class="meta">
 		<div class="title h5">Khóa học {{ $item->name }}</div>								
 		<div class="stm_featured_product_price">
 			<div class="price">
-				₫{{ number_format($item->price) }}										</div>
+				₫{{ number_format($item->price) }}
+			</div>
 			</div>
 			<div class="rating">
 

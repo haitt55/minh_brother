@@ -58,9 +58,11 @@ class ProductController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|unique:products',
-            'image' => 'mimes:jpeg,jpg,gif,png',
+            'image' => 'required|mimes:jpeg,jpg,gif,png',
             'content' => 'mimes:pdf',
-            'price' => 'numeric',
+            'price' => 'required|numeric',
+            'number_of_hour' => 'required|numeric',
+            'number_of_day' => 'required|numeric',
         ]);
         if ($validator->fails()) {
             return redirect()->back()
@@ -153,7 +155,9 @@ class ProductController extends Controller
             'name' => 'required|unique:products,name,' . $id,
             'image' => 'mimes:jpeg,jpg,gif,png',
             'content' => 'mimes:pdf',
-            'price' => 'numeric',
+            'price' => 'required|numeric',
+            'number_of_hour' => 'required|numeric',
+            'number_of_day' => 'required|numeric',
         ]);
         if ($validator->fails()) {
             return redirect()->back()

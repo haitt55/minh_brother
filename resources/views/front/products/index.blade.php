@@ -28,7 +28,7 @@
 		<div class="container">
 			<div class="navxtBreads">
 				<!-- Breadcrumb NavXT 5.6.0 -->
-				<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to BIMhanoi." href="http://bim.edu.vn" class="home"><span property="name">BIMhanoi</span></a><meta property="position" content="1"></span> &gt; <span property="itemListElement" typeof="ListItem"><span property="name">Khóa học</span><meta property="position" content="2"></span>                    </div>
+				<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to BIMhanoi." href="{{ route('front.index') }}" class="home"><span property="name">BIMhanoi</span></a><meta property="position" content="1"></span> &gt; <span property="itemListElement" typeof="ListItem"><span property="name">Khóa học</span><meta property="position" content="2"></span>                    </div>
 			</div>
 		</div>
 
@@ -59,15 +59,9 @@
 							</div>
 							<div class="pull-right select-xs-left">
 								<select id="product_categories_filter" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
-									<option value="/khoa-hoc/?view_type=grid">All</option>
-									<option value="/khoa-hoc/?view_type=grid&amp;category=civil-3d">AUTOCAD CIVIL 3D</option>
-									<option value="/khoa-hoc/?view_type=grid&amp;category=infraworks">INFRAWORKS 360</option>
-									<option value="/khoa-hoc/?view_type=grid&amp;category=navisworks-manage">NAVISWORKS MANAGE</option>
-									<option value="/khoa-hoc/?view_type=grid&amp;category=revit-architecture">REVIT ARCHITECTURE</option>
-									<option value="/khoa-hoc/?view_type=grid&amp;category=revit-building">Revit Building</option>
-									<option value="/khoa-hoc/?view_type=grid&amp;category=revit-mep">REVIT MEP</option>
-									<option value="/khoa-hoc/?view_type=grid&amp;category=revit-structure">REVIT STRUCTURE</option>
-									<option value="/khoa-hoc/?view_type=grid&amp;category=tekla-structures">TEKLA STRUCTURES</option>
+									@foreach($categoryOptions as $key => $value)
+										<option value="{{ route('products.index') }}?category={{$key}}">{{ $value }}</option>
+									@endforeach
 								</select>
 								<!-- <span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-product_categories_filter-container"><span class="select2-selection__rendered" id="select2-product_categories_filter-container" title="All">All</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> -->
 							</div>
@@ -146,116 +140,29 @@
 	<div class="wpb_widgetised_column wpb_content_element">
 		<div class="wpb_wrapper">
 			
-			<aside id="stm_widget_top_rated_products-2" class="widget stm_widget_top_rated_products"><div class="widget_title"><h3>BÀI VIẾT KHÁC</h3></div><ul class="stm_product_list_widget widget_woo_stm_style_2">				
+			<aside id="stm_widget_top_rated_products-2" class="widget stm_widget_top_rated_products"><div class="widget_title"><h3>BÀI VIẾT KHÁC</h3></div><ul class="stm_product_list_widget widget_woo_stm_style_2">
 
-				<li>
-					<a href="http://bim.edu.vn/khoa-hoc/revit-mep-standard/" title="Khóa học Revit MEP Standard">
-						<img class="img-responsive" src="http://bim.edu.vn/wp-content/uploads/2016/04/MEP-Mechnical-system-75x75.jpg ">
-						<div class="meta">
-							<div class="title h5">Khóa học Revit MEP Standard</div>								
-							<div class="stm_featured_product_price">
-								<div class="price">
-									₫2900000										</div>
-								</div>
-								<div class="rating">
-									
-
-									<span class="price"><span class="woocommerce-Price-amount amount">2.900.000<span class="woocommerce-Price-currencySymbol">₫</span></span></span>
-								</div>
-								<div class="expert">Giảng viên Bùi Quang Huy</div>
-							</div>
-						</a>
-					</li>
-
-
-					<li>
-						<a href="http://bim.edu.vn/khoa-hoc/khoa-hoc-civil-3d-ha-tang-ky-thuat/" title="Khóa học AutoCAD Civil 3D cho hạ tầng kỹ thuật">
-							<img class="img-responsive" src="http://bim.edu.vn/wp-content/uploads/2016/05/CIVIL-3D-HA-TANG-KY-THUAT-75x75.jpg ">
-							<div class="meta">
-								<div class="title h5">Khóa học AutoCAD Civil 3D cho hạ tầng kỹ thuật</div>								
-								<div class="stm_featured_product_price">
-									<div class="price">
-										₫4500000										</div>
-									</div>
-									<div class="rating">
-
-
-										<span class="price"><span class="woocommerce-Price-amount amount">4.500.000<span class="woocommerce-Price-currencySymbol">₫</span></span></span>
-									</div>
-									<div class="expert">Giảng viên Ngô Quốc Việt</div>
-								</div>
-							</a>
-						</li>
-
-
-						<li>
-							<a href="http://bim.edu.vn/khoa-hoc/revit-structure-pro/" title="Khóa học Revit Structure Advanced">
-								<img class="img-responsive" src="http://bim.edu.vn/wp-content/uploads/2016/04/STR-Family-Editor-1-75x75.jpg ">
-								<div class="meta">
-									<div class="title h5">Khóa học Revit Structure Advanced</div>								
-									<div class="stm_featured_product_price">
-										<div class="price">
-											₫3900000										</div>
-										</div>
-										<div class="rating">
-
-
-											<span class="price"><span class="woocommerce-Price-amount amount">3.900.000<span class="woocommerce-Price-currencySymbol">₫</span></span></span>
-										</div>
-										<div class="expert">Giảng viên Bùi Quang Huy</div>
-									</div>
-								</a>
-							</li>
+					@include('front.layouts.other_products', ['items' => $otherProducts])
 						</ul></aside><aside id="archives-3" class="widget widget_archive"><div class="widget_title"><h3>TÌM THEO THỜI GIAN</h3></div>		<label class="screen-reader-text" for="archives-dropdown-3">TÌM THEO THỜI GIAN</label>
 						<select id="archives-dropdown-3" name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
 
 							<option value="">Chọn tháng</option>
-							<option value="http://bim.edu.vn/2017/03/"> Tháng Ba 2017 </option>
-							<option value="http://bim.edu.vn/2017/02/"> Tháng Hai 2017 </option>
-							<option value="http://bim.edu.vn/2016/08/"> Tháng Tám 2016 </option>
-							<option value="http://bim.edu.vn/2016/07/"> Tháng Bảy 2016 </option>
-							<option value="http://bim.edu.vn/2016/06/"> Tháng Sáu 2016 </option>
-							<option value="http://bim.edu.vn/2016/05/"> Tháng Năm 2016 </option>
-							<option value="http://bim.edu.vn/2016/04/"> Tháng Tư 2016 </option>
-							<option value="http://bim.edu.vn/2016/03/"> Tháng Ba 2016 </option>
-							<option value="http://bim.edu.vn/2016/02/"> Tháng Hai 2016 </option>
-							<option value="http://bim.edu.vn/2015/05/"> Tháng Năm 2015 </option>
-							<option value="http://bim.edu.vn/2015/03/"> Tháng Ba 2015 </option>
+							<option value=""> Tháng Ba 2017 </option>
+							<option value=""> Tháng Hai 2017 </option>
+							<option value=""> Tháng Tám 2016 </option>
+							<option value=""> Tháng Bảy 2016 </option>
+							<option value=""> Tháng Sáu 2016 </option>
+							<option value=""> Tháng Năm 2016 </option>
+							<option value=""> Tháng Tư 2016 </option>
+							<option value=""> Tháng Ba 2016 </option>
+							<option value=""> Tháng Hai 2016 </option>
+							<option value=""> Tháng Năm 2015 </option>
+							<option value=""> Tháng Ba 2015 </option>
 
 						</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-archives-dropdown-3-container"><span class="select2-selection__rendered" id="select2-archives-dropdown-3-container" title="Chọn tháng">Chọn tháng</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-					</aside><aside id="working_hours-3" class="widget widget_working_hours"><div class="widget_title"><h3>GIỜ LÀM VIỆC</h3></div>        
-					<table class="table_working_hours">
-						<tbody><tr class="opened">
-							<td class="day_label h6">Thứ Hai</td>
-							<td class="day_value h6">9:30 am - 6.00 pm</td>
-						</tr>
-						<tr class="opened">
-							<td class="day_label h6">Thứ Ba</td>
-							<td class="day_value h6">9:30 am - 6.00 pm</td>
-						</tr>
-						<tr class="opened">
-							<td class="day_label h6">Thứ Tư</td>
-							<td class="day_value h6">9:30 am - 6.00 pm</td>
-						</tr>
-						<tr class="opened">
-							<td class="day_label h6">Thứ Năm</td>
-							<td class="day_value h6">9:30 am - 6.00 pm</td>
-						</tr>
-						<tr class="opened">
-							<td class="day_label h6">Thứ Sáu</td>
-							<td class="day_value h6">9:30 am - 6.00 pm</td>
-						</tr>
-						<tr class="opened">
-							<td class="day_label h6">Thứ Bảy</td>
-							<td class="day_value h6">9:00 am - 12:00 pm</td>
-						</tr>
-						<tr class="closed">
-							<td class="day_label h6">Chủ nhật</td>
-							<td class="day_value closed h6"><span>Không làm việc</span></td>
-						</tr>
-					</tbody></table>
+					</aside>
+			@include('front.layouts.week_working_hour')
 
-				</aside>
 			</div>
 		</div>
 	</div>

@@ -47,15 +47,15 @@
                                     {{ Form::select('teacher_id', $teacherOptions, $product->teacher_id, ['class' => 'form-control']) }}
                                 </div>
                                 <div class="form-group">
-                                    <label for="price">Giá </label>
+                                    <label for="price">Giá <span class="required">(*)</span></label>
                                     <input type="text" name="price" id="price" class="form-control" value="{{ old('price', $product->price) }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="number_of_hour">Số giờ học</label>
+                                    <label for="number_of_hour">Số giờ học <span class="required">(*)</span></label>
                                     <input type="text" name="number_of_hour" id="number_of_hour" class="form-control" value="{{ old('number_of_hour', $product->number_of_hour) }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="number_of_day">Số buổi học</label>
+                                    <label for="number_of_day">Số buổi học <span class="required">(*)</span></label>
                                     <input type="text" name="number_of_day" id="number_of_day" class="form-control" value="{{ old('number_of_day', $product->number_of_day) }}">
                                 </div>
                                 <div class="form-group">
@@ -63,7 +63,7 @@
                                     <input type="text" name="certification" id="certification" class="form-control" value="{{ old('certification', $product->certification) }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="image">Ảnh header</label>
+                                    <label for="image">Ảnh header <span class="required">(*)</span></label>
                                     <input type="file" id="image" name="image" accept="image/*">
                                     <div class="row" style="margin-top: 10px;">
                                         <div class="display-image col-md-12">

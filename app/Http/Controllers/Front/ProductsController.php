@@ -33,10 +33,27 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $products = Product::all();
-        return view('front.products.index')->with(['products' => $products]);
+        if ($request->get('search'))
+        {
+            $products = Product::select('products.*')->where('products.name', 'like', '%'.$request->get('search').'%')
+                ->orderBy('created_at', 'desc')->get();
+        }
+        if ($request->get('category'))
+        {
+            $products = Product::select('products.*')
+                ->where('products.category_id', '=', $request->get('category'))
+                ->orderBy('created_at', 'desc')->get();
+        }
+        $this->otherProducts = Product::select('products.*')
+            ->orderBy('created_at', 'desc')->take(5)->get();
+        return view('front.products.index')->with([
+            'products' => $products,
+            'otherProducts' => $this->otherProducts,
+            'categoryOptions' => $this->categoryOptions
+        ]);
     }
 
     public function show($slug)
