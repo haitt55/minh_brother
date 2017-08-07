@@ -40,6 +40,17 @@ class Teacher extends Model
         return $this->hasMany('App\Product', 'teacher_id', 'id');
     }
     
+    public function productsInfo()
+    {
+        return $this->hasMany('App\Product', 'teacher_id', 'id')
+                ->select('products.id', 'products.name', 'products.image', 'products.slug')
+                ->selectRaw('count(rate_comments.product_id) as comment_count')
+                ->leftJoin('rate_comments', 'products.id','=', 'rate_comments.product_id')
+                ->selectRaw('count(student_products.product_id) as register_count')
+                ->leftJoin('student_products', 'products.id','=', 'student_products.product_id')
+                ->groupBy('products.id', 'products.name', 'products.image', 'products.slug');
+    }
+    
     public function sluggable()
     {
         return [

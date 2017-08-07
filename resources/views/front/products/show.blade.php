@@ -401,13 +401,11 @@
 																  cols="45" rows="8" aria-required="true"
 																  placeholder="Đánh giá của bạn *"></textarea></div>
 													<p class="form-submit">
-														<input id="submit" class="submit"
-															   value="Gửi đi">
-														<input type="hidden" name="product_id" value="{{ $product->id }}"
-															   id="comment_post_ID">
-														<input type="hidden" name="comment_parent" id="comment_parent"
-															   value="0">
-													</p></form>
+														<input id="submit" class="submit" value="Gửi đi" readonly="true">
+														<input type="hidden" name="product_id" value="{{ $product->id }}" id="comment_post_ID">
+														<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+													</p>
+                                                                                                </form>
 											</div>
 											<!-- #respond -->
 										</div>
