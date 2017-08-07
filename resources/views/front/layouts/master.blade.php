@@ -91,7 +91,7 @@
 	</script>
 	<link rel="shortcut icon" type="image/x-icon" href="../../ebim.edu.vn/wp-content/uploads/2016/03/logo-bimhanoi-trong.html" />
 	<meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress."/>
-	<!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="http://bim.edu.vn/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><!--[if IE  8]><link rel="stylesheet" type="text/css" href="http://bim.edu.vn/wp-content/plugins/js_composer/assets/css/vc-ie8.min.css" media="screen"><![endif]--><meta name="generator" content="Powered by Slider Revolution 5.1.5 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
+	<meta name="generator" content="Powered by Slider Revolution 5.1.5 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
 	<link rel="icon" href="/wp-content/uploads/2016/03/cropped-logo-bimhanoi-trong-50x50.png" sizes="32x32" />
 	<link rel="icon" href="/wp-content/uploads/2016/03/cropped-logo-bimhanoi-trong-300x300.png" sizes="192x192" />
 	<link rel="apple-touch-icon-precomposed" href="/wp-content/uploads/2016/03/cropped-logo-bimhanoi-trong-180x180.png" />
@@ -102,7 +102,7 @@
 			.wpb_animate_when_almost_visible { opacity: 1; }
 		</style>
 	</noscript>
-        
+
         <script type="text/javascript">
             (function ($) {
                 $(document).ready(function() {
@@ -122,7 +122,7 @@
 
             })(jQuery);
         </script>
-        
+
 </head>
 <body class="page page-id-889 page-template-default skin_custom_color wpb-js-composer js-comp-ver-4.9.1 vc_responsive">
 	<div id="wrapper">
@@ -332,7 +332,7 @@
 									</li>
 									<li>
 										<div class="icon"><i class="fa fa-envelope"></i></div>
-										<div class="text"><a href="mailto:bimhanoi@bim.edu.vn">{!! app_settings('email') !!}</a></div>
+										<div class="text"><a href="mailto:{!! app_settings('email') !!}">{!! app_settings('email') !!}</a></div>
 									</li>
 								</ul>
 							</aside>

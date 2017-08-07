@@ -34,7 +34,7 @@
                                                 data-start="400"
                                                 data-responsive_offset="on"
                                                 style="z-index: 5;">
-                                                <img src="http://ebim.edu.vn/wp-content/uploads/2016/04/Trung-tam-dao-tao-BIM-BIMhanoi.jpg" alt="" data-ww="1600px" data-hh="1068px" data-no-retina>
+                                                <img src="/upload/images/pic_01.jpg" alt="" data-ww="1600px" data-hh="1068px" data-no-retina>
                                             </div>
 
                                             <!-- LAYER NR. 2 -->
@@ -68,7 +68,7 @@
                                                 data-splitin="none"
                                                 data-splitout="none"
                                                 data-responsive_offset="on"
-                                                style="z-index: 7; min-width: 882px; max-width: 882px; white-space: normal; font-size: 50px; line-height: 60px; font-weight: 700; color: rgba(255, 255, 255, 1.00);">TRUNG TÂM ĐÀO TẠO BIM
+                                                style="z-index: 7; min-width: 882px; max-width: 882px; white-space: normal; font-size: 50px; line-height: 60px; font-weight: 700; color: rgba(255, 255, 255, 1.00);">TRUNG TÂM ĐÀO TẠO
                                             </div>
 
                                             <!-- LAYER NR. 4 -->
@@ -86,7 +86,7 @@
                                                 data-splitin="none"
                                                 data-splitout="none"
                                                 data-responsive_offset="on"
-                                                style="z-index: 8; min-width: 710px; max-width: 710px; max-width: 69px; max-width: 69px; white-space: normal; font-size: 50px; line-height: 60px; font-weight: 700; color: rgba(255, 255, 255, 1.00);">DUY NHẤT TẠI VIỆT NAM
+                                                style="z-index: 8; min-width: 710px; max-width: 710px; max-width: 69px; max-width: 69px; white-space: normal; font-size: 50px; line-height: 60px; font-weight: 700; color: rgba(255, 255, 255, 1.00);">THIẾT KẾ 3D NHÀ MÁY
                                             </div>
 
                                             <!-- LAYER NR. 5 -->
@@ -120,7 +120,7 @@
                                                 data-splitin="none"
                                                 data-splitout="none"
                                                 data-responsive_offset="on"
-                                                style="z-index: 10; min-width: 924px; max-width: 924px; max-width: 70px; max-width: 70px; white-space: normal; font-size: 50px; line-height: 62px; font-weight: 700; color: rgba(30, 71, 141, 1.00);">CHÍNH HÃNG AUTODESK ỦY QUYỀN
+                                                style="z-index: 10; min-width: 924px; max-width: 924px; max-width: 70px; max-width: 70px; white-space: normal; font-size: 50px; line-height: 62px; font-weight: 700; color: rgba(30, 71, 141, 1.00);">CÁC GIẢI PHÁP TÍNH TOÁN
                                             </div>
                                         </li>
                                         <!-- SLIDE  -->
@@ -142,7 +142,7 @@
                                                 data-start="500"
                                                 data-responsive_offset="on"
                                                 style="z-index: 5;">
-                                                <img src="http://ebim.edu.vn/wp-content/uploads/2016/04/Dao-tao-Revit-Architecture-chuyen-nghiep-1.jpg" alt="" data-ww="1600px" data-hh="900px" data-no-retina>
+                                                <img src="/upload/images/pic_02.jpg" alt="" data-ww="1600px" data-hh="900px" data-no-retina>
                                             </div>
 
                                             <!-- LAYER NR. 2 -->
@@ -150,8 +150,8 @@
                                                 id="slide-5-layer-3"
                                                 data-x="57"
                                                 data-y="440"
-                                                data-width="['1101']"
-                                                data-height="['131']"
+                                                data-width="['1180']"
+                                                data-height="['180']"
                                                 data-transform_idle="o:1;"
                                                 data-transform_in="x:left;skX:45px;s:300;e:Power2.easeInOut;"
                                                 data-transform_out="opacity:0;s:300;s:300;"
@@ -192,12 +192,190 @@
                                                 data-splitin="none"
                                                 data-splitout="none"
                                                 data-responsive_offset="on"
-                                                style="z-index: 8; min-width: 1100px; max-width: 1100px; max-width: 61px; max-width: 61px; white-space: normal; font-size: 50px; line-height: 60px; font-weight: 700; color: rgba(252, 252, 252, 1.00);">CUNG CẤP DỊCH VỤ BIM CHUYÊN NGHIỆP
+                                                style="z-index: 8; min-width: 1100px; max-width: 1100px; max-width: 61px; max-width: 61px; white-space: normal; font-size: 50px; line-height: 60px; font-weight: 700; color: rgba(252, 252, 252, 1.00);">Giải pháp thiêt kế 3D nhà máy Aveva PDMS, Autoplant, Cadworx, Autodesk Revit...
                                             </div>
 
                                             <!-- LAYER NR. 5 -->
                                             <div class="tp-caption   tp-resizeme"
                                                 id="slide-5-layer-6"
+                                                data-x="60"
+                                                data-y="560"
+                                                data-width="['1015']"
+                                                data-height="['61']"
+                                                data-transform_idle="o:1;"
+                                                data-transform_in="x:left;skX:45px;s:300;e:Power2.easeInOut;"
+                                                data-transform_out="opacity:0;s:300;s:300;"
+                                                data-start="500"
+                                                data-splitin="none"
+                                                data-splitout="none"
+                                                data-responsive_offset="on"
+                                                style="z-index: 9; min-width: 1015px; max-width: 1015px; max-width: 61px; max-width: 61px; white-space: normal; font-size: 50px; line-height: 60px; font-weight: 700; color: rgba(255, 255, 255, 1.00);">
+                                            </div>
+                                        </li>
+                                        <!-- SLIDE  -->
+                                        <li data-index="rs-6" data-transition="fade" data-slotamount="default" data-hideafterloop="0"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                                            <!-- MAIN IMAGE -->
+                                            <img src="/wp-content/plugins/revslider/admin/assets/images/transparent.png"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
+                                            <!-- LAYERS -->
+
+                                            <!-- LAYER NR. 1 -->
+                                            <div class="tp-caption   tp-resizeme"
+                                                id="slide-6-layer-2"
+                                                data-x="-183"
+                                                data-y="17"
+                                                data-width="['none','none','none','none']"
+                                                data-height="['none','none','none','none']"
+                                                data-transform_idle="o:1;"
+                                                data-transform_in="opacity:0;s:300;e:Power2.easeInOut;"
+                                                data-transform_out="opacity:0;s:300;s:300;"
+                                                data-start="500"
+                                                data-responsive_offset="on"
+                                                style="z-index: 5;">
+                                                <img src="/upload/images/pic_03.jpg" alt="" data-ww="1600px" data-hh="900px" data-no-retina>
+                                            </div>
+
+                                            <!-- LAYER NR. 2 -->
+                                            <div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme"
+                                                id="slide-6-layer-3"
+                                                data-x="57"
+                                                data-y="440"
+                                                data-width="['1101']"
+                                                data-height="['180']"
+                                                data-transform_idle="o:1;"
+                                                data-transform_in="x:left;skX:45px;s:300;e:Power2.easeInOut;"
+                                                data-transform_out="opacity:0;s:300;s:300;"
+                                                data-start="500"
+                                                data-responsive_offset="on"
+                                                style="z-index: 6;background-color:rgba(0, 0, 0, 0.50);border-color:rgba(0, 0, 0, 0.50);">
+                                            </div>
+
+                                            <!-- LAYER NR. 3 -->
+                                            <div class="tp-caption   tp-resizeme"
+                                                id="slide-6-layer-4"
+                                                data-x="61"
+                                                data-y="428"
+                                                data-width="['973']"
+                                                data-height="['62']"
+                                                data-transform_idle="o:1;"
+                                                data-transform_in="x:left;skX:45px;s:300;e:Power2.easeInOut;"
+                                                data-transform_out="opacity:0;s:300;s:300;"
+                                                data-start="500"
+                                                data-splitin="none"
+                                                data-splitout="none"
+                                                data-responsive_offset="on"
+                                                style="z-index: 7; min-width: 973px; max-width: 973px; max-width: 62px; max-width: 62px; white-space: normal; font-size: 50px; line-height: 60px; font-weight: 700; color: rgba(255, 255, 255, 1.00);">
+
+                                            </div>
+
+                                            <!-- LAYER NR. 4 -->
+                                            <div class="tp-caption   tp-resizeme"
+                                                id="slide-6-layer-5"
+                                                data-x="106"
+                                                data-y="475"
+                                                data-width="['1100']"
+                                                data-height="['61']"
+                                                data-transform_idle="o:1;"
+                                                data-transform_in="x:left;skX:45px;s:300;e:Power2.easeInOut;"
+                                                data-transform_out="opacity:0;s:300;s:300;"
+                                                data-start="500"
+                                                data-splitin="none"
+                                                data-splitout="none"
+                                                data-responsive_offset="on"
+                                                style="z-index: 8; min-width: 1100px; max-width: 1100px; max-width: 61px; max-width: 61px; white-space: normal; font-size: 50px; line-height: 60px; font-weight: 700; color: rgba(252, 252, 252, 1.00);">Giải pháp tính toán cơ khí Caesar II, Autopipe, PVElite...
+                                            </div>
+
+                                            <!-- LAYER NR. 5 -->
+                                            <div class="tp-caption   tp-resizeme"
+                                                id="slide-6-layer-6"
+                                                data-x="60"
+                                                data-y="560"
+                                                data-width="['1015']"
+                                                data-height="['61']"
+                                                data-transform_idle="o:1;"
+                                                data-transform_in="x:left;skX:45px;s:300;e:Power2.easeInOut;"
+                                                data-transform_out="opacity:0;s:300;s:300;"
+                                                data-start="500"
+                                                data-splitin="none"
+                                                data-splitout="none"
+                                                data-responsive_offset="on"
+                                                style="z-index: 9; min-width: 1015px; max-width: 1015px; max-width: 61px; max-width: 61px; white-space: normal; font-size: 50px; line-height: 60px; font-weight: 700; color: rgba(255, 255, 255, 1.00);">
+                                            </div>
+                                        </li>
+                                        <!-- SLIDE  -->
+                                        <li data-index="rs-7" data-transition="fade" data-slotamount="default" data-hideafterloop="0"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                                            <!-- MAIN IMAGE -->
+                                            <img src="/wp-content/plugins/revslider/admin/assets/images/transparent.png"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
+                                            <!-- LAYERS -->
+
+                                            <!-- LAYER NR. 1 -->
+                                            <div class="tp-caption   tp-resizeme"
+                                                id="slide-7-layer-2"
+                                                data-x="-183"
+                                                data-y="17"
+                                                data-width="['none','none','none','none']"
+                                                data-height="['none','none','none','none']"
+                                                data-transform_idle="o:1;"
+                                                data-transform_in="opacity:0;s:300;e:Power2.easeInOut;"
+                                                data-transform_out="opacity:0;s:300;s:300;"
+                                                data-start="500"
+                                                data-responsive_offset="on"
+                                                style="z-index: 5;">
+                                                <img src="/upload/images/pic_04.jpg" alt="" data-ww="1600px" data-hh="900px" data-no-retina>
+                                            </div>
+
+                                            <!-- LAYER NR. 2 -->
+                                            <div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme"
+                                                id="slide-7-layer-3"
+                                                data-x="57"
+                                                data-y="440"
+                                                data-width="['1101']"
+                                                data-height="['180']"
+                                                data-transform_idle="o:1;"
+                                                data-transform_in="x:left;skX:45px;s:300;e:Power2.easeInOut;"
+                                                data-transform_out="opacity:0;s:300;s:300;"
+                                                data-start="500"
+                                                data-responsive_offset="on"
+                                                style="z-index: 6;background-color:rgba(0, 0, 0, 0.50);border-color:rgba(0, 0, 0, 0.50);">
+                                            </div>
+
+                                            <!-- LAYER NR. 3 -->
+                                            <div class="tp-caption   tp-resizeme"
+                                                id="slide-7-layer-4"
+                                                data-x="61"
+                                                data-y="428"
+                                                data-width="['973']"
+                                                data-height="['62']"
+                                                data-transform_idle="o:1;"
+                                                data-transform_in="x:left;skX:45px;s:300;e:Power2.easeInOut;"
+                                                data-transform_out="opacity:0;s:300;s:300;"
+                                                data-start="500"
+                                                data-splitin="none"
+                                                data-splitout="none"
+                                                data-responsive_offset="on"
+                                                style="z-index: 7; min-width: 973px; max-width: 973px; max-width: 62px; max-width: 62px; white-space: normal; font-size: 50px; line-height: 60px; font-weight: 700; color: rgba(255, 255, 255, 1.00);">
+
+                                            </div>
+
+                                            <!-- LAYER NR. 4 -->
+                                            <div class="tp-caption   tp-resizeme"
+                                                id="slide-7-layer-5"
+                                                data-x="106"
+                                                data-y="475"
+                                                data-width="['1100']"
+                                                data-height="['61']"
+                                                data-transform_idle="o:1;"
+                                                data-transform_in="x:left;skX:45px;s:300;e:Power2.easeInOut;"
+                                                data-transform_out="opacity:0;s:300;s:300;"
+                                                data-start="500"
+                                                data-splitin="none"
+                                                data-splitout="none"
+                                                data-responsive_offset="on"
+                                                style="z-index: 8; min-width: 1100px; max-width: 1100px; max-width: 61px; max-width: 61px; white-space: normal; font-size: 50px; line-height: 60px; font-weight: 700; color: rgba(252, 252, 252, 1.00);">Giải pháp tính toán công nghệ Hysys, Pipenet...
+                                            </div>
+
+                                            <!-- LAYER NR. 5 -->
+                                            <div class="tp-caption   tp-resizeme"
+                                                id="slide-7-layer-6"
                                                 data-x="60"
                                                 data-y="560"
                                                 data-width="['1015']"
@@ -259,7 +437,7 @@
                                         }else{
                                             revapi1 = tpj("#rev_slider_1_1").show().revolution({
                                                 sliderType:"standard",
-                                                jsFileLocation:"//bim.edu.vn/wp-content/plugins/revslider/public/assets/js/",
+                                                jsFileLocation:"/wp-content/plugins/revslider/public/assets/js/",
                                                 sliderLayout:"fullwidth",
                                                 dottedOverlay:"none",
                                                 delay:9000,
@@ -539,8 +717,7 @@
                 </div>
             </div>
         </div>
-        <div data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.5" data-vc-parallax-o-fade="on" data-vc-parallax-image="/wp-content/uploads/2015/05/tumblr_n1rr53o21A1tubinno1_1280-e1476335976576.jpg" class="vc_row wpb_row vc_row-fluid stm_fixed_background vc_custom_1460584115696 vc_row-has-fill vc_general vc_parallax vc_parallax-content-moving-fade js-vc_parallax-o-fade" style="position: relative; left: -320px; box-sizing: border-box; width: 1840px; padding-left: 320px; padding-right: 320px;">
-        {{-- <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-parallax="1.5" data-vc-parallax-o-fade="on" data-vc-parallax-image="/wp-content/uploads/2015/05/tumblr_n1rr53o21A1tubinno1_1280-e1476335976576.jpg" class="vc_row wpb_row vc_row-fluid stm_fixed_background vc_custom_1460584115696 vc_row-has-fill vc_general vc_parallax vc_parallax-content-moving-fade js-vc_parallax-o-fade"> --}}
+        <div data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.5" data-vc-parallax-o-fade="on" data-vc-parallax-image="/upload/images/Background_01.jpg" class="vc_row wpb_row vc_row-fluid stm_fixed_background vc_custom_1460584115696 vc_row-has-fill vc_general vc_parallax vc_parallax-content-moving-fade js-vc_parallax-o-fade" style="position: relative; left: -320px; box-sizing: border-box; width: 1840px; padding-left: 320px; padding-right: 320px;">
             <div class="wpb_column vc_column_container vc_col-sm-12">
                 <div class="vc_column-inner ">
                     <div class="wpb_wrapper">
