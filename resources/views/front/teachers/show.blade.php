@@ -238,8 +238,12 @@
                                     </div> <!-- experts main wrapper -->
 
                                     <!-- If styled as carousel add inline script in footer -->
-                                </div></div></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
         </article>
 
     </div>
