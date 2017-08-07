@@ -36,8 +36,9 @@ class TeachersController extends Controller
 
     public function show($slug)
     {
-        $teacher = Teacher::with('products')->where('slug', $slug)->first();
+        $teacher = Teacher::where('slug', $slug)->first();
+        $products = $teacher->productsInfo;
         $teachers = $this->teachers;
-        return view('front.teachers.show', compact('teacher', 'teachers'));
+        return view('front.teachers.show', compact('teacher', 'teachers', 'products'));
     }
 }

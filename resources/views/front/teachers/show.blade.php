@@ -94,7 +94,7 @@
                                         <div class="caroufredsel_wrapper">
                                             <div class="simple_carousel_bullets_init clearfix">
 
-                                                @foreach($teacher->products as $product)
+                                                @foreach($products as $product)
                                                 <div class="col-md-3 col-sm-4 col-xs-12">
                                                     <div class="stm_featured_product_single_unit heading_font">
                                                         <div class="stm_featured_product_single_unit_centered">
@@ -116,11 +116,11 @@
                                                                     <div class="pull-left">
 
                                                                         <div class="stm_featured_product_comments">
-                                                                            <i class="fa-icon-stm_icon_comment_o"></i><span>1</span>
+                                                                            <i class="fa-icon-stm_icon_comment_o"></i><span>{{ number_format($product->comment_count) }}</span>
                                                                         </div>
 
                                                                         <div class="stm_featured_product_stock">
-                                                                            <i class="fa-icon-stm_icon_user"></i><span>5</span>
+                                                                            <i class="fa-icon-stm_icon_user"></i><span>{{ number_format($product->register_count) }}</span>
                                                                         </div>
 
                                                                     </div>
