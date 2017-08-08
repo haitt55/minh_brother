@@ -7,9 +7,8 @@
                 <div class="row">
 
                     <div class="alert alert-success" role="alert">
-                        C?m ?n b?n ?ã ??ng ký khóa h?c t?i {{ app_settings('company') }}.
-
-                        Chúng tôi s? s?m liên h? b?n ?? xác nh?n l?i thông tin này!<br>
+                         C?m ?n b?n ?ã ??ng kí khóa h?c t?i {{ app_settings('company') }}.
+                        Chúng rôi s? s?m liên h? b?n ?? xác nh?n l?i thông tin này!<br>
                     </div>
 
                 </div>

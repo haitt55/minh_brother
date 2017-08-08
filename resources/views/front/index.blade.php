@@ -633,7 +633,7 @@
                                                                     <a href="{!! route('products.show', $product->slug) !!}"  title="{!! $product->name !!}">
                                                                         <div class="title">{!! $product->name !!}</div>
                                                                     </a>
-                                                                    <div class="expert">Giảng viên {!! $product->teacher->full_name !!}</div>
+                                                                    <div class="expert">Giảng viên {!! $product->teacher ? $product->teacher->full_name : '' !!}</div>
                                                                 </div>
                                                                 <div class="stm_featured_product_footer">
                                                                     <div class="clearfix">

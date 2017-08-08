@@ -64,6 +64,10 @@ class HomeController extends Controller
 
     public function storeCourse(Request $request)
     {
+        $isNewRegister = true;
+        if ($request->get('student_id')) {
+            $isNewRegister = false;
+        }
         $validator = Validator::make($request->all(), [
             'payment_first_name' => 'required',
             'payment_last_name' => 'required',
@@ -73,18 +77,18 @@ class HomeController extends Controller
             'product_id' => 'required',
         ],
             array(
-                'payment_first_name.required' => 'H? is required.',
-                'payment_last_name.required' => 'T�n is required.',
-                'payment_phone_number.required' => 'S? ?i?n tho?i is required.',
-                'payment_phone_number.numeric' => 'S? ?i?n tho?i is number.',
+                'payment_first_name.required' => 'Họ is required.',
+                'payment_last_name.required' => 'Tên is required.',
+                'payment_phone_number.required' => 'Số điện thoại is required.',
+                'payment_phone_number.numeric' => 'Số điện thoại is number.',
                 'payment_email.required' => 'Email is required.',
                 'payment_email.email' => 'Email is not valid.',
                 'payment_email.unique' => 'Email has been used.',
-                'payment_city.required' => 'N?i l�m vi?c is required.',
-                'product_id.required' => 'Kh�a h?c is required.'
+                'payment_city.required' => 'Nơi làm việc is required.',
+                'product_id.required' => 'Khóa học is required.'
             )
         );
-        if ($validator->errors() && count($validator->errors())) {
+        if ($validator->errors() && count($validator->errors()) && $isNewRegister) {
             return redirect()
                 ->back()
                 ->withErrors($validator->errors())
@@ -92,24 +96,29 @@ class HomeController extends Controller
         }
         DB::beginTransaction();
         try {
-            $student = new Student();
-            $student->payment_first_name = $request->payment_first_name;
-            $student->payment_last_name = $request->payment_last_name;
+            if ($isNewRegister) {
+                $student = new Student();
+                $student->payment_first_name = $request->payment_first_name;
+                $student->payment_last_name = $request->payment_last_name;
 //            $student->birth = $request->birth;
-            $student->payment_phone_number = $request->payment_phone_number;
-            $student->payment_email = $request->payment_email;
-            $student->email = $request->payment_email;
-            $student->password = bcrypt('123456');
-//            $student->payment_city = $request->payment_city;
+                $student->payment_phone_number = $request->payment_phone_number;
+                $student->payment_email = $request->payment_email;
+                $student->email = $request->payment_email;
+                $student->password = bcrypt('123456');
+                $student->payment_city = $request->payment_city;
 //            $student->school = $request->school;
 //            $student->facebook_link = $request->facebook_link;
 //            $student->friend = $request->friend;
 //            $student->payment_method = $request->payment_method;
-            $student->save();
+                $student->save();
+                $studentId = $student->id;
+            } else {
+                $studentId = $request->get('student_id');
+            }
             DB::table('student_products')->insert(
                 [
                     'product_id' => $request->product_id,
-                    'student_id' => $student->id,
+                    'student_id' => $studentId,
                 ]
             );
             DB::commit();

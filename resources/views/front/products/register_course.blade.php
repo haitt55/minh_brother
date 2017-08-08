@@ -18,6 +18,7 @@
                     <div class="clearfix"></div>
                     <form class="registration_form" method="post" action="{{ route('register-course.store') }}">
                         {{ csrf_field() }}
+                        <input type="hidden" value="{{ auth()->user() ? auth()->user()->id : '' }}" name="student_id">
                         <h3 class="col-sm-12">Hoặc đăng ký online theo form sau:</h3>
                         <div class="col-sm-6 city">
                             <label>Địa điểm học (<span class="requirement">*</span>):</label>
@@ -37,39 +38,39 @@
                         </div>
                         <div class="col-sm-6 name">
                             <label>Họ (<span class="requirement">*</span>):</label>
-                            <input type="text" name="payment_first_name"  value="{{ old('payment_first_name', auth()->user()->payment_first_name) }}">
+                            <input type="text" name="payment_first_name"  value="{{ old('payment_first_name', auth()->user() ? auth()->user()->payment_first_name : '') }}">
                         </div>
                         <div class="col-sm-6 name">
                             <label>Tên (<span class="requirement">*</span>):</label>
-                            <input type="text" name="payment_last_name"  value="{{ old('payment_last_name', auth()->user()->payment_last_name) }}">
+                            <input type="text" name="payment_last_name"  value="{{ old('payment_last_name', auth()->user() ? auth()->user()->payment_last_name : '') }}">
                         </div>
                         <div class="col-sm-6 date_of_birth">
                             <label>Năm sinh:</label>
-                            <input type="text" name="birth"  value="{{ old('birth', auth()->user()->birth) }}">
+                            <input type="text" name="birth"  value="{{ old('birth', auth()->user() ? auth()->user()->birth : '') }}">
                         </div>
                         <div class="col-sm-6 phone">
                             <label>Số điện thoại (<span class="requirement">*</span>):</label>
-                            <input type="text" name="payment_phone_number"  value="{{ old('payment_phone_number', auth()->user()->payment_phone_number) }}">
+                            <input type="text" name="payment_phone_number"  value="{{ old('payment_phone_number', auth()->user() ? auth()->user()->payment_phone_number : '') }}">
                         </div>
                         <div class="col-sm-6 email">
                             <label>Email (<span class="requirement">*</span>):</label>
-                            <input type="email" name="payment_email"  value="{{ old('payment_email', auth()->user()->payment_email) }}">
+                            <input type="email" name="payment_email"  value="{{ old('payment_email', auth()->user() ? auth()->user()->payment_email : '') }}">
                         </div>
                         <div class="col-sm-6 work_location">
                             <label>Nơi làm việc (<span class="requirement">*</span>):</label>
-                            <input type="text" name="payment_city"  value="{{ old('payment_city', auth()->user()->payment_city) }}">
+                            <input type="text" name="payment_city"  value="{{ old('payment_city', auth()->user() ? auth()->user()->payment_city : '') }}">
                         </div>
                         <div class="col-sm-6 college_location">
                             <label>Trường ĐH bạn đã/đang học:</label>
-                           	<input type="text" name="school"  value="{{ old('school', auth()->user()->school) }}">
+                           	<input type="text" name="school"  value="{{ old('school', auth()->user() ? auth()->user()->school : '') }}">
                         </div>
                         <div class="col-sm-6 facebook">
                             <label>Link profile facebook:</label>
-                            <input type="text" name="facebook_link"  value="{{ old('facebook_link', auth()->user()->facebook_link) }}">
+                            <input type="text" name="facebook_link"  value="{{ old('facebook_link', auth()->user() ? auth()->user()->facebook_link : '') }}">
                         </div>
                         <div class="col-sm-6 classmate">
                             <label>Người đăng ký học cùng:</label>
-                            <input type="text" name="friend"  value="{{ old('friend', auth()->user()->friend) }}">
+                            <input type="text" name="friend"  value="{{ old('friend', auth()->user() ? auth()->user()->friend : '') }}">
                         </div>
                         <!-- payment method -->
 			            <div class="col-sm-12 payment_method">
