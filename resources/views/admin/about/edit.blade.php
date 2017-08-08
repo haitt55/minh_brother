@@ -92,8 +92,20 @@
                 e.preventDefault();
             };
         });
-        CKEDITOR.replace( 'intro' );
-        CKEDITOR.replace( 'intro_edu' );
-        CKEDITOR.replace( 'certificate' );
+        
+        var editorConfig = {
+            // Define changes to default configuration here. For example:  
+            language: 'vi',
+            uiColor: '#e0e0e0',
+            filebrowserBrowseUrl: '/templateEditor/kcfinder/browse.php?opener=ckeditor&type=files',
+            filebrowserImageBrowseUrl: '/templateEditor/kcfinder/browse.php?opener=ckeditor&type=images',
+            filebrowserFlashBrowseUrl: '/templateEditor/kcfinder/browse.php?opener=ckeditor&type=flash',
+            filebrowserUploadUrl: '/templateEditor/kcfinder/upload.php?opener=ckeditor&type=files',
+            filebrowserImageUploadUrl: '/templateEditor/kcfinder/upload.php?opener=ckeditor&type=images',
+            filebrowserFlashUploadUrl: '/templateEditor/kcfinder/upload.php?opener=ckeditor&type=flash',
+        };
+        CKEDITOR.replace( 'intro', editorConfig );
+        CKEDITOR.replace( 'intro_edu', editorConfig );
+        CKEDITOR.replace( 'certificate', editorConfig );
     </script>
 @endsection
