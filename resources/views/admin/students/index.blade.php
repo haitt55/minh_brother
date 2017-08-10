@@ -31,51 +31,26 @@
                 <div class="card card-content card-content-first">
                     <div class="content" style="padding: 15px;">
                         <div class="row" style="padding: 15px;">
-                            <table class="table table-striped table-bordered table-hover" id="student-list">
+                            <table class="table table-striped table-bordered table-hover" id="users-table">
                                 <thead>
-                                <tr>
-                                    <th class="table_border" style="width: 8%">
-                                        <span>STT</span>
-                                    </th>
-                                    <th class="col-xs-5 table_border">
-                                        <span>Email</span>
-                                    </th>
-                                    <th class="col-xs-2 text-center table_border">
-                                        <span>Địa chỉ thanh toán</span>
-                                    </th>
-                                    <th class="col-xs-2 text-center table_border">
-                                        <span>Địa chỉ nhận hàng</span>
-                                    </th>
-                                    <th class="col-xs-2 text-center table_border">
-                                        <span>Xóa học viên</span>
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($students as $student)
                                     <tr>
-                                        <td class="col-xs-2 table_border" style="width: 8%">
-                                            {{$student->id}}
-                                        </td>
-                                        <td class="col-xs-5 table_border">
-                                            {{$student->email}}
-                                        </td>
-                                        <td class="col-xs-2 table_border" style="text-align: center">
-                                            <a href="{{ route('admin.students.show_payment') . "/$student->id" }}">
-                                                <button class="btn btn-info"><i class="fa fa-info"></i> Chi tiết</button>
-                                            </a>
-                                        </td>
-                                        <td class="col-xs-2 table_border" style="text-align: center">
-                                            <a href="{{ route('admin.students.show_recieve') . "/$student->id" }}">
-                                                <button class="btn btn-info"><i class="fa fa-info"></i> Chi tiết</button>
-                                            </a>
-                                        </td>
-                                        <td class="col-xs-2 table_border" style="text-align: center">
-                                            <button class="btn btn-danger btn-delete" data-id="{{$student->id}}"><i class="fa fa-close"></i> Xóa</button>
-                                        </td>
+                                        <th class="table_border" style="width: 8%">
+                                        <span>STT</span>
+                                        </th>
+                                        <th class="col-xs-5 table_border">
+                                            <span>Email</span>
+                                        </th>
+                                        <th class="col-xs-2 text-center table_border">
+                                            <span>Địa chỉ thanh toán</span>
+                                        </th>
+                                        <th class="col-xs-2 text-center table_border">
+                                            <span>Địa chỉ nhận hàng</span>
+                                        </th>
+                                        <th class="col-xs-2 text-center table_border">
+                                            <span>Xóa học viên</span>
+                                        </th>
                                     </tr>
-                                @endforeach
-                                </tbody>
+                                </thead>
                             </table>
                         </div>
                     </div>
@@ -97,37 +72,27 @@
 @section('inline_scripts')
     <script type="text/javascript">
         $(document).ready(function() {
-            var table = $("#student-list").DataTable({
-                "order": [[ 0, 'desc']],
-                "responsive": true,
-                "language": {
-                    "lengthMenu": "Hiển thị _MENU_ học viên",
-                    "zeroRecords": "Không tìm thấy dữ liệu học viên",
-                    "info": "Trang số _PAGE_ của _PAGES_ trang",
-                    "infoEmpty": "Không tồn tại học viên",
-                    "infoFiltered": "(filtered from _MAX_ total records)",
-                    "paginate": {
-                        "first":      "Trang đầu",
-                        "last":       "Trang cuối",
-                        "next":       "Tiếp theo",
-                        "previous":   "Trước"
-                    },
-                    "search": "Tìm kiếm:",
-                },
-                "aoColumns": [
-                    null,
-                    null,
-                    { bSortable: false },
-                    { bSortable: false },
-                    { bSortable: false },
-                ]
-            });
+            var table = $('#users-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '{!! route('admin.students.data') !!}',
+                columns: [
+                    { data: 'id', name: 'id', orderable: false, searchable: false },
+                    { data: 'email', name: 'email' },
+                    { data: 'show_payment', name: 'show_payment', orderable: false, searchable: false, className: "text-center"},
+                    { data: 'show_recieve', name: 'show_recieve', orderable: false, searchable: false, className: "text-center"},
+                    { data: 'delete', name: 'delete', orderable: false, searchable: false, className: "text-center"}
+                ],
+                language : {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.11/i18n/Vietnamese.json"
+                }
+            });;
             table.on( 'order.dt search.dt', function () {
                 table.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
                     cell.innerHTML = i+1;
                 } );
             } ).draw();
-            $(".btn-delete").click(function () {
+            $('#users-table tbody').on('click', '.btn-delete', function () {
                 if (confirm("Bạn chắc chắn muốn xóa học viên này ?")) {
                     var studentId = $(this).data('id');
                     $.ajaxSetup({

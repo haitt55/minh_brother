@@ -109,7 +109,10 @@
                     { bSortable: false },
                     null,
                     { bSortable: false }
-                ]
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.11/i18n/Vietnamese.json"
+                }
             });
         });
     </script>

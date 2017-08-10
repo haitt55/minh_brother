@@ -34,6 +34,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
         Route::get('/', ['uses' => 'HomeController@index', 'as' => 'admin.home.index']);
         //Students page
         $this->get('students', 'StudentsController@index')->name('admin.students');
+        $this->get('studentsData', 'StudentsController@anyData')->name('admin.students.data');
         $this->get('students/show_payment/{id?}', 'StudentsController@showPayment')->name('admin.students.show_payment');
         $this->get('students/show_recieve/{id?}', 'StudentsController@showRecieve')->name('admin.students.show_recieve');
         $this->delete('students/destroy', 'StudentsController@destroy')->name('admin.students.destroy');

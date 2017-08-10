@@ -171,7 +171,10 @@
                 "aoColumns": [
                     null, null, null, null,
                     { bSortable: false }
-                ]
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.11/i18n/Vietnamese.json"
+                }
             });
 
             $('#modalCustomer').on('show.bs.modal', function (e) {

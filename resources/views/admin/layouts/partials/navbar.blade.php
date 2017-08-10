@@ -5,7 +5,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="{{ route('admin.home.index') }}">BDS</a>
+    <a class="navbar-brand navbar-title" href="{{ route('admin.home.index') }}">3DS</a>
 </div>
 <!-- /.navbar-header -->
 

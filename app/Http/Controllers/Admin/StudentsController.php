@@ -21,6 +21,36 @@ class StudentsController extends Controller
     }
     
     /**
+     * Process datatables ajax request.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function anyData(Request $request, Student $Student)
+    {
+        $draw         = $request->has('draw') ? $request->get('draw') : null;
+        $students     = $Student->getData($request);
+        $recordsTotal = $Student->recordsTotal($request);
+        foreach ($students as &$student) {
+            $student['show_payment'] = 
+                    '<a href="'. route('admin.students.show_payment', ['id' => $student['id']]) .'">'
+                    . '<button class="btn btn-info"><i class="fa fa-info"></i> Chi tiết</button>'
+                    . '</a>';
+            $student['show_recieve'] = 
+                    '<a href="'. route('admin.students.show_recieve', ['id' => $student['id']]) .'">'
+                    . '<button class="btn btn-info"><i class="fa fa-info"></i> Chi tiết</button>'
+                    . '</a>';
+            $student['delete'] = 
+                    '<button class="btn btn-danger btn-delete" data-id="' . $student['id'] . '"><i class="fa fa-close"></i> Xóa</button>';
+        }
+        return json_encode(array(
+            'draw'            => $draw,
+            'recordsTotal'    => $recordsTotal,
+            'recordsFiltered' => $recordsTotal,
+            'data'            => $students
+        ));
+    }
+    
+    /**
      * Show info student payment.
      * 
      * @param int $studentId

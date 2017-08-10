@@ -104,19 +104,8 @@
                     { bSortable: false }
                 ],
                 "language": {
-                    "lengthMenu": "Hiển thị _MENU_ giáo viên",
-                    "zeroRecords": "Không tìm thấy dữ liệu giáo viên",
-                    "info": "Trang số _PAGE_ của _PAGES_ trang",
-                    "infoEmpty": "Không tồn tại giáo viên",
-                    "infoFiltered": "(filtered from _MAX_ total records)",
-                    "paginate": {
-                        "first":      "Trang đầu",
-                        "last":       "Trang cuối",
-                        "next":       "Tiếp theo",
-                        "previous":   "Trước"
-                    },
-                    "search": "Tìm kiếm:",
-                },
+                    "url": "//cdn.datatables.net/plug-ins/1.10.11/i18n/Vietnamese.json"
+                }
             });
 //            table.on( 'order.dt search.dt', function () {
 //                table.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
