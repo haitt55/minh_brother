@@ -1,4 +1,5 @@
 @extends('front.layouts.master')
+@section('page_title', trans('register.title.send_link_success'))
 @section('content')
 <div id="main">	
 

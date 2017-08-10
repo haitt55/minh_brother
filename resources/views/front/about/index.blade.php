@@ -1,4 +1,5 @@
 @extends('front.layouts.master')
+@section('page_title', $about->title)
 @section('content')
 <div class="entry-header clearfix" style="background-color: #cecccc;">
     <div class="container">

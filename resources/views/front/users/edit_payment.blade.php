@@ -1,5 +1,5 @@
 @extends('front.layouts.master')
-
+@section('page_title', trans('register.title.edit_payment'))
 @section('content')
 <style type="text/css">
     .woocommerce label {

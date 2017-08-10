@@ -1,4 +1,5 @@
 @extends('front.layouts.master')
+@section('page_title', $teacher->page_title)
 @section('content')
 
 <div id="main">

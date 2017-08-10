@@ -1,4 +1,5 @@
 @extends('front.layouts.master')
+@section('page_title', trans('teachers.title.index'))
 @section('content')
 
 <div id="main">	
