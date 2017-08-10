@@ -62,6 +62,64 @@ class Student extends Authenticatable
     }
     
     /**
+     * Get data each page.
+     * 
+     * @param Request $request
+     * @return array
+     */
+    public function getData($request)
+    {
+        $limit  = $request->has('length') ? $request->get('length') : 10;
+        $offset = $request->has('start') ? $request->get('start') : 0;
+        $sort   = $request->has('order') ? $request->get('order') : array();
+        $query  = $this->getConditions($request);
+
+        $orderColums = array(
+            0 => 'id',
+            1 => 'email',
+        );
+        if (isset($sort[0]['column'])) {
+            $query->orderBy($orderColums[$sort[0]['column']], $sort[0]['dir']);
+        }
+
+        return $query
+                ->limit($limit)
+                ->offset($offset)
+                ->get()->toArray();
+    }
+
+    /**
+     * Create conditions.
+     * 
+     * @param Request $request
+     * @return object
+     */
+    public function getConditions($request)
+    {
+        $search = $request->has('search') ? $request->get('search')['value'] : null;
+        $fields = ['id', 'email'];
+        $query  = $this
+                ->select($fields)
+                ->where('del_flg', null);
+        if ($search) {
+            $query->where('email', 'LIKE', "%$search%");
+        }
+        return $query;
+    }
+
+    /**
+     * Get total records.
+     * 
+     * @param Request $request
+     * @return int
+     */
+    public function recordsTotal($request)
+    {
+        $query = $this->getConditions($request);
+        return $query->count();
+    }
+
+    /**
      * Get student by student id
      * 
      * @param int $id
