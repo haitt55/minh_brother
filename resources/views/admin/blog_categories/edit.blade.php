@@ -44,7 +44,10 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="checkbox">
-                                        <label><input type="checkbox" name="active" id="active" value="1" {{ old('active', $blogCategory->active) ? ' checked="checked"' : '' }}> Active</label>
+                                        <label for="active">
+                                            <input name="active" type="hidden" value="0">
+                                            <input type="checkbox" name="active" id="active" value="1" {{ old('active', $blogCategory->active) ? ' checked="checked"' : '' }}> Active
+                                        </label>
                                     </div>
                                 </div>
                                 <div class="form-group">
