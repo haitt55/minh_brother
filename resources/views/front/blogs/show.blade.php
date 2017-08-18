@@ -85,7 +85,7 @@
 											<a rel="nofollow" id="cancel-comment-reply-link" href="index.html#respond" style="display:none;">Hủy</a>
 										</small>
 									</h3>
-									<form action="http://bim.edu.vn/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+									<form action="#" method="post" id="commentform" class="comment-form" novalidate>
 										<div class="row">
 											<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 												<div class="form-group comment-form-author">

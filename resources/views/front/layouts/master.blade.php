@@ -31,11 +31,6 @@
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:description" content="@yield('meta_description')" />
 	<meta name="twitter:title" content="@yield('page_title')" />
-	<!-- / Yoast SEO plugin. -->
-	<script type="text/javascript">
-		window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/bim.edu.vn\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.8"}};
-		!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
-	</script>
 	<link rel='stylesheet' id='dashicons-css'  href='/wp-includes/css/dashicons.minfc12.css?ver=4.5.8' type='text/css' media='all' />
 	<link rel='stylesheet' id='wp-jquery-ui-dialog-css'  href='/wp-includes/css/jquery-ui-dialog.minfc12.css?ver=4.5.8' type='text/css' media='all' />
 	<link rel='stylesheet' id='contact-form-7-css'  href='/wp-content/plugins/contact-form-7/includes/css/stylesc1f9.css?ver=4.4.2' type='text/css' media='all' />
@@ -76,26 +71,11 @@
 	<script type='text/javascript' src='/wp-content/themes/masterstudy/assets/js/helper-plugins/jquery.transit.minfc12.js?ver=4.5.8'></script>
 	<script type='text/javascript' src='/wp-content/themes/masterstudy/assets/js/helper-plugins/jquery.ba-throttle-debounce.minfc12.js?ver=4.5.8'></script>
 	<link rel='https://api.w.org/' href='/wp-json/index.html' />
-	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc0db0.php?rsd" />
-	<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/wp-includes/wlwmanifest.xml" />
-	<meta name="generator" content="WordPress 4.5.8" />
-	<meta name="generator" content="WooCommerce 3.0.3" />
-	<link rel='shortlink' href='../indexf45d.html?p=889' />
-	<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed7723.json?url=http%3A%2F%2Fbim.edu.vn%2Fve-bimhanoi%2F" />
-	<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed115d?url=http%3A%2F%2Fbim.edu.vn%2Fve-bimhanoi%2F&amp;format=xml" />
-    <script type="text/javascript">
-        var ajaxurl = '/wp-admin/admin-ajax.html';
-    </script>
-	<script type="text/javascript">
-		var ajaxurl = '/wp-admin/admin-ajax.html';
-	</script>
-	<link rel="shortcut icon" type="image/x-icon" href="../../ebim.edu.vn/wp-content/uploads/2016/03/logo-bimhanoi-trong.html" />
-	<meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress."/>
-	<meta name="generator" content="Powered by Slider Revolution 5.1.5 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
-	<link rel="icon" href="/wp-content/uploads/2016/03/cropped-logo-bimhanoi-trong-50x50.png" sizes="32x32" />
-	<link rel="icon" href="/wp-content/uploads/2016/03/cropped-logo-bimhanoi-trong-300x300.png" sizes="192x192" />
-	<link rel="apple-touch-icon-precomposed" href="/wp-content/uploads/2016/03/cropped-logo-bimhanoi-trong-180x180.png" />
-	<meta name="msapplication-TileImage" content="http://bim.edu.vn/wp-content/uploads/2016/03/cropped-logo-bimhanoi-trong-300x300.png" />
+	<link rel="shortcut icon" type="image/x-icon" href="/upload/logo/logo.png" />
+	<link rel="icon" href="/upload/logo/logo-50x50.png" sizes="32x32" />
+	<link rel="icon" href="/upload/logo/logo-300x300.png" sizes="192x192" />
+	<link rel="apple-touch-icon-precomposed" href="/upload/logo/logo-180x180.png" />
+	<meta name="msapplication-TileImage" content="/upload/logo/logo-300x300.png" />
 	<link rel='stylesheet' href='/css/master.css' type='text/css' media='all' />
 	<noscript>
 		<style type="text/css">
@@ -152,7 +132,7 @@
 						<div class="pull-right">
 							<div class="header_top_bar_socs">
 								<ul class="clearfix">
-									<li><a href='https://www.facebook.com/bimhanoi.edu.vn/'><i class='fa fa-facebook'></i></a></li>
+									<li><a href='https://www.facebook.com/'><i class='fa fa-facebook'></i></a></li>
 								</ul>
 							</div>
 						</div>
@@ -173,7 +153,7 @@
 					    <div class="col-md-3 col-sm-12 col-xs-12">
 						    <div class="logo-unit">
 	        			        <a href="{!! route('front.index') !!}">
-									<img class="img-responsive logo_transparent_static visible" src="/wp-content/uploads/2016/08/logobimhanoi-sat.png" style="width: 900px;" alt="BIMhanoi"/>
+									<img class="img-responsive logo_transparent_static visible" src="/upload/logo/logo.png" style="width: 74px;" alt="DS3"/>
 						        </a>
 						    </div>
 	        				<!-- Navbar toggle MOBILE -->
@@ -391,8 +371,8 @@
 									<div class="pull-right">
 										<div class="copyright_socials">
 											<ul class="clearfix">
-												<li><a href='https://www.facebook.com/bimhanoi.edu.vn/'><i class='fa fa-facebook'></i></a></li>
-												<li><a href='https://www.youtube.com/channel/UCMK2Riz0tx1_xiKAnio1c_Q'><i class='fa fa-youtube'></i></a></li>
+												<li><a href='https://www.facebook.com/'><i class='fa fa-facebook'></i></a></li>
+												<li><a href='https://www.youtube.com/'><i class='fa fa-youtube'></i></a></li>
 											</ul>
 										</div>
 									</div>
@@ -437,11 +417,6 @@
 	<script type='text/javascript' src='/wp-includes/js/wpdialog.minfc12.js?ver=4.5.8'></script>
 	<script type='text/javascript' src='/wp-content/plugins/getresponse/assets/pagecount.min4c56.js?ver=2.0.2'></script>
 	<script type='text/javascript' src='/wp-content/plugins/contact-form-7/includes/js/jquery.form.mind03d.js?ver=3.51.0-2014.06.20'></script>
-	<script type='text/javascript'>
-		/* <![CDATA[ */
-		var _wpcf7 = {"loaderUrl":"http:\/\/bim.edu.vn\/wp-content\/themes\/masterstudy-child\/assets\/img\/ajax-loader.gif","recaptchaEmpty":"Please verify that you are not a robot.","sending":"\u0110ang g\u1eedi ..."};
-		/* ]]> */
-	</script>
 	<script type='text/javascript' src='/wp-content/plugins/contact-form-7/includes/js/scriptsc1f9.js?ver=4.4.2'></script>
 	<script type='text/javascript' src='/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min44fd.js?ver=2.70'></script>
 	<script type='text/javascript' src='/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min4c71.js?ver=2.1.3'></script>
